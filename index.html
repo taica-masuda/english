@@ -1,0 +1,2525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="業務英会話">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>業務英会話 — Daily Business English</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230a1230'/%3E%3Ctext x='90' y='118' font-size='90' text-anchor='middle' fill='%235b8cff' font-family='sans-serif' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0b1020; --bg2:#121a35; --card:#182247; --card2:#1e2a55;
+  --line:#2c3a6e;
+  --tx:#eef2ff; --tx2:#9fb0d9; --tx3:#6d7fae;
+  --acc:#5b8cff; --acc2:#8ab4ff;
+  --ok:#3ddc97; --warn:#ffc857; --bad:#ff6b81;
+  --biz:#5b8cff; --cas:#ffc857; --tech:#c792ea;
+  --hl:#ffe066;
+  --barbg:rgba(11,16,32,.94); --navbg:rgba(11,16,32,.96); --ovlbg:rgba(4,8,20,.88);
+  --swoff:#33406e; --onacc:#04102e;
+  --rbub:#1b3a34; --rbubline:#2c5a4e;
+  --av1:#2b3a72; --av2:#1b2450; --avr1:#1f4a3d; --avr2:#16332b;
+  --tint:.13; --sh:none; --tgt:#ffb454; --jp:#ffd23f;
+  --b1bg:#4d4526; --b1fg:#ffe066; --b2bg:#1f4038; --b2fg:#5ce0ab; --b3bg:#3b3054; --b3fg:#d3adf2;
+  --lw:#ff9a9a; --lp:#8ab7ff;
+  --histbg:#3d2560; --histfg:#d9c2ff; --histbd:#7b52b8;
+}
+html.light{
+  --bg:#eef2fa; --bg2:#e3e9f7; --card:#ffffff; --card2:#f1f5fd;
+  --line:#c3cfe6;
+  --tx:#10182f; --tx2:#44527a; --tx3:#6c7a9a;
+  --acc:#2b5cd0; --acc2:#1c46a8;
+  --ok:#0e9767; --warn:#a86f06; --bad:#cf3149;
+  --biz:#2b5cd0; --cas:#8a5b04; --tech:#6f34b8;
+  --hl:#c0450a;
+  --barbg:rgba(238,242,250,.95); --navbg:rgba(238,242,250,.96); --ovlbg:rgba(20,30,55,.5);
+  --swoff:#b1bed9; --onacc:#ffffff;
+  --rbub:#e2f5ee; --rbubline:#9ad3c0;
+  --av1:#dae3fb; --av2:#c4d3f6; --avr1:#d2f0e4; --avr2:#b3e2d2;
+  --tint:.09; --sh:0 1px 3px rgba(16,24,47,.08); --tgt:#c2410c; --jp:#c0182b;
+  --b1bg:#fff3bf; --b1fg:#7a5c00; --b2bg:#d9f6ec; --b2fg:#0b6b4c; --b3bg:#ece1fb; --b3fg:#5b28a0;
+  --lw:#c0182b; --lp:#1746a8;
+  --histbg:#4a2a7a; --histfg:#ffffff; --histbd:#4a2a7a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--tx);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  -webkit-text-size-adjust:100%;overscroll-behavior-y:none}
+body{padding-top:env(safe-area-inset-top)}
+button{font-family:inherit;color:inherit;border:none;background:none;cursor:pointer}
+
+#bar{position:sticky;top:0;z-index:60;background:var(--barbg);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding:8px 12px;
+  padding-top:calc(8px + env(safe-area-inset-top))}
+.barrow{display:flex;align-items:center;gap:9px;justify-content:space-between;
+  max-width:640px;margin:0 auto}
+.bargrp{display:flex;align-items:center;gap:6px}
+.blabel{font-size:10px;color:var(--tx3);letter-spacing:.04em;white-space:nowrap}
+
+.sw{position:relative;width:52px;height:29px;border-radius:29px;background:var(--swoff);
+  transition:background .18s;flex:none}
+.sw.on{background:var(--acc)}
+.sw i{position:absolute;top:3px;left:3px;width:23px;height:23px;border-radius:50%;
+  background:#fff;transition:transform .18s;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.sw.on i{transform:translateX(23px)}
+
+.spd{display:flex;align-items:center;background:var(--card);border:1px solid var(--line);
+  border-radius:11px;overflow:hidden}
+.spd button{width:32px;height:29px;font-size:13px;color:var(--acc2);font-weight:700}
+.spd button:active{background:var(--card2)}
+.spd span{min-width:44px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums;
+  font-weight:700;color:var(--tx)}
+
+#timer{font-size:13px;font-variant-numeric:tabular-nums;font-weight:700;color:var(--tx2);
+  background:var(--card);border:1px solid var(--line);border-radius:9px;padding:5px 8px}
+#timer.warn{color:var(--warn);border-color:var(--warn)}
+
+.wrap{max-width:640px;margin:0 auto;padding:14px 14px calc(74px + env(safe-area-inset-bottom))}
+.screen{display:none} .screen.on{display:block}
+h1{font-size:19px;margin:0 0 4px;line-height:1.4}
+h2{font-size:15px;margin:22px 0 10px;color:var(--acc2)}
+.sub{font-size:12px;color:var(--tx2);line-height:1.7;margin:0 0 14px}
+
+#gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;
+  flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px}
+#gate h1{text-align:center}
+#pin{font-size:30px;letter-spacing:.5em;text-align:center;width:190px;padding:12px 0 12px .5em;
+  background:var(--card);border:2px solid var(--line);border-radius:14px;color:var(--tx);
+  font-variant-numeric:tabular-nums;outline:none}
+#pin:focus{border-color:var(--acc)}
+#gatemsg{font-size:12px;color:var(--bad);height:16px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:14px;margin-bottom:12px;box-shadow:var(--sh)}
+.course{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;
+  margin-bottom:11px;transition:border-color .15s;box-shadow:var(--sh)}
+.course:active{border-color:var(--acc)}
+.course .ic{font-size:27px;line-height:1;flex:none;margin-top:2px}
+.course .tt{font-size:15px;font-weight:700;line-height:1.4}
+.course .tj{font-size:12.5px;color:var(--acc2);margin-top:3px}
+.course .ss{font-size:11px;color:var(--tx3);margin-top:6px;line-height:1.6}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.chip{padding:9px 15px;border-radius:11px;background:var(--card);border:1px solid var(--line);
+  font-size:13px;font-weight:600}
+.chip.sel{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
+
+.btn{display:block;width:100%;padding:15px;border-radius:14px;background:var(--acc);
+  color:var(--onacc);font-size:15.5px;font-weight:800;text-align:center;margin-top:16px}
+.btn:active{opacity:.85}
+.btn.ghost{background:var(--card);border:1px solid var(--line);color:var(--tx)}
+
+.wc{background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:15px;margin-bottom:14px;overflow:hidden;box-shadow:var(--sh)}
+.wc .hdr{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.marks{display:flex;align-items:center;gap:12px;margin-left:16px;flex-wrap:wrap}
+.mk{font-size:12px;font-weight:800;letter-spacing:.02em;background:none;border:none;padding:0}
+.mk.pos{color:var(--tx3)}
+.mk.biz{color:var(--biz)} .mk.cas{color:var(--cas)} .mk.tech{color:var(--tech)}
+.wc .en{display:block;font-size:22px;font-weight:800;line-height:1.25;letter-spacing:-.01em}
+.jw.hi{background:color-mix(in srgb, var(--hl) 42%, transparent);border-radius:4px}
+.lw,.lp{font-weight:800;border-bottom:1px dotted currentColor;cursor:pointer}
+.lw{color:var(--lw)} .lp{color:var(--lp)}
+.legend{font-size:11px;color:var(--tx3);margin:-6px 0 12px;line-height:1.7}
+.legend b.w{color:var(--lw)} .legend b.p{color:var(--lp)}
+.navleft{display:flex;gap:4px}
+.navmain{display:flex;gap:5px}
+.navrow{justify-content:center;align-items:center;gap:10px}
+.exbtn.hd{margin:12px 0 0}
+.iparow{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}
+.myrec{display:none;font-size:12px;font-weight:800;padding:6px 11px;border-radius:9px;
+  background:var(--b3bg);color:var(--b3fg);border:2px solid var(--b3fg);white-space:nowrap}
+.myrec.on{display:inline-block}
+.myrec:active{filter:brightness(1.2)}
+.wc .ipa{display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:13.5px;
+  color:var(--acc2);background:var(--card2);border:1px solid var(--line);
+  border-radius:9px;padding:5px 10px;font-family:"Times New Roman",serif}
+.wc .ipa:active{background:var(--acc);color:var(--onacc)}
+.wc .ja{font-size:22px;font-weight:800;color:var(--jp);margin-top:11px;line-height:1.35;letter-spacing:-.01em}
+.wc .pos{font-size:11px;color:var(--tx3);margin-top:2px}
+
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:7px;letter-spacing:.02em;
+  border:1px solid currentColor}
+.tag.biz{color:var(--biz);background:color-mix(in srgb, var(--biz) 13%, transparent)}
+.tag.cas{color:var(--cas);background:color-mix(in srgb, var(--cas) 13%, transparent)}
+.tag.tech{color:var(--tech);background:color-mix(in srgb, var(--tech) 13%, transparent)}
+
+.note{font-size:12.5px;line-height:1.85;color:var(--tx2);background:var(--bg2);
+  border-radius:11px;padding:11px 12px;margin-top:11px;border-left:3px solid var(--tech)}
+.note.lit{border-left-color:var(--warn)}
+.note.cas{border-left-color:var(--cas)}
+.nhead{font-size:11px;font-weight:800;color:var(--tx3);letter-spacing:.06em;margin-bottom:5px}
+
+.alts{margin-top:11px;border-top:1px dashed var(--line);padding-top:11px}
+.alt{margin-bottom:9px}
+.alt{margin-bottom:16px}
+.alt .hdr{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.alt .ae{display:block;font-size:18px;font-weight:800;color:var(--acc2);line-height:1.3}
+.alt .aj{font-size:18px;font-weight:800;color:var(--jp);margin-top:4px;line-height:1.4}
+.alt .an{font-size:11.5px;color:var(--tx3);margin-top:2px;line-height:1.6}
+
+.ex{margin-top:12px;background:var(--bg2);border-radius:11px;padding:11px 12px}
+.ex .ee{font-size:14.5px;line-height:1.65;font-weight:600}
+.ex .ej{font-size:16px;font-weight:600;color:var(--tx);margin-top:8px;line-height:1.55}
+
+.acts{display:flex;gap:8px;margin-top:13px}
+.acts button{flex:1;padding:12px 6px;border-radius:12px;background:var(--card2);
+  border:1px solid var(--line);font-size:13px;font-weight:700}
+.acts button:active{background:var(--acc);color:var(--onacc)}
+.acts button.mic.rec{background:var(--bad);color:#fff;border-color:var(--bad);
+  animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+
+.pr{margin-top:11px;border-radius:12px;padding:11px 12px;font-size:12.5px;line-height:1.8;display:none}
+.pr.on{display:block}
+.pr.good{color:var(--tx);background:color-mix(in srgb, var(--ok) 12%, transparent);border:1px solid var(--ok)}
+.pr.mid{color:var(--tx);background:color-mix(in srgb, var(--warn) 12%, transparent);border:1px solid var(--warn)}
+.pr.bad{color:var(--tx);background:color-mix(in srgb, var(--bad) 12%, transparent);border:1px solid var(--bad)}
+.pr .sc{font-size:19px;font-weight:800;margin-bottom:5px}
+.pr .heard{color:var(--tx3);font-size:11.5px;margin-top:5px}
+.pr ul{margin:7px 0 0;padding-left:17px}
+.pr li{margin-bottom:5px}
+
+.pline{display:flex;gap:7px;align-items:flex-start;margin-top:4px}
+.pline .pron{flex:none;display:flex;gap:4px;padding-top:2px}
+.pline .ptxt{flex:1;min-width:0}
+.pbtn{font-size:11px;font-weight:800;padding:4px 8px;border-radius:8px;
+  background:var(--card2);border:1px solid var(--line);color:var(--acc2);
+  line-height:1.25;white-space:nowrap}
+.pbtn.p1{background:var(--b1bg);color:var(--b1fg);border-color:var(--b1fg)}
+.pbtn.p2{background:var(--b2bg);color:var(--b2fg);border-color:var(--b2fg)}
+.pbtn.p3{background:var(--b3bg);color:var(--b3fg);border-color:var(--b3fg)}
+.pbtn.mic{color:var(--ok);border-color:color-mix(in srgb, var(--ok) 45%, var(--line))}
+.avbtns{display:grid;grid-template-columns:1fr 1fr;gap:4px;width:92px;margin-top:5px}
+.avbtns .pbtn{width:100%;padding:5px 0;font-size:10.5px;text-align:center}
+.pbtn:active{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.pbtn.rec{background:var(--bad);color:#fff;border-color:var(--bad);animation:pulse 1s infinite}
+.pline.big .ptxt{font-size:22px;font-weight:800;line-height:1.25;letter-spacing:-.01em}
+.pline.big .pron{padding-top:6px}
+
+.prtop{display:none;max-width:640px;margin:8px auto 0;border-radius:12px;
+  padding:9px 30px 9px 11px;font-size:12px;line-height:1.7;position:relative;
+  max-height:34vh;overflow-y:auto}
+.prtop.on{display:block}
+.prtop.good{color:var(--tx);background:color-mix(in srgb, var(--ok) 13%, var(--card));border:1px solid var(--ok)}
+.prtop.mid{color:var(--tx);background:color-mix(in srgb, var(--warn) 13%, var(--card));border:1px solid var(--warn)}
+.prtop.bad{color:var(--tx);background:color-mix(in srgb, var(--bad) 13%, var(--card));border:1px solid var(--bad)}
+.prtop .sc{font-size:16px;font-weight:800;margin-bottom:3px}
+.prtop .tgt{font-size:12px;font-weight:700;color:var(--acc2);margin-bottom:4px}
+.prtop .heard{color:var(--tx3);font-size:11px;margin-top:4px}
+.prtop ul{margin:5px 0 0;padding-left:16px}
+.prtop li{margin-bottom:3px}
+.prclose{position:absolute;top:5px;right:6px;font-size:15px;color:var(--tx3);
+  padding:2px 6px;line-height:1}
+.w{transition:background .08s}
+.w.hi{background:color-mix(in srgb, var(--hl) 42%, transparent);border-radius:4px}
+.tw{color:var(--tgt);font-weight:900;border-bottom:2px solid var(--tgt)}
+.jw{color:var(--jp);font-weight:800}
+.exbtn{margin-top:8px;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:9px;
+  background:var(--card2);border:1px solid var(--line);color:var(--tech)}
+.exbtn:active{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.altex{margin-top:8px;background:var(--bg2);border-radius:10px;padding:9px 10px}
+.altex:empty{display:none;padding:0}
+.altex .ej{font-size:16px;font-weight:600;color:var(--tx);margin-top:8px;line-height:1.55}
+.altex .cnt{font-size:10.5px;color:var(--tx3);margin-top:6px}
+
+.dhead{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:12px 13px;margin-bottom:14px;box-shadow:var(--sh)}
+.dhead .dt{font-size:15px;font-weight:800}
+.dhead .dj{font-size:12.5px;color:var(--acc2);margin-top:3px}
+.dhead .ds{font-size:11.5px;color:var(--tx3);margin-top:7px;line-height:1.65}
+
+.turn{display:flex;gap:9px;margin-bottom:15px;align-items:flex-start}
+.turn.r{flex-direction:row-reverse}
+.avcol{flex:none;display:flex;flex-direction:column;align-items:center;
+  margin-top:16px;width:92px}
+.av{width:42px;height:42px;border-radius:50%;flex:none;display:flex;align-items:center;
+  justify-content:center;font-size:22px;background:linear-gradient(160deg,var(--av1),var(--av2));
+  border:2px solid var(--acc)}
+.turn.r .av{border-color:var(--ok);background:linear-gradient(160deg,var(--avr1),var(--avr2))}
+.bub{max-width:calc(100% - 104px);flex:1;min-width:0}
+.nm{font-size:10.5px;color:var(--tx3);margin-bottom:4px;padding:0 4px}
+.turn.r .nm{text-align:right}
+.bd{background:var(--card);border:1px solid var(--line);border-radius:16px 16px 16px 4px;
+  padding:11px 13px;box-shadow:var(--sh)}
+.turn.r .bd{border-radius:16px 16px 4px 16px;background:var(--rbub);border-color:var(--rbubline)}
+.bd .be{font-size:14.5px;line-height:1.65;font-weight:600}
+.bd .bj{font-size:15px;font-weight:600;color:var(--tx);margin-top:8px;line-height:1.55;
+  border-top:1px dashed var(--line);padding-top:8px}
+.bd.play{border-color:var(--hl)}
+.bd .rep{display:inline-block;margin-top:8px;font-size:11px;color:var(--acc2);font-weight:700}
+
+#nav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  background:var(--navbg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);padding:6px 10px calc(6px + env(safe-area-inset-bottom))}
+#nav.on{display:block}
+.navrow{display:flex;gap:5px;justify-content:center;max-width:640px;margin:0 auto}
+/* 左：再生コントロール（丸みの強い塗りボタン） */
+.navleft{padding-right:9px;border-right:1px dashed var(--line)}
+.navleft button{flex:0 0 auto;width:40px;padding:8px 0;text-align:center;
+  border-radius:50%;border:2px solid;font-size:14px;font-weight:900;line-height:1}
+#pbToggle{background:var(--b2bg);color:var(--b2fg);border-color:var(--b2fg)}
+#pbBack{background:var(--b1bg);color:var(--b1fg);border-color:var(--b1fg)}
+#pbToggle:active,#pbBack:active{filter:brightness(1.25)}
+/* 右：学習モード（太枠・色分け）と操作（細枠・控えめ） */
+.navmain button{flex:0 0 auto;border-radius:7px;background:transparent}
+.navmain button[data-sec="words"],
+.navmain button[data-sec="phrases"],
+.navmain button[data-sec="dialogues"]{
+  border:3px solid;padding:7px 11px;font-size:12.5px;font-weight:900}
+.navmain button[data-sec="words"]{border-color:var(--lw);color:var(--lw)}
+.navmain button[data-sec="words"].sel{background:var(--lw);border-color:var(--lw);color:var(--onacc)}
+.navmain button[data-sec="phrases"]{border-color:var(--lp);color:var(--lp)}
+.navmain button[data-sec="phrases"].sel{background:var(--lp);border-color:var(--lp);color:var(--onacc)}
+.navmain button[data-sec="dialogues"]{border-color:var(--ok);color:var(--ok)}
+.navmain button[data-sec="dialogues"].sel{background:var(--ok);border-color:var(--ok);color:var(--onacc)}
+.navmain button[data-sec="finish"],
+.navmain button[data-sec="extend"]{
+  border:1px solid var(--line);padding:6px 8px;font-size:11px;font-weight:700;color:var(--tx3)}
+.navmain button[data-sec="finish"]{margin-left:9px;
+  border-left:1px dashed var(--line);padding-left:10px}
+.navmain button[data-sec="hist"]{margin-left:14px;padding:7px 11px;font-size:11.5px;font-weight:800;
+  background:var(--histbg);color:var(--histfg);border:2px solid var(--histbd)}
+/* 履歴画面 */
+.htabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.htabs button{padding:7px 13px;border-radius:9px;background:var(--card);border:2px solid var(--histbd);
+  font-size:12px;font-weight:800;color:var(--tx2)}
+.htabs button.sel{background:var(--histbg);color:var(--histfg)}
+.hitem{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:11px 12px;margin-bottom:8px;box-shadow:var(--sh)}
+.hitem:active{border-color:var(--histbd)}
+.hitem .he{font-size:16px;font-weight:800}
+.hitem .hj{font-size:15px;font-weight:700;color:var(--jp);margin-top:2px}
+.hitem .hm{font-size:11px;color:var(--tx3);margin-top:5px;line-height:1.6}
+.hitem .hb{float:right;font-size:11px;color:var(--histfg);background:var(--histbg);
+  border-radius:7px;padding:3px 8px;font-weight:800}
+.hopt{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.hlbl{font-size:10.5px;font-weight:800;color:var(--tx3);min-width:44px}
+.hopt span span,.hopt>span:last-child{display:flex;gap:5px;flex-wrap:wrap}
+.hopt button{padding:5px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line);
+  font-size:11px;font-weight:700;color:var(--tx2)}
+.hopt button.sel{background:var(--histbg);color:var(--histfg);border-color:var(--histbd)}
+.hgrp{font-size:12px;font-weight:800;color:var(--histfg);background:var(--histbg);
+  border-radius:8px;padding:5px 11px;margin:16px 0 8px;display:inline-block}
+
+#ovl{position:fixed;inset:0;z-index:90;background:var(--ovlbg);display:none;
+  align-items:center;justify-content:center;padding:24px}
+#ovl.on{display:flex}
+.obox{background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:22px;max-width:340px;width:100%;text-align:center}
+.obox h3{margin:0 0 10px;font-size:18px}
+.obox p{font-size:13px;color:var(--tx2);line-height:1.8;margin:0 0 16px}
+
+.prog{height:4px;background:var(--card);border-radius:4px;overflow:hidden;margin:6px 0 16px}
+.prog i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.tiny{font-size:11px;color:var(--tx3);line-height:1.7;margin-top:14px}
+@media (max-width:560px){
+  .blabel.hideable{display:none}
+  /* iPhoneでは4つのボタンを2×2に畳んで本文の幅を確保する */
+  .pline .pron{display:grid;grid-template-columns:1fr 1fr;gap:4px;width:92px}
+  .pline .pron .pbtn{width:100%;text-align:center;padding:5px 0}
+}
+.logtbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.logtbl th{position:sticky;top:0;background:var(--card2);color:var(--tx3);font-size:10.5px;
+  font-weight:800;text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+.logtbl td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.logtbl td.e{font-weight:800;font-size:13px}
+.logtbl td.j{color:var(--jp);font-weight:700}
+.logtbl td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.logwrap{max-height:62vh;overflow:auto;border:1px solid var(--line);border-radius:12px;
+  background:var(--card);box-shadow:var(--sh)}
+.sorts{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0 2px}
+.sorts button{padding:7px 11px;border-radius:9px;background:var(--card);border:1px solid var(--line);
+  font-size:11.5px;font-weight:700;color:var(--tx2)}
+.sorts button.sel{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.stat{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.stat div{flex:1;min-width:88px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:9px 10px;box-shadow:var(--sh)}
+.stat b{display:block;font-size:19px;font-weight:800;margin-top:2px}
+.stat span{font-size:10.5px;color:var(--tx3)}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div style="font-size:44px">🔒</div>
+  <h1>業務英会話レッスン</h1>
+  <input id="pin" type="tel" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+  <div id="gatemsg"></div>
+  <div class="tiny" style="text-align:center;max-width:300px">
+    このページは業務会合の記録から生成された学習教材を含みます。<br>端末を他人に渡さないでください。
+  </div>
+</div>
+
+<div id="bar" style="display:none">
+  <div class="barrow">
+    <div class="bargrp">
+      <span style="font-size:16px">🔊</span>
+      <div class="sw on" id="swSound"><i></i></div>
+      <span class="blabel hideable" id="swLabel">音声ON</span>
+    </div>
+    <div class="bargrp">
+      <span style="font-size:16px" id="thIcon">🌙</span>
+      <div class="sw" id="swTheme"><i></i></div>
+      <span class="blabel hideable" id="thLabel">暗い画面</span>
+    </div>
+    <div class="bargrp">
+      <span class="blabel hideable">速度</span>
+      <div class="spd">
+        <button id="spdDown">▼</button><span id="spdVal">100%</span><button id="spdUp">▲</button>
+      </div>
+    </div>
+    <div id="timer">--:--</div>
+  </div>
+  <div id="prTop" class="prtop"></div>
+</div>
+
+<div class="wrap">
+<section class="screen on" id="scSetup">
+  <h1>今日のレッスン</h1>
+  <p class="sub" id="setupSub"></p>
+  <h2>① 学習時間を選ぶ</h2>
+  <div class="chips" id="durChips"></div>
+  <h2>② コースを選ぶ</h2>
+  <div class="chips" id="catChips"></div>
+  <h2>③ 会合を選ぶ</h2>
+  <div id="courseList"></div>
+  <button class="btn ghost" id="btnAuto">🎲 おまかせ（過去の会合へ遡及して学習）</button>
+  <button class="btn ghost" id="btnLog">📊 学習記録を見る</button>
+  <div class="tiny">
+    単語カードをタップすると発音します。発音記号をタップすると繰り返し再生します。<br>
+各行の先頭にある <b>♪</b> で発音を再生、<b>発音</b> で自分の発音を判定します。<br>
+    判定結果は画面上部の固定枠にまとめて表示されます。<br>
+    画面上部の🌙スイッチで、明るい画面と暗い画面を切り替えられます。
+  </div>
+</section>
+
+<section class="screen" id="scLesson">
+  <div id="lessonHead"></div>
+  <div class="prog"><i id="progBar"></i></div>
+  <div id="lessonBody"></div>
+  <button class="btn ghost" id="btnBackTop">コース選択に戻る</button>
+</section>
+
+<section class="screen" id="scHist">
+  <h1>🕘 学習履歴</h1>
+  <p class="sub">これまでに学習した内容の一覧です。項目をタップするとその場で復習できます。</p>
+  <div class="stat" id="hStat"></div>
+  <div class="htabs" id="hTabs"></div>
+  <div class="hopt"><span class="hlbl">並び替え</span><span id="hSorts"></span></div>
+  <div class="hopt"><span class="hlbl">分類</span><span id="hGroups"></span></div>
+  <div id="hList"></div>
+  <button class="btn ghost" id="btnHistCsv">📊 並び替え・CSV書き出しへ</button>
+  <button class="btn ghost" id="btnHistBack">戻る</button>
+</section>
+
+<section class="screen" id="scRef">
+  <div id="refHead"></div>
+  <div id="refBody"></div>
+  <button class="btn" id="btnRefBack">← 会話にもどる</button>
+</section>
+
+<section class="screen" id="scLog">
+  <h1>📊 学習記録</h1>
+  <p class="sub">タップして再生・発音チェックした語を自動で記録しています。並び替えとCSV書き出しができます。</p>
+  <div class="stat" id="logStat"></div>
+  <div class="sorts" id="logSorts"></div>
+  <div class="logwrap"><table class="logtbl" id="logTbl"></table></div>
+  <button class="btn" id="btnCsv">📥 CSVで書き出す（Driveに保存用）</button>
+  <button class="btn ghost" id="btnLogBack">戻る</button>
+  <div class="tiny">CSVはUTF-8（BOM付き）です。ExcelやGoogleスプレッドシートでそのまま開けます。
+  Driveの「03_Log（学習記録）」フォルダに置いて蓄積してください。</div>
+</section>
+
+<section class="screen" id="scDone">
+  <h1>本日はここまで</h1>
+  <p class="sub" id="doneSub"></p>
+  <div id="doneBody"></div>
+  <button class="btn" id="btnExtendDone">⏱ 延長して続ける</button>
+  <button class="btn ghost" id="btnLogDone">📊 学習記録を見る</button>
+  <button class="btn ghost" id="btnRestart">別のコースを選ぶ</button>
+</section>
+</div>
+
+<div id="nav">
+  <div class="navrow">
+    <div class="navleft">
+      <button id="pbToggle" title="再生／一時停止">▶</button>
+      <button id="pbBack" title="2単語前へ">戻</button>
+    </div>
+    <div class="navmain">
+      <button data-sec="words">単語</button>
+      <button data-sec="phrases">熟語</button>
+      <button data-sec="dialogues">会話</button>
+      <button data-sec="finish">終了</button>
+      <button data-sec="extend">延長</button>
+      <button data-sec="hist">履歴</button>
+    </div>
+  </div>
+</div>
+
+<div id="ovl"><div class="obox" id="ovlBox"></div></div>
+
+<script>
+/* ===================================================================
+   lesson data — source: Obsidian meeting records (Google Drive)
+   date: 2026-08-07 (直近就業日 / 8-10〜8-12は記録なしのため遡及)
+   =================================================================== */
+window.LESSON = {
+  sourceDate: "2026-08-07",
+  sourceDateLabel: "2026年8月7日（金）",
+  generatedAt: "2026-08-13",
+  note: "8/10〜8/12は会合記録がないため、直近就業日の8/7まで遡及しました。",
+  courses: [
+{
+  id:"ip", cat:"ip", date:"2026-08-07", icon:"⚖️", group:"知財G",
+  title:"IP Risk Management at Trade Shows",
+  titleJa:"展示会における知財リスク管理",
+  source:"2026-08-07 知財勉強会準備MTG",
+  summaryJa:"展示会での「攻め（出願・権利化）」と「守り（秘密管理・盗難対策）」の方針、印刷業者との守秘管理、営業トークのOK/NG整理について議論した会合。",
+  words:[
+    {en:"prior art", ipa:"/ˌpraɪ.ər ˈɑːrt/", ja:"先行技術", pos:"名詞", tag:"tech",
+     note:"特許審査で新規性・進歩性を判断する基準となる、出願前に公知となっていた技術のこと。artは「芸術」ではなく「技術分野」の意味です。",
+     alts:[{en:"existing technology", ja:"既存技術", note:"一般向けの平易な言い換え。法的な厳密さは落ちる"},
+           {en:"state of the art", ja:"技術水準", note:"「最先端」の意味もあり多義。特許文脈では技術水準"}],
+     ex:{en:"We should check the prior art before we go to the exhibition.", ja:"展示会に行く前に先行技術を確認すべきです。"}},
+    {en:"infringement", ipa:"/ɪnˈfrɪndʒ.mənt/", ja:"侵害", pos:"名詞", tag:"tech",
+     note:"他人の権利を侵すこと。patent infringement（特許侵害）のように使います。動詞は infringe。",
+     alts:[{en:"violation", ja:"違反・侵害", note:"契約違反や法令違反に広く使う。知財では infringement が正式"},
+           {en:"unauthorized use", ja:"無断使用", note:"平易でやわらかい表現。警告書では避ける"}],
+     ex:{en:"We need to assess the risk of patent infringement.", ja:"特許侵害のリスクを評価する必要があります。"}},
+    {en:"trade secret", ipa:"/ˌtreɪd ˈsiː.krət/", ja:"営業秘密", pos:"名詞", tag:"tech",
+     note:"不正競争防止法上の営業秘密。秘密管理性・有用性・非公知性の3要件を満たす情報を指します。社内で「ノウハウ」と呼ぶものの多くが該当します。",
+     alts:[{en:"confidential know-how", ja:"秘密ノウハウ", note:"法的定義よりも実務的な言い方"},
+           {en:"proprietary information", ja:"自社固有情報", note:"契約書で頻出。所有権があることを強調"}],
+     ex:{en:"Our manufacturing process is protected as a trade secret.", ja:"当社の製造プロセスは営業秘密として保護されています。"}},
+    {en:"non-disclosure agreement", ipa:"/ˌnɑːn dɪsˈkloʊ.ʒər əˈɡriː.mənt/", ja:"秘密保持契約（NDA）", pos:"名詞", tag:"tech",
+     note:"略称NDA。会話ではほぼ必ず「エヌディーエー」と略します。印刷業者や外注先に情報を渡す前に必ず締結するもの。",
+     alts:[{en:"NDA", ja:"エヌディーエー", note:"会話ではこちらが圧倒的に自然"},
+           {en:"confidentiality agreement", ja:"守秘義務契約", note:"米国以外でよく使われる同義表現"}],
+     ex:{en:"Please make sure the printing vendor has signed an NDA.", ja:"印刷業者がNDAに署名済みか必ず確認してください。"}},
+    {en:"disclose", ipa:"/dɪsˈkloʊz/", ja:"開示する", pos:"動詞", tag:"business",
+     note:"名詞は disclosure。特許出願の「公開」は publication ですが、第三者に情報を出す行為は disclose を使います。",
+     alts:[{en:"reveal", ja:"明らかにする", note:"やや文学的・一般的。契約書では disclose"},
+           {en:"share externally", ja:"社外に共有する", note:"平易な言い換え。社内会話向け"}],
+     ex:{en:"We must not disclose the material composition to visitors.", ja:"来場者に材料の配合を開示してはいけません。"}},
+    {en:"lead time", ipa:"/ˈliːd taɪm/", ja:"所要期間・リードタイム", pos:"名詞", tag:"business",
+     note:"⚠️発音注意：lead は /liːd/ と長く発音します。/led/ と読むと「鉛」で別語になります。",
+     alts:[{en:"turnaround time", ja:"対応にかかる時間", note:"依頼を受けてから返すまでの時間"},
+           {en:"processing period", ja:"処理期間", note:"事務的・かたい表現"}],
+     ex:{en:"Patents have a long lead time, so please contact us early.", ja:"特許は所要期間が長いので、早めにご連絡ください。"}},
+    {en:"countermeasure", ipa:"/ˈkaʊn.tɚˌmeʒ.ɚ/", ja:"対策", pos:"名詞", tag:"business",
+     note:"製造業で非常に頻出。資料の「対策」欄はそのまま Countermeasures と訳せます。",
+     alts:[{en:"corrective action", ja:"是正処置", note:"ISOや品質管理の正式用語"},
+           {en:"mitigation", ja:"リスク低減策", note:"リスクを完全には消せない場合に使う"}],
+     ex:{en:"Theft countermeasures should be shared with the sales team.", ja:"盗難対策は営業チームに共有すべきです。"}},
+    {en:"scope", ipa:"/skoʊp/", ja:"範囲", pos:"名詞", tag:"business",
+     note:"知財では「権利範囲（scope of protection）」、業務では「作業範囲（scope of work）」。日本語の「スコープ」より使用頻度が高い基本語です。",
+     alts:[{en:"coverage", ja:"カバー範囲", note:"保険や権利が及ぶ範囲"},
+           {en:"boundary", ja:"境界", note:"線引きそのものを指すときに使う"}],
+     ex:{en:"Let's clarify the scope of what we can show publicly.", ja:"公開できる範囲を明確にしましょう。"}},
+    {en:"registered", ipa:"/ˈredʒ.ɪ.stɚd/", ja:"登録済みの", pos:"形容詞", tag:"business",
+     note:"registered trademark（登録商標）、registered design（登録意匠）。語末の -ed は /d/ で「レジスタド」に近い発音です。",
+     alts:[{en:"granted", ja:"（特許が）付与された", note:"特許にはgranted、商標にはregisteredが標準"},
+           {en:"on file", ja:"出願済みで記録がある", note:"登録前の出願段階も含む口語表現"}],
+     ex:{en:"The logo is already registered in the relevant classes.", ja:"そのロゴは該当区分ですでに登録済みです。"}},
+    {en:"exhibit", ipa:"/ɪɡˈzɪb.ɪt/", ja:"展示する／展示物", pos:"動詞・名詞", tag:"business",
+     note:"⚠️発音注意：x は /ɡz/ と濁ります（イグズィビット）。展示会 exhibition の x は /ks/ で濁りません。",
+     alts:[{en:"display", ja:"陳列する", note:"物理的に並べる行為。より平易"},
+           {en:"showcase", ja:"目玉として見せる", note:"宣伝的なニュアンスが強い"}],
+     ex:{en:"We will exhibit the new sensor at the Tokyo show.", ja:"東京の展示会で新しいセンサーを展示します。"}}
+  ],
+  phrases:[
+    {en:"design around", ipa:"/dɪˈzaɪn əˈraʊnd/", ja:"回避設計する", tag:"tech",
+     literal:"「〜の周りを設計する」ではありません。他社特許に抵触しないよう、あえて別構成で設計することを指す知財の専門熟語です。",
+     note:"公開情報と自社製品を直接結びつけて説明すると、競合に design around を容易にさせてしまいます。これが会合で注意喚起された論点です。",
+     alts:[{en:"work around the patent", ja:"特許を回避する", note:"よりくだけた同義表現"},
+           {en:"circumvent the claim", ja:"クレームを回避する", note:"かたい法律寄りの表現"}],
+     ex:{en:"If we show too much, competitors can easily design around our patent.", ja:"見せすぎると、競合が当社特許を容易に回避設計できてしまいます。"}},
+    {en:"fall under", ipa:"/fɔːl ˈʌn.dɚ/", ja:"〜に該当する／〜の区分に入る", tag:"business",
+     literal:"「下に落ちる」ではありません。分類・管轄・規定の対象になる、という意味の必須ビジネス熟語です。",
+     note:"fall under Class 9（第9類に該当する）、fall under my responsibility（私の担当範囲だ）のように使います。",
+     alts:[{en:"be classified as", ja:"〜に分類される", note:"より形式的・文書向き"},
+           {en:"come under", ja:"〜の管轄に入る", note:"英国寄りの言い方。ほぼ同義"}],
+     ex:{en:"Does this product fall under the registered class?", ja:"この製品は登録済みの区分に該当しますか。"}},
+    {en:"draw the line", ipa:"/drɔː ðə laɪn/", ja:"線引きする・限度を定める", tag:"business",
+     literal:"文字通りは「線を引く」ですが、実務では「どこまで対応するかの限度を決める」意味で使います。",
+     note:"会合の「依頼書で範囲を明確化し線引きを維持する」がまさにこれ。draw the line at ~ で「〜までが限界だ」。",
+     alts:[{en:"set a boundary", ja:"境界を設定する", note:"やや説明的でかたい"},
+           {en:"define the cutoff", ja:"区切りを定義する", note:"数値基準を伴うときに適する"}],
+     ex:{en:"We need to draw the line on what sales can talk about.", ja:"営業が話してよい範囲を線引きする必要があります。"}},
+    {en:"loop someone in", ipa:"/luːp ˈsʌm.wʌn ɪn/", ja:"（人）を情報共有の輪に入れる", tag:"casual",
+     literal:"「輪の中に入れる」が語源。メールのCCに加える、という意味で日常的に使われます。",
+     note:"⚠️ややカジュアル。社内やフラットな相手には最適ですが、社外の目上・公式文書では避けてください。",
+     casualNote:"カジュアル → ビジネスへの言い換え：「Can you loop me in?」→「Could you keep me informed?」または「Could you copy me on that email?」。前者は同僚間、後者は社外・上位者向けです。",
+     alts:[{en:"keep someone informed", ja:"（人）に情報を共有し続ける", note:"🏢 ビジネス標準。社外にも安全"},
+           {en:"copy someone on the email", ja:"（人）をメールのCCに入れる", note:"🏢 具体的で誤解がない。会合の「上長をCC」はこれ"}],
+     ex:{en:"Please loop your manager in when you send the request.", ja:"依頼を送るときは上長も共有に入れてください。"}},
+    {en:"head off", ipa:"/hed ˈɔːf/", ja:"未然に防ぐ", tag:"casual",
+     literal:"「頭を離す」ではありません。問題が起きる前に先回りして止める、という意味です。",
+     note:"⚠️ややカジュアル。会議での口頭説明には向きますが、報告書では prevent や mitigate を使ってください。",
+     casualNote:"カジュアル → ビジネス：「Let's head this off early.」→「Let's take preventive action early.」。公式議事録では prevent に置き換えるのが無難です。",
+     alts:[{en:"prevent", ja:"防止する", note:"🏢 最も中立で安全。文書向き"},
+           {en:"mitigate the risk", ja:"リスクを低減する", note:"🏢 完全には防げない場合の正確な表現"}],
+     ex:{en:"Early contact with the IP team heads off last-minute problems.", ja:"知財チームへの早期連絡が直前のトラブルを未然に防ぎます。"}}
+  ],
+  dialogues:[
+    {title:"Pre-Exhibition IP Briefing", titleJa:"展示会前の知財ブリーフィング",
+     sceneJa:"知財担当（左）が営業担当（右）に、展示会で話してよい範囲を説明する場面。",
+     turns:[
+      {side:"l",name:"IP Manager",nameJa:"知財担当",en:"Before the show, I'd like to go over what we can and can't disclose.",ja:"展示会の前に、開示してよい範囲とだめな範囲を確認させてください。"},
+      {side:"r",name:"Sales Rep",nameJa:"営業担当",en:"Sure. Can I explain how our material composition improves durability?",ja:"わかりました。材料の配合が耐久性をどう高めるか説明してもいいですか。"},
+      {side:"l",name:"IP Manager",nameJa:"知財担当",en:"Please don't. That falls under our trade secrets.",ja:"それはやめてください。当社の営業秘密に該当します。"},
+      {side:"r",name:"Sales Rep",nameJa:"営業担当",en:"Understood. What about the patent we filed last year?",ja:"了解しました。昨年出願した特許についてはどうですか。"},
+      {side:"l",name:"IP Manager",nameJa:"知財担当",en:"That one is already published, so you can mention it. But keep it general.",ja:"そちらはすでに公開済みなので言及して構いません。ただし一般的な範囲にとどめてください。"},
+      {side:"r",name:"Sales Rep",nameJa:"営業担当",en:"Why do I need to keep it general if it's public anyway?",ja:"どのみち公開されているのに、なぜ一般的な範囲にとどめるのですか。"},
+      {side:"l",name:"IP Manager",nameJa:"知財担当",en:"If you link the published claims directly to this product, competitors can design around it.",ja:"公開されたクレームをこの製品に直接結びつけると、競合が回避設計できてしまうからです。"},
+      {side:"r",name:"Sales Rep",nameJa:"営業担当",en:"That makes sense. I'll draw the line there.",ja:"納得しました。そこで線引きします。"}]},
+    {title:"Requesting Early IP Support", titleJa:"知財手当の早期依頼",
+     sceneJa:"営業担当（左）が知財担当（右）に、展示会直前で権利化を相談する場面。早期連絡の重要性が論点。",
+     turns:[
+      {side:"l",name:"Sales Rep",nameJa:"営業担当",en:"We're exhibiting next month. Can we register the logo in time?",ja:"来月出展します。ロゴの登録は間に合いますか。"},
+      {side:"r",name:"IP Manager",nameJa:"知財担当",en:"Trademarks might be possible, but patents have a much longer lead time.",ja:"商標なら可能かもしれませんが、特許はもっと所要期間が長いです。"},
+      {side:"l",name:"Sales Rep",nameJa:"営業担当",en:"How early should we contact you next time?",ja:"次回はどのくらい早く連絡すべきでしょうか。"},
+      {side:"r",name:"IP Manager",nameJa:"知財担当",en:"As soon as the exhibition plan is approved. Please copy me on that email.",ja:"出展計画が承認された時点ですぐにお願いします。そのメールに私をCCしてください。"},
+      {side:"l",name:"Sales Rep",nameJa:"営業担当",en:"Got it. And the brochures go to the printer next week.",ja:"承知しました。あとパンフレットは来週印刷業者に回ります。"},
+      {side:"r",name:"IP Manager",nameJa:"知財担当",en:"Then please confirm the printer has signed an NDA before you send the files.",ja:"では、ファイルを送る前に印刷業者がNDAに署名済みか確認してください。"},
+      {side:"l",name:"Sales Rep",nameJa:"営業担当",en:"I'll check today and keep you informed.",ja:"本日確認して、共有いたします。"}]}
+  ]
+},
+{
+  id:"ops", cat:"ops", date:"2026-08-07", icon:"📋", group:"開発サポートチーム",
+  title:"Request Workflow & Performance Dashboards",
+  titleJa:"依頼書運用とBIダッシュボード",
+  source:"2026-08-07 開サポ依頼書と業務管理MTG",
+  summaryJa:"設備導入依頼の承認フロー見直し、上長CC運用、作業範囲の線引き、BIツールによるサポート業務の可視化（熟練度・難易度の重み付け評価）を議論した会合。",
+  words:[
+    {en:"approval workflow", ipa:"/əˈpruː.vəl ˈwɝːk.floʊ/", ja:"承認フロー", pos:"名詞", tag:"business",
+     note:"承認の経路そのものを指します。システム文脈では workflow が標準。approve（動詞）→ approval（名詞）。",
+     alts:[{en:"sign-off process", ja:"承認手続き", note:"よりくだけた社内向け表現"},
+           {en:"authorization chain", ja:"権限の連鎖", note:"誰が承認権限を持つかを強調する表現"}],
+     ex:{en:"Let's revise the approval workflow for equipment requests.", ja:"設備依頼の承認フローを見直しましょう。"}},
+    {en:"scope of work", ipa:"/skoʊp əv wɝːk/", ja:"作業範囲", pos:"名詞", tag:"business",
+     note:"略称SOW。契約や依頼書で「どこまでやるか」を規定する項目。会合の「依頼書で範囲を明確化」がこれです。",
+     alts:[{en:"deliverables", ja:"成果物", note:"何を出すかに焦点。範囲より狭い"},
+           {en:"work boundary", ja:"業務の境界", note:"線引きそのものを強調する口語表現"}],
+     ex:{en:"The scope of work should be defined in the request form.", ja:"作業範囲は依頼書で定義すべきです。"}},
+    {en:"escalate", ipa:"/ˈes.kə.leɪt/", ja:"上位者に判断を上げる", pos:"動詞", tag:"business",
+     note:"日本語の「エスカレ」の語源。単に報告するのではなく「自分の権限を超えるので上位者に判断を委ねる」意味。名詞は escalation。",
+     alts:[{en:"refer to management", ja:"経営層に付託する", note:"よりかたい正式表現"},
+           {en:"raise to the next level", ja:"次の階層に上げる", note:"平易な説明的表現"}],
+     ex:{en:"If the cost exceeds the budget, we escalate it to the division head.", ja:"費用が予算を超える場合は本部長に上げます。"}},
+    {en:"stakeholder", ipa:"/ˈsteɪk.hoʊl.dɚ/", ja:"利害関係者", pos:"名詞", tag:"business",
+     note:"stake は「賭け金・利害」。株主（shareholder）より広く、その施策に影響を受ける全員を指します。",
+     alts:[{en:"the parties involved", ja:"関係当事者", note:"契約寄りの表現"},
+           {en:"affected teams", ja:"影響を受けるチーム", note:"社内向けの具体的な言い方"}],
+     ex:{en:"We should get buy-in from all stakeholders before the rollout.", ja:"展開前にすべての関係者の合意を得るべきです。"}},
+    {en:"proficiency", ipa:"/prəˈfɪʃ.ən.si/", ja:"熟練度", pos:"名詞", tag:"business",
+     note:"会合で導入された「熟練度」評価軸そのもの。skill が「技能」なのに対し proficiency は「その技能の習熟レベル」を指します。",
+     alts:[{en:"skill level", ja:"技能レベル", note:"平易で伝わりやすい"},
+           {en:"competency", ja:"職務遂行能力", note:"人事評価制度の正式用語"}],
+     ex:{en:"We rate proficiency on a five-point scale.", ja:"熟練度を5段階で評価します。"}},
+    {en:"weighting", ipa:"/ˈweɪ.tɪŋ/", ja:"重み付け", pos:"名詞", tag:"tech",
+     note:"waiting（待つ）と発音がほぼ同一なので文脈で区別されます。動詞は weight で、wait とは綴りが違います。",
+     alts:[{en:"weighting factor", ja:"重み係数", note:"数式に使う係数そのものを指す"},
+           {en:"relative importance", ja:"相対的重要度", note:"数値化しない場合の説明的表現"}],
+     ex:{en:"Difficulty and proficiency have different weightings in the score.", ja:"難易度と熟練度はスコア上で重み付けが異なります。"}},
+    {en:"threshold", ipa:"/ˈθreʃ.hoʊld/", ja:"閾値・基準値", pos:"名詞", tag:"tech",
+     note:"⚠️発音難所：語頭は /θ/（舌先を軽く歯に当てる無声音）。「スレッショルド」と /s/ で言うと通じにくくなります。",
+     alts:[{en:"trigger point", ja:"発動点", note:"アラートが鳴る条件を指す平易な言い方"},
+           {en:"cutoff value", ja:"打ち切り値", note:"数値の境界を明示する表現"}],
+     ex:{en:"What threshold should trigger the warning alert?", ja:"どの閾値で警告アラートを発報させますか。"}},
+    {en:"discrepancy", ipa:"/dɪˈskrep.ən.si/", ja:"食い違い・不一致", pos:"名詞", tag:"business",
+     note:"会合の「担当者による入力のばらつき」を英語で表す最適語。単なる difference ではなく「本来一致すべきものがずれている」ニュアンスです。",
+     alts:[{en:"inconsistency", ja:"一貫性のなさ", note:"基準がぶれている状態を指す"},
+           {en:"variation in input", ja:"入力のばらつき", note:"より説明的で平易"}],
+     ex:{en:"There is a discrepancy between the entries from different members.", ja:"担当者ごとの入力に食い違いがあります。"}},
+    {en:"rollout", ipa:"/ˈroʊl.aʊt/", ja:"展開・本格導入", pos:"名詞", tag:"business",
+     note:"名詞は rollout（1語）、動詞は roll out（2語）。試行（pilot）の次の段階を指します。",
+     alts:[{en:"deployment", ja:"配備・導入", note:"IT寄りの正式表現"},
+           {en:"full launch", ja:"本格開始", note:"製品発売にも使える平易な語"}],
+     ex:{en:"Let's run a pilot before the full rollout.", ja:"本格展開の前に試行運用を行いましょう。"}},
+    {en:"consolidate", ipa:"/kənˈsɑː.lə.deɪt/", ja:"集約する・統合する", pos:"動詞", tag:"business",
+     note:"会合の「Teams上の依頼書や月報を自動集約」がこれ。ばらばらのものを1か所にまとめる意味。名詞は consolidation。",
+     alts:[{en:"aggregate", ja:"集計する", note:"数値をまとめる場合に適する"},
+           {en:"centralize", ja:"一元化する", note:"保管場所を1つにする点を強調"}],
+     ex:{en:"The tool consolidates monthly reports automatically.", ja:"そのツールは月報を自動的に集約します。"}}
+  ],
+  phrases:[
+    {en:"sign off on", ipa:"/saɪn ˈɔːf ɑːn/", ja:"〜を正式に承認する", tag:"business",
+     literal:"「署名して離れる」ではありません。責任を持って最終承認する、という意味の必須熟語です。",
+     note:"approve よりも「最終責任者が承認した」というニュアンスが強く、承認フローの議論で頻出します。",
+     alts:[{en:"approve", ja:"承認する", note:"最も中立。文書向き"},
+           {en:"give the green light", ja:"ゴーサインを出す", note:"💬ややカジュアル。社内会話向け"}],
+     ex:{en:"Who needs to sign off on this equipment request?", ja:"この設備依頼は誰の承認が必要ですか。"}},
+    {en:"run something by someone", ipa:"/rʌn ˈsʌm.θɪŋ baɪ ˈsʌm.wʌn/", ja:"（人）に確認をとる", tag:"casual",
+     literal:"「〜のそばを走る」ではありません。意見や承認を求めて事前に見せる、という意味です。",
+     note:"⚠️カジュアル寄り。同僚や気心の知れた上司には自然ですが、社外や公式な場面では避けてください。",
+     casualNote:"カジュアル → ビジネス：「Let me run this by my manager.」→「Let me consult with my manager.」または「I'll need to seek approval from my manager.」。後者は議事録に残す場面に適します。",
+     alts:[{en:"consult with someone", ja:"（人）に相談する", note:"🏢 中立で社外にも使える"},
+           {en:"seek approval from someone", ja:"（人）の承認を求める", note:"🏢 承認が必須の場合の正確な表現"}],
+     ex:{en:"Let me run this template by the group leader first.", ja:"まずこのひな形をグループリーダーに確認させてください。"}},
+    {en:"follow up on", ipa:"/ˈfɑː.loʊ ʌp ɑːn/", ja:"〜の進捗を追う", tag:"business",
+     literal:"日本語の「フォローする（助ける）」とは意味が違います。英語の follow up は「その後どうなったか確認する」です。",
+     note:"⚠️和製英語注意：「彼をフォローしてあげて」を Follow him up と言うと「彼を催促して」の意味になります。助ける場合は support him。",
+     alts:[{en:"check on the status", ja:"状況を確認する", note:"平易で誤解がない"},
+           {en:"chase up", ja:"催促する", note:"英国寄り。やや強い催促のニュアンス"}],
+     ex:{en:"I'll follow up on the requests marked as unknown.", ja:"状態が不明になっている依頼を追跡します。"}},
+    {en:"roll out", ipa:"/roʊl ˈaʊt/", ja:"展開する・本格導入する", tag:"business",
+     literal:"「転がして外に出す」が語源。新しい制度やシステムを全体に広げることを指します。",
+     note:"動詞は2語で roll out、名詞は1語で rollout。この使い分けは英文メールで見られやすい差です。",
+     alts:[{en:"implement", ja:"実施する", note:"より中立でかたい"},
+           {en:"phase in", ja:"段階的に導入する", note:"一気にではなく順次入れる場合"}],
+     ex:{en:"We'll roll out the new request form after the trial.", ja:"試行の後、新しい依頼書を本格展開します。"}},
+    {en:"account for", ipa:"/əˈkaʊnt fɔːr/", ja:"①所在を明らかにする ②説明する ③占める", tag:"business",
+     literal:"「アカウント」とは無関係です。文脈で3つの意味に分かれる要注意熟語です。",
+     note:"会合の「依頼状態が不明」の文脈では①の意味。All items are accounted for.（全点の所在が確認済み）は棚卸しで頻出します。",
+     alts:[{en:"explain", ja:"説明する", note:"②の意味に限定した平易な語"},
+           {en:"make up", ja:"〜を構成する", note:"③の割合の意味に近い"}],
+     ex:{en:"We cannot account for about ten percent of the requests.", ja:"依頼の約1割について状態が確認できていません。"}}
+  ],
+  dialogues:[
+    {title:"Revising the Request Workflow", titleJa:"依頼書運用の見直し",
+     sceneJa:"サポートチームのリーダー（左）とメンバー（右）が、承認フローと作業範囲の線引きを議論する場面。",
+     turns:[
+      {side:"l",name:"Team Lead",nameJa:"チームリーダー",en:"Most equipment requests come in without any budget approval.",ja:"設備依頼のほとんどが予算承認なしで来ています。"},
+      {side:"r",name:"Member",nameJa:"メンバー",en:"Should we require the requester's manager to sign off first?",ja:"依頼者の上長に先に承認させるべきでしょうか。"},
+      {side:"l",name:"Team Lead",nameJa:"チームリーダー",en:"At minimum, they should copy their manager on the request email.",ja:"最低限、依頼メールに上長をCCすべきです。"},
+      {side:"r",name:"Member",nameJa:"メンバー",en:"That's easy to implement. What about work the maker won't handle?",ja:"それは実装が簡単ですね。メーカーが対応しない作業はどうしますか。"},
+      {side:"l",name:"Team Lead",nameJa:"チームリーダー",en:"We've covered some electrical work in-house, but we need to draw the line.",ja:"一部の電気工事は社内で対応してきましたが、線引きが必要です。"},
+      {side:"r",name:"Member",nameJa:"メンバー",en:"So the scope of work should be stated in the form itself.",ja:"では作業範囲を依頼書自体に明記すべきですね。"},
+      {side:"l",name:"Team Lead",nameJa:"チームリーダー",en:"Exactly. And add fields for maintenance owner and legal compliance.",ja:"そのとおりです。保守主体と法令対応の欄も追加しましょう。"},
+      {side:"r",name:"Member",nameJa:"メンバー",en:"I'll draft it and run it by you tomorrow.",ja:"下書きを作って明日確認いただきます。"}]},
+    {title:"Reviewing the BI Dashboard", titleJa:"BIダッシュボードの確認",
+     sceneJa:"データ担当（左）とチームリーダー（右）が、可視化ツールの課題を確認する場面。",
+     turns:[
+      {side:"l",name:"Data Owner",nameJa:"データ担当",en:"The dashboard consolidates all requests and monthly reports automatically.",ja:"ダッシュボードはすべての依頼と月報を自動集約します。"},
+      {side:"r",name:"Team Lead",nameJa:"チームリーダー",en:"Nice. But why are some requests showing as unknown?",ja:"いいですね。ただ、なぜ一部の依頼が「不明」と表示されるのですか。"},
+      {side:"l",name:"Data Owner",nameJa:"データ担当",en:"We can't account for them because the status field was left blank.",ja:"ステータス欄が空欄のため、状態を確認できないのです。"},
+      {side:"r",name:"Team Lead",nameJa:"チームリーダー",en:"So it's a discrepancy in how members enter data.",ja:"つまり担当者の入力方法の食い違いですね。"},
+      {side:"l",name:"Data Owner",nameJa:"データ担当",en:"Right. I'd like to set a threshold and send a warning alert automatically.",ja:"はい。閾値を設定して警告アラートを自動送信したいと考えています。"},
+      {side:"r",name:"Team Lead",nameJa:"チームリーダー",en:"Good. Let's pilot it on one case before the full rollout.",ja:"よいですね。本格展開の前に1件で試行しましょう。"},
+      {side:"l",name:"Data Owner",nameJa:"データ担当",en:"I'll follow up on the weighting for difficulty and proficiency as well.",ja:"難易度と熟練度の重み付けについても追って対応します。"}]}
+  ]
+},
+{
+  id:"lab", cat:"syn", date:"2026-08-07", icon:"🧪", group:"有機合成G",
+  title:"Lab Handover & Chemical Safety",
+  titleJa:"実験室の引継ぎと薬品安全管理",
+  source:"2026-08-07 合成G上中さん引継確認MTG",
+  summaryJa:"退職者からの引継ぎに伴い、装置マニュアルの書式統一、作業環境測定とリスクアセスメント、GPC機器管理者の交代、試薬・サンプルの所在確認、安全委員会の役割分担表更新を確認した会合。",
+  words:[
+    {en:"handover", ipa:"/ˈhænd.oʊ.vɚ/", ja:"引継ぎ", pos:"名詞", tag:"business",
+     note:"名詞は handover（1語）、動詞は hand over（2語）。米国では handoff も同義でよく使われます。",
+     alts:[{en:"transition", ja:"移行", note:"期間を伴う引継ぎ全体を指す"},
+           {en:"knowledge transfer", ja:"知識移転", note:"暗黙知の伝達を強調する人材育成の用語"}],
+     ex:{en:"Let's finish the handover before his last working day.", ja:"最終出社日までに引継ぎを完了させましょう。"}},
+    {en:"risk assessment", ipa:"/rɪsk əˈses.mənt/", ja:"リスクアセスメント", pos:"名詞", tag:"tech",
+     note:"労働安全衛生法に基づく法定の危険性・有害性の調査。assess は「評価する」で、s が2回とも /s/ です。",
+     alts:[{en:"hazard evaluation", ja:"危険源評価", note:"化学物質の危険性そのものに焦点"},
+           {en:"safety review", ja:"安全性レビュー", note:"より広く平易な言い方"}],
+     ex:{en:"The risk assessment has been completed for this process.", ja:"この工程のリスクアセスメントは完了済みです。"}},
+    {en:"reagent", ipa:"/riˈeɪ.dʒənt/", ja:"試薬", pos:"名詞", tag:"tech",
+     note:"⚠️発音難所：「リエイジェント」で、第2音節にアクセント。「リーゲント」ではありません。化学反応を起こさせるために加える物質です。",
+     alts:[{en:"chemical", ja:"薬品", note:"より広い一般語。試薬に限らない"},
+           {en:"standard reagent", ja:"標準試薬", note:"検量線作成用の既知濃度の試薬"}],
+     ex:{en:"We checked the standard reagents for the new instrument.", ja:"新しい装置用の標準試薬を確認しました。"}},
+    {en:"custodian", ipa:"/kʌˈstoʊ.di.ən/", ja:"管理者・保管責任者", pos:"名詞", tag:"business",
+     note:"機器や物品の「保管責任を負う人」。manager（業務の管理者）とは区別されます。会合の「GPC機器管理者」がこれです。",
+     alts:[{en:"equipment owner", ja:"機器オーナー", note:"実務で最も一般的。責任者が誰か明確"},
+           {en:"person in charge", ja:"担当者", note:"平易だが責任範囲があいまい"}],
+     ex:{en:"The custodian of the instrument has changed to two new members.", ja:"その装置の管理者が新しい2名に交代しました。"}},
+    {en:"inventory", ipa:"/ˈɪn.vən.tɔːr.i/", ja:"在庫・棚卸し", pos:"名詞", tag:"business",
+     note:"⚠️発音注意：第1音節にアクセント（インヴェントリ）。take inventory で「棚卸しをする」。",
+     alts:[{en:"stock", ja:"在庫", note:"英国寄り。数量に焦点"},
+           {en:"stocktaking", ja:"棚卸し作業", note:"作業そのものを指す英国表現"}],
+     ex:{en:"We should take inventory of the reagents in the refrigerator.", ja:"冷蔵庫内の試薬を棚卸しすべきです。"}},
+    {en:"disposal", ipa:"/dɪˈspoʊ.zəl/", ja:"廃棄・処分", pos:"名詞", tag:"business",
+     note:"動詞は dispose of（of が必要）。dispose だけでは「配置する」の意味になるため、of を落とさないよう注意。",
+     alts:[{en:"waste treatment", ja:"廃棄物処理", note:"処理プロセスに焦点"},
+           {en:"discard", ja:"捨てる（動詞）", note:"平易だが正式な廃棄手続きは含まない"}],
+     ex:{en:"Disposal of the unnecessary samples has been completed.", ja:"不要サンプルの廃棄は完了しています。"}},
+    {en:"designated", ipa:"/ˈdez.ɪɡ.neɪ.tɪd/", ja:"指定された", pos:"形容詞", tag:"business",
+     note:"⚠️発音注意：g は発音します（デズィグネイティド）。designated storage location（指定保管場所）で頻出。",
+     alts:[{en:"assigned", ja:"割り当てられた", note:"人に対して使うことが多い"},
+           {en:"specified", ja:"明記された", note:"文書に書かれていることを強調"}],
+     ex:{en:"Please store the samples in the designated location.", ja:"サンプルは指定の保管場所に置いてください。"}},
+    {en:"backup", ipa:"/ˈbæk.ʌp/", ja:"副担当・予備", pos:"名詞", tag:"business",
+     note:"データの「バックアップ」だけでなく、人の「副担当」も backup と言います。会合の「正担当・副担当」は primary and backup。",
+     alts:[{en:"deputy", ja:"代理・副", note:"役職としての副担当。よりかたい"},
+           {en:"secondary contact", ja:"第2連絡先", note:"連絡体制表で使う実務的な表現"}],
+     ex:{en:"Each task needs a primary and a backup owner.", ja:"各業務には正担当と副担当が必要です。"}},
+    {en:"compliance", ipa:"/kəmˈplaɪ.əns/", ja:"法令遵守", pos:"名詞", tag:"business",
+     note:"動詞は comply with（with が必要）。in compliance with the law（法令に適合して）。日本語の「コンプラ」の語源です。",
+     alts:[{en:"regulatory adherence", ja:"規制順守", note:"かたい文書向け表現"},
+           {en:"meeting legal requirements", ja:"法的要件を満たすこと", note:"平易で説明的"}],
+     ex:{en:"Legal compliance should be decided at the request stage.", ja:"法令対応は依頼書の段階で決めるべきです。"}},
+    {en:"gel permeation chromatography", ipa:"/dʒel ˌpɝː.miˈeɪ.ʃən ˌkroʊ.məˈtɑː.ɡrə.fi/", ja:"ゲル浸透クロマトグラフィー（GPC）", pos:"名詞", tag:"tech",
+     note:"高分子の分子量分布を測定する手法。分子サイズの差で溶出時間が変わる原理を利用します。会話ではほぼ必ず GPC と略します。",
+     alts:[{en:"GPC", ja:"ジーピーシー", note:"会話ではこちらが標準"},
+           {en:"size exclusion chromatography", ja:"サイズ排除クロマトグラフィー", note:"より一般的な学術名称。SECと略す"}],
+     ex:{en:"The GPC purchase is still in progress.", ja:"GPCの購入手続きはまだ進行中です。"}}
+  ],
+  phrases:[
+    {en:"hand over", ipa:"/hænd ˈoʊ.vɚ/", ja:"（業務を）引き渡す", tag:"business",
+     literal:"「手を上に」ではありません。責任や担当を相手に渡す意味です。渡す側が hand over、受ける側が take over。",
+     note:"この対の使い分けが重要です。I handed over the instrument.（私が渡した）／She took over the instrument.（彼女が引き受けた）。",
+     alts:[{en:"transfer responsibility", ja:"責任を移管する", note:"よりかたい文書向け"},
+           {en:"pass on", ja:"引き継ぐ・伝える", note:"情報や知識を渡す場合に適する"}],
+     ex:{en:"He handed over the instrument to two new custodians.", ja:"彼は装置を新しい管理者2名に引き渡しました。"}},
+    {en:"take over", ipa:"/teɪk ˈoʊ.vɚ/", ja:"（業務を）引き継ぐ", tag:"business",
+     literal:"「上に取る」ではありません。企業買収の意味もありますが、日常業務では担当を引き受ける意味です。",
+     note:"名詞の takeover（1語）は「買収」の意味が強いので、業務引継ぎの名詞形には handover を使ってください。",
+     alts:[{en:"assume responsibility for", ja:"〜の責任を引き受ける", note:"正式・契約寄り"},
+           {en:"step in", ja:"代わりに入る", note:"💬一時的な代役のニュアンス"}],
+     ex:{en:"Who will take over the safety committee role?", ja:"安全委員会の担当は誰が引き継ぎますか。"}},
+    {en:"keep track of", ipa:"/kiːp ˈtræk əv/", ja:"〜を継続的に把握する", tag:"business",
+     literal:"「線路を保つ」ではありません。track は「足跡・記録」。状況を見失わないよう追い続ける意味です。",
+     note:"反対は lose track of（見失う）。会合の「冷蔵庫内の古いサンプルの管理状況が不明確」は We've lost track of them. と表せます。",
+     alts:[{en:"monitor", ja:"監視する", note:"能動的・システム的な追跡"},
+           {en:"maintain records of", ja:"〜の記録を維持する", note:"文書管理の正式表現"}],
+     ex:{en:"Nobody is keeping track of the old samples in the refrigerator.", ja:"冷蔵庫内の古いサンプルを誰も把握していません。"}},
+    {en:"phase out", ipa:"/feɪz ˈaʊt/", ja:"段階的に廃止する", tag:"business",
+     literal:"「位相を外す」ではありません。一度にやめるのではなく、期間をかけて徐々に終了させる意味です。",
+     note:"反対は phase in（段階的に導入する）。設備更新や制度変更の説明で頻出します。",
+     alts:[{en:"discontinue gradually", ja:"徐々に中止する", note:"説明的で誤解がない"},
+           {en:"retire", ja:"（設備を）退役させる", note:"機器の廃棄に限定して使う"}],
+     ex:{en:"We'll phase out the old instrument after the new one arrives.", ja:"新しい装置が届いた後、旧装置を段階的に廃止します。"}},
+    {en:"be up to date", ipa:"/biː ʌp tə ˈdeɪt/", ja:"最新の状態である", tag:"business",
+     literal:"形容詞として名詞の前に置くときは up-to-date とハイフンでつなぎます（an up-to-date list）。",
+     note:"会合の「役割分担表の更新が必要」は The assignment table is not up to date. と表現できます。動詞は update（1語）。",
+     alts:[{en:"current", ja:"現行の・最新の", note:"最も簡潔。文書向き"},
+           {en:"reflect the latest changes", ja:"最新の変更を反映している", note:"何が最新かを明示する表現"}],
+     ex:{en:"The role assignment table is not up to date yet.", ja:"役割分担表はまだ最新になっていません。"}}
+  ],
+  dialogues:[
+    {title:"Handover Checklist Review", titleJa:"引継ぎチェックリストの確認",
+     sceneJa:"グループリーダー（左）と退職予定のメンバー（右）が、引継ぎ項目を確認する場面。",
+     turns:[
+      {side:"l",name:"Group Leader",nameJa:"グループリーダー",en:"Let's go through the handover checklist one more time.",ja:"引継ぎチェックリストをもう一度確認しましょう。"},
+      {side:"r",name:"Departing Member",nameJa:"退職予定者",en:"The equipment manuals are already shared, along with the storage location.",ja:"装置マニュアルは保存場所とあわせて共有済みです。"},
+      {side:"l",name:"Group Leader",nameJa:"グループリーダー",en:"Good. Who will take over the GPC as custodian?",ja:"よいですね。GPCの管理者は誰が引き継ぎますか。"},
+      {side:"r",name:"Departing Member",nameJa:"退職予定者",en:"Two members will share it, one primary and one backup.",ja:"2名で分担します。正担当1名と副担当1名です。"},
+      {side:"l",name:"Group Leader",nameJa:"グループリーダー",en:"Please make sure the role assignment table is up to date.",ja:"役割分担表が最新になっているか必ず確認してください。"},
+      {side:"r",name:"Departing Member",nameJa:"退職予定者",en:"I'll update it today and mark the transfers clearly.",ja:"本日更新し、引継ぎ先を明確に印を付けます。"},
+      {side:"l",name:"Group Leader",nameJa:"グループリーダー",en:"One more thing — please return your ID card by your last working day.",ja:"もう一点、入館証は最終出社日までに返却してください。"}]},
+    {title:"Tracking Unidentified Reagents", titleJa:"所在不明の試薬の確認",
+     sceneJa:"安全担当（左）と実験担当（右）が、冷蔵庫内の古いサンプルについて話す場面。",
+     turns:[
+      {side:"l",name:"Safety Officer",nameJa:"安全担当",en:"We can't account for some reagents in the cold room.",ja:"低温室の一部の試薬について所在が確認できていません。"},
+      {side:"r",name:"Researcher",nameJa:"実験担当",en:"Which ones? The dispersant raw materials?",ja:"どれですか。分散剤の原料でしょうか。"},
+      {side:"l",name:"Safety Officer",nameJa:"安全担当",en:"Yes, and some samples from two or three years ago.",ja:"はい、それと2〜3年前のサンプルも一部あります。"},
+      {side:"r",name:"Researcher",nameJa:"実験担当",en:"Honestly, nobody has been keeping track of those.",ja:"正直なところ、誰もそれらを把握していません。"},
+      {side:"l",name:"Safety Officer",nameJa:"安全担当",en:"Then let's take inventory and decide on disposal.",ja:"では棚卸しをして、廃棄を判断しましょう。"},
+      {side:"r",name:"Researcher",nameJa:"実験担当",en:"Agreed. I'll label everything and move it to the designated shelf.",ja:"賛成です。すべてにラベルを貼り、指定の棚に移します。"},
+      {side:"l",name:"Safety Officer",nameJa:"安全担当",en:"Thanks. That also helps with our legal compliance.",ja:"ありがとうございます。法令遵守の面でも助かります。"}]}
+  ]
+},
+{
+  id:"mech", cat:"mech", date:"2026-07-08", icon:"⚙️", group:"機構解析G",
+  title:"Quantifying Softness & Monetization Strategy",
+  titleJa:"柔らかさの指標化と収益化戦略",
+  source:"2026-07-08 社長室への柔らかさ指標化の収益化戦略共有MTG",
+  summaryJa:"大学との共同開発を起点とする「柔らかさの指標化・標準化」プロジェクトについて、目的が認知度向上から収益化へ転換したことに伴う推進体制、営業部門との認識ギャップ、標準化戦略の停滞を議論した会合。",
+  words:[
+    {en:"quantify", ipa:"/ˈkwɑːn.tə.faɪ/", ja:"定量化する", pos:"動詞", tag:"tech",
+     note:"感覚的・主観的なものを数値で表すこと。名詞は quantification。研究開発の報告で最も使用頻度の高い動詞のひとつです。",
+     alts:[{en:"measure numerically", ja:"数値で測定する", note:"平易で誤解がない説明的表現"},
+           {en:"put a number on", ja:"数字に落とし込む", note:"💬口語的。会議での説明向け"}],
+     ex:{en:"Our goal is to quantify how soft a material feels.", ja:"目標は、材料がどれだけ柔らかく感じられるかを定量化することです。"}},
+    {en:"metric", ipa:"/ˈme.trɪk/", ja:"指標", pos:"名詞", tag:"tech",
+     note:"測定して比較できる具体的な尺度。index（指数）より実務的で、複数形 metrics で使うことが多い語です。日本語の「メートル法」とは別の意味。",
+     alts:[{en:"indicator", ja:"指標・兆候", note:"傾向を示すもの。厳密な数値でなくてもよい"},
+           {en:"measure", ja:"尺度", note:"最も一般的。metricより広い"}],
+     ex:{en:"We need an objective metric for softness.", ja:"柔らかさの客観的な指標が必要です。"}},
+    {en:"standardization", ipa:"/ˌstæn.dɚ.dəˈzeɪ.ʃən/", ja:"標準化", pos:"名詞", tag:"tech",
+     note:"測定方法や評価基準を業界共通のものにすること。動詞は standardize。ISOやJISの制定はこの活動にあたります。",
+     alts:[{en:"establishing a common standard", ja:"共通規格を確立すること", note:"説明的で意図が伝わりやすい"},
+           {en:"harmonization", ja:"（規格の）調和", note:"複数の既存規格をすり合わせる場合に使う"}],
+     ex:{en:"Standardization requires participation from the sales side.", ja:"標準化には営業部門の参加が必要です。"}},
+    {en:"de facto standard", ipa:"/deɪ ˈfæk.toʊ ˈstæn.dɚd/", ja:"デファクトスタンダード（事実上の標準）", pos:"名詞", tag:"tech",
+     note:"de facto はラテン語で「事実上の」。公的機関が定めた標準（de jure standard／法律上の標準）に対し、市場で広く使われた結果として標準になったものを指します。",
+     alts:[{en:"industry standard", ja:"業界標準", note:"平易。成立経緯を問わない"},
+           {en:"market standard", ja:"市場標準", note:"市場での普及を強調する表現"}],
+     ex:{en:"We aim to make our method the de facto standard.", ja:"当社の手法をデファクトスタンダードにすることを目指します。"}},
+    {en:"contribution ratio", ipa:"/ˌkɑːn.trəˈbjuː.ʃən ˈreɪ.ʃi.oʊ/", ja:"寄与率", pos:"名詞", tag:"tech",
+     note:"ある物理量が結果全体にどれだけ影響しているかの割合。会合で「物理量が柔らかさに寄与する度合い」として定量評価された概念そのものです。",
+     alts:[{en:"contribution rate", ja:"寄与率", note:"ratioとほぼ同義。論文ではratioが優勢"},
+           {en:"relative influence", ja:"相対的な影響度", note:"統計に不慣れな相手への説明向け"}],
+     ex:{en:"We confirmed the contribution ratio of each physical property.", ja:"各物性の寄与率を確認しました。"}},
+    {en:"haptics", ipa:"/ˈhæp.tɪks/", ja:"触覚技術・ハプティクス", pos:"名詞", tag:"tech",
+     note:"触覚に関わる技術全般。⚠️注意：業界により指す範囲が違い、営業側は「アクチュエータの振動フィードバック」を、研究側は「材料の触り心地の計測」を意味しがちです。会合で指摘された認識ギャップの原因はここにあります。",
+     alts:[{en:"tactile technology", ja:"触覚技術", note:"より一般的で誤解が少ない"},
+           {en:"tactile sensation", ja:"触感", note:"感覚そのものを指す。技術ではない"}],
+     ex:{en:"Sales and R&D define haptics differently.", ja:"営業と研究開発ではハプティクスの定義が異なります。"}},
+    {en:"monetize", ipa:"/ˈmʌn.ə.taɪz/", ja:"収益化する", pos:"動詞", tag:"business",
+     note:"技術や資産を収益に変えること。名詞は monetization。会合の「技術を使った収益化へ方針転換」がこれにあたります。",
+     alts:[{en:"generate revenue from", ja:"〜から収益を生む", note:"より具体的で誤解がない"},
+           {en:"commercialize", ja:"事業化する", note:"製品として市場に出す段階を指す"}],
+     ex:{en:"The president now wants us to monetize this technology.", ja:"社長は現在、この技術の収益化を求めています。"}},
+    {en:"proof of concept", ipa:"/pruːf əv ˈkɑːn.sept/", ja:"概念実証（PoC）", pos:"名詞", tag:"business",
+     note:"略称PoC（ピーオーシー）。技術が原理的に成立することを小規模に示す段階。会合の「モックアップ段階」はこれに近い位置づけです。",
+     alts:[{en:"PoC", ja:"ピーオーシー", note:"会話ではこちらが標準"},
+           {en:"feasibility study", ja:"実現可能性調査", note:"技術だけでなく採算性も含む"}],
+     ex:{en:"We are still at the proof of concept stage.", ja:"まだ概念実証の段階です。"}},
+    {en:"stall", ipa:"/stɔːl/", ja:"停滞する・行き詰まる", pos:"動詞", tag:"business",
+     note:"元は「エンジンが止まる」。進んでいたものが止まる状態を指します。会合の「2020年以降停滞気味」は The project has stalled since 2020. と表せます。",
+     alts:[{en:"lose momentum", ja:"勢いを失う", note:"完全停止ではなく減速を表す"},
+           {en:"be on hold", ja:"保留状態である", note:"意図的に止めている場合に適する"}],
+     ex:{en:"The project has stalled at phase two.", ja:"プロジェクトはフェーズ2で停滞しています。"}},
+    {en:"value proposition", ipa:"/ˈvæl.juː ˌprɑː.pəˈzɪʃ.ən/", ja:"提供価値・価値仮説", pos:"名詞", tag:"business",
+     note:"顧客にとって何が嬉しいのかを一文で表したもの。技術説明ではなく顧客便益で語る点が要点です。会合の「価値仮説の明確化」がこれ。",
+     alts:[{en:"customer benefit", ja:"顧客便益", note:"最も平易。相手に伝わりやすい"},
+           {en:"selling point", ja:"訴求点", note:"💬営業寄りのくだけた表現"}],
+     ex:{en:"We should define the value proposition before approaching customers.", ja:"顧客に当たる前に提供価値を定義すべきです。"}}
+  ],
+  phrases:[
+    {en:"get buy-in from", ipa:"/ɡet ˈbaɪ.ɪn frʌm/", ja:"〜の賛同・協力を取り付ける", tag:"business",
+     literal:"「買い入れる」ではありません。単なる承認ではなく、相手が納得して主体的に関わる状態を指します。",
+     note:"承認（approval）が形式的なのに対し、buy-in は心からの同意。会合の「営業部門の参加が不可欠」はまさにこれです。",
+     alts:[{en:"secure support from", ja:"〜の支持を確保する", note:"より形式的・文書向き"},
+           {en:"bring someone on board", ja:"〜を巻き込む", note:"💬ややカジュアル。社内向け"}],
+     ex:{en:"We need to get buy-in from the sales department first.", ja:"まず営業部門の賛同を得る必要があります。"}},
+    {en:"gain traction", ipa:"/ɡeɪn ˈtræk.ʃən/", ja:"軌道に乗る・支持が広がる", tag:"business",
+     literal:"traction は「牽引力・摩擦力」。タイヤが路面をつかむイメージから、取り組みが手応えを得る意味になりました。",
+     note:"反対は lose traction（勢いを失う）。新規事業や標準化活動の進捗を語るときの定番表現です。",
+     alts:[{en:"build momentum", ja:"勢いをつける", note:"加速していく過程を強調"},
+           {en:"catch on", ja:"普及する", note:"💬市場に受け入れられる意味の口語"}],
+     ex:{en:"The standardization effort has not gained traction yet.", ja:"標準化の取り組みはまだ軌道に乗っていません。"}},
+    {en:"bridge the gap", ipa:"/brɪdʒ ðə ɡæp/", ja:"隔たりを埋める", tag:"business",
+     literal:"「橋を架ける」が語源。認識・技術・世代などの差を埋める意味で幅広く使われます。",
+     note:"会合の「営業側と研究側の認識ギャップ」は a perception gap。これを埋めるのが bridge the gap です。",
+     alts:[{en:"close the gap", ja:"差を縮める", note:"数値的な差にも使える"},
+           {en:"align understanding", ja:"認識をそろえる", note:"より具体的で誤解がない"}],
+     ex:{en:"We must bridge the gap between sales and R&D.", ja:"営業と研究開発の認識の隔たりを埋める必要があります。"}},
+    {en:"narrow down", ipa:"/ˈnær.oʊ daʊn/", ja:"絞り込む", tag:"business",
+     literal:"「狭く下げる」ではありません。候補を減らして対象を限定する意味です。",
+     note:"会合の「対象市場の優先順位づけ」に直結する語。narrow down the target markets のように使います。",
+     alts:[{en:"prioritize", ja:"優先順位をつける", note:"順位付けまで行う場合"},
+           {en:"shortlist", ja:"最終候補に絞る", note:"候補を数件に絞った状態を指す"}],
+     ex:{en:"Let's narrow down the target markets to two or three.", ja:"対象市場を2〜3件に絞り込みましょう。"}},
+    {en:"reach out to", ipa:"/riːtʃ ˈaʊt tuː/", ja:"〜に連絡を取る・働きかける", tag:"casual",
+     literal:"「手を伸ばす」が語源。こちらから接触を試みる意味です。",
+     note:"⚠️ややカジュアル。米国のビジネスメールでは普通に使われますが、日本企業間の正式な文書では contact のほうが無難です。",
+     casualNote:"カジュアル → ビジネス：「I'll reach out to them.」→「I will contact them.」または「We will approach them formally.」。社外の初回接触や公式文書では後者を選んでください。",
+     alts:[{en:"contact", ja:"連絡する", note:"🏢 最も中立。どの場面でも安全"},
+           {en:"approach", ja:"打診する", note:"🏢 提案を伴う接触。営業活動に適する"}],
+     ex:{en:"We should reach out to the companies we contacted before.", ja:"以前打診した企業に再度連絡を取るべきです。"}}
+  ],
+  dialogues:[
+    {title:"Redefining the Project Goal", titleJa:"プロジェクト目標の再定義",
+     sceneJa:"研究開発側（左）と広報側（右）が、目的が収益化へ転換したことを受けて方針を整理する場面。",
+     turns:[
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"The original goal was to raise awareness of our core technology.",ja:"当初の目標は、コア技術の認知度を高めることでした。"},
+      {side:"r",name:"PR Manager",nameJa:"広報担当",en:"And now the president wants you to monetize it instead?",ja:"それが今は、収益化を求められているということですか。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"Exactly. So we can't decide the scope within R&D alone anymore.",ja:"そのとおりです。研究開発だけで範囲を決められなくなりました。"},
+      {side:"r",name:"PR Manager",nameJa:"広報担当",en:"How far has the measurement technology come?",ja:"計測技術はどこまで進んでいますか。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"We can quantify texture and calculate the contribution ratio of each property.",ja:"質感を定量化し、各物性の寄与率を算出できます。"},
+      {side:"r",name:"PR Manager",nameJa:"広報担当",en:"That's strong. But the project has stalled at standardization, right?",ja:"それは強みですね。ただ標準化の段階で停滞しているのですね。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"Yes. We need to define the value proposition before we go further.",ja:"はい。先に進む前に提供価値を定義する必要があります。"}]},
+    {title:"Aligning with the Sales Team", titleJa:"営業部門との認識合わせ",
+     sceneJa:"研究開発担当（左）と営業担当（右）が、ハプティクスの定義の違いを確認する場面。",
+     turns:[
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"When you say haptics, what do you picture?",ja:"ハプティクスと言うとき、何を思い浮かべますか。"},
+      {side:"r",name:"Sales Manager",nameJa:"営業担当",en:"Vibration feedback from actuators, mainly.",ja:"主にアクチュエータの振動フィードバックですね。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"That's the gap. We mean measuring how soft a material feels.",ja:"そこが隔たりです。我々は材料の柔らかさの感じ方の計測を指しています。"},
+      {side:"r",name:"Sales Manager",nameJa:"営業担当",en:"I see. Honestly, we have almost no customer requests for that.",ja:"なるほど。正直なところ、それに関する顧客要望はほとんどありません。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"Then we should refine the concept before asking you to join customer visits.",ja:"では顧客訪問への同行をお願いする前に、コンセプトを磨くべきですね。"},
+      {side:"r",name:"Sales Manager",nameJa:"営業担当",en:"Agreed. Once it's clear, we can narrow down the target markets together.",ja:"賛成です。明確になれば、一緒に対象市場を絞り込めます。"},
+      {side:"l",name:"R&D Lead",nameJa:"研究開発担当",en:"Let's set up a regular meeting to bridge the gap.",ja:"認識の隔たりを埋めるため、定例会を設定しましょう。"}]}
+  ]
+},
+{
+  id:"media", cat:"etc", date:"2026-08-04", icon:"🌐", group:"部外連携",
+  title:"Hosting an Overseas Media Shoot",
+  titleJa:"海外メディア取材の受け入れ準備",
+  source:"2026-08-04 米国取材準備MTG",
+  summaryJa:"米国向け番組の取材受け入れに向け、衝撃吸収・振動・熱の3領域のデモ構成、インタビュー動線、外観撮影と搬入車両の時間調整、4時間稼働制約下での優先順位づけを確認した会合。",
+  words:[
+    {en:"shoot", ipa:"/ʃuːt/", ja:"撮影", pos:"名詞・動詞", tag:"business",
+     note:"映像・写真の撮影を指す業界標準語。filming より短く自然です。名詞で a photo shoot、動詞で shoot a video のように使います。",
+     alts:[{en:"filming", ja:"撮影（映像）", note:"映像に限定。ややかたい"},
+           {en:"recording session", ja:"収録", note:"音声中心の場合に適する"}],
+     ex:{en:"The shoot will take about four hours.", ja:"撮影は約4時間かかります。"}},
+    {en:"footage", ipa:"/ˈfʊt.ɪdʒ/", ja:"映像素材", pos:"名詞", tag:"tech",
+     note:"⚠️不可算名詞です。a footage とは言わず、some footage / a lot of footage と数えます。フィルムの長さ（フィート）が語源。",
+     alts:[{en:"video material", ja:"映像素材", note:"平易で誤解がない"},
+           {en:"clips", ja:"短い映像", note:"個別の短尺素材を数えられる形で指す"}],
+     ex:{en:"We need enough footage for a five-minute program.", ja:"5分番組に足りる映像素材が必要です。"}},
+    {en:"B-roll", ipa:"/ˈbiː roʊl/", ja:"補助映像・イメージ映像", pos:"名詞", tag:"tech",
+     note:"インタビュー等の主映像（A-roll）に重ねる補足映像。会合の各種デモ撮影はこれに該当します。映像制作の現場で必須の用語。",
+     alts:[{en:"supplementary footage", ja:"補足映像", note:"業界用語を避けたい相手に説明する際に使う"},
+           {en:"cutaway shots", ja:"インサート映像", note:"主映像の間に差し込む短い画を指す"}],
+     ex:{en:"The lab demos will be used as B-roll.", ja:"実験デモは補助映像として使われます。"}},
+    {en:"impact absorption", ipa:"/ˈɪm.pækt əbˈzɔːrp.ʃən/", ja:"衝撃吸収", pos:"名詞", tag:"tech",
+     note:"落下や衝突のエネルギーを材料が吸収する性能。動詞は absorb /əbˈzɔːrb/。会合の「卵落としデモ」はこの性能を可視化する演出です。",
+     alts:[{en:"shock absorption", ja:"衝撃吸収", note:"ほぼ同義。自動車部品でよく使われる"},
+           {en:"energy dissipation", ja:"エネルギー散逸", note:"学術的で厳密。論文向け"}],
+     ex:{en:"The egg drop demonstrates our impact absorption technology.", ja:"卵落としは当社の衝撃吸収技術を実演するものです。"}},
+    {en:"thermal conductivity", ipa:"/ˈθɝː.məl ˌkɑːn.dʌkˈtɪv.ə.ti/", ja:"熱伝導率", pos:"名詞", tag:"tech",
+     note:"⚠️発音難所：thermal の語頭は /θ/。単位はW/(m·K)。会合の「熱伝導率測定の波形」の文脈で使われます。",
+     alts:[{en:"heat conduction property", ja:"熱伝導特性", note:"平易な説明的表現"},
+           {en:"thermal performance", ja:"熱的性能", note:"製品全体の性能を指す広い語"}],
+     ex:{en:"We can film the thermal conductivity measurement.", ja:"熱伝導率の測定を撮影できます。"}},
+    {en:"venue", ipa:"/ˈven.juː/", ja:"会場・実施場所", pos:"名詞", tag:"business",
+     note:"⚠️発音注意：「ベニュー」で第1音節にアクセント。place より正式で、イベントや撮影の場所を指す標準語です。",
+     alts:[{en:"location", ja:"ロケ地・場所", note:"撮影業界では location が標準"},
+           {en:"site", ja:"現場", note:"工場や建設現場に適する"}],
+     ex:{en:"The third floor will be the main venue for the interviews.", ja:"インタビューの主会場は3階になります。"}},
+    {en:"logistics", ipa:"/ləˈdʒɪs.tɪks/", ja:"段取り・手配", pos:"名詞", tag:"business",
+     note:"物流の意味だけでなく、「人・物・時間の手配全般」を指します。会合の車両動線や搬入時間の調整はまさにこれ。常に複数形。",
+     alts:[{en:"arrangements", ja:"手配", note:"最も平易で誤解がない"},
+           {en:"coordination", ja:"調整", note:"関係者間の擦り合わせを強調"}],
+     ex:{en:"Let's finalize the logistics for the vehicles.", ja:"車両の手配を確定させましょう。"}},
+    {en:"consent", ipa:"/kənˈsent/", ja:"承諾・同意", pos:"名詞・動詞", tag:"business",
+     note:"⚠️発音注意：第2音節にアクセント。撮影や個人情報の利用には prior consent（事前承諾）が必要です。会合の「事前承諾取得」がこれ。",
+     alts:[{en:"approval", ja:"承認", note:"組織としての決裁を指す"},
+           {en:"permission", ja:"許可", note:"平易。日常的な許可に使う"}],
+     ex:{en:"We need prior consent before publishing the footage.", ja:"映像を公開する前に事前承諾が必要です。"}},
+    {en:"slot", ipa:"/slɑːt/", ja:"（時間の）枠", pos:"名詞", tag:"business",
+     note:"予定表上の区切られた時間枠。a two-hour slot（2時間枠）のように使います。会合の「撮影枠は3〜4時間」はこの語で表せます。",
+     alts:[{en:"time window", ja:"時間帯", note:"幅を持った時間を指す"},
+           {en:"session", ja:"回・セッション", note:"内容のまとまりを強調"}],
+     ex:{en:"We only have a four-hour slot for the entire shoot.", ja:"撮影全体で4時間の枠しかありません。"}},
+    {en:"contingency", ipa:"/kənˈtɪn.dʒən.si/", ja:"不測の事態・予備策", pos:"名詞", tag:"business",
+     note:"contingency plan で「代替案・予備計画」。会合の「優先順位リスト（必須/推奨/予備）」の「予備」がこれにあたります。",
+     alts:[{en:"backup plan", ja:"予備計画", note:"平易で口頭説明向き"},
+           {en:"fallback option", ja:"代替手段", note:"本命が使えない場合の次善策"}],
+     ex:{en:"We need a contingency in case the outdoor shoot is canceled.", ja:"屋外撮影が中止になった場合の予備策が必要です。"}}
+  ],
+  phrases:[
+    {en:"run through", ipa:"/rʌn ˈθruː/", ja:"〜を一通り確認する・リハーサルする", tag:"business",
+     literal:"「走り抜ける」ではありません。段取りや資料を最初から最後まで確認する意味です。名詞は run-through（通し稽古）。",
+     note:"会議冒頭の Let's run through the agenda.（議題を一通り確認しましょう）は定番の言い回しです。",
+     alts:[{en:"go over", ja:"ざっと確認する", note:"ほぼ同義。より口語的"},
+           {en:"review", ja:"精査する", note:"より丁寧に検討するニュアンス"}],
+     ex:{en:"Let's run through the shooting order one more time.", ja:"撮影順をもう一度通しで確認しましょう。"}},
+    {en:"set up", ipa:"/set ˈʌp/", ja:"設営する・準備する", tag:"business",
+     literal:"名詞は setup（1語）、動詞は set up（2語）。機材の設営にも、会議の設定にも使う多用途の熟語です。",
+     note:"set up the equipment（機材を設営する）／set up a meeting（会議を設定する）。会合の「機材準備」はこちら。",
+     alts:[{en:"prepare", ja:"準備する", note:"最も中立。物理的な設営以外にも使える"},
+           {en:"install", ja:"設置する", note:"固定的に据え付ける場合"}],
+     ex:{en:"The crew will set up the lights on the third floor.", ja:"撮影スタッフが3階で照明を設営します。"}},
+    {en:"wrap up", ipa:"/ræp ˈʌp/", ja:"終える・締めくくる", tag:"business",
+     literal:"「包む」が語源。撮影業界では That's a wrap!（撮影終了！）が定番の掛け声です。",
+     note:"会議でも We need to wrap up in five minutes.（あと5分で締めます）のように頻繁に使われます。",
+     alts:[{en:"conclude", ja:"締めくくる", note:"よりかたい。議事録向き"},
+           {en:"finish up", ja:"仕上げる", note:"💬口語的。残作業を終える感じ"}],
+     ex:{en:"We should wrap up by four thirty.", ja:"4時30分までに終える必要があります。"}},
+    {en:"block off", ipa:"/blɑːk ˈɔːf/", ja:"（時間や場所を）確保して押さえる", tag:"business",
+     literal:"「妨害する」ではありません。他に使われないよう区切って確保する意味です。",
+     note:"会合の「コーンで駐車スペースを確保」は block off the parking space。時間にも使え、block off two hours（2時間押さえる）。",
+     alts:[{en:"reserve", ja:"予約する・確保する", note:"最も中立。場所にも時間にも使える"},
+           {en:"cordon off", ja:"立入禁止にする", note:"ロープやコーンで物理的に区切る場合"}],
+     ex:{en:"Please block off the front parking area before eleven.", ja:"11時前に正面の駐車スペースを確保してください。"}},
+    {en:"touch base with", ipa:"/tʌtʃ ˈbeɪs wɪð/", ja:"〜と一度連絡を取る", tag:"casual",
+     literal:"野球で走者が塁に触れることが語源。短く近況を確認し合う意味です。",
+     note:"⚠️カジュアル寄り。米国の社内メールでは自然ですが、社外の正式文書では避けてください。",
+     casualNote:"カジュアル → ビジネス：「Let me touch base with him.」→「I will check with him.」または「I will confirm with him.」。議事録やメール本文では後者が適切です。",
+     alts:[{en:"check in with", ja:"〜に状況確認する", note:"🏢 中立。社内外どちらでも使える"},
+           {en:"confirm with", ja:"〜に確認する", note:"🏢 確認事項が明確な場合に最適"}],
+     ex:{en:"I'll touch base with the crew about the arrival time.", ja:"到着時刻について撮影スタッフに連絡を取ります。"}}
+  ],
+  dialogues:[
+    {title:"Planning the Shooting Order", titleJa:"撮影順の計画",
+     sceneJa:"受け入れ担当（左）と現場責任者（右）が、限られた時間内の撮影順を詰める場面。",
+     turns:[
+      {side:"l",name:"Coordinator",nameJa:"受け入れ担当",en:"We only have a four-hour slot, so let's run through the order.",ja:"4時間の枠しかないので、順番を通しで確認しましょう。"},
+      {side:"r",name:"Site Lead",nameJa:"現場責任者",en:"I suggest we shoot the exterior right after they arrive.",ja:"到着直後に外観を撮影することを提案します。"},
+      {side:"l",name:"Coordinator",nameJa:"受け入れ担当",en:"Good. Then we can block off the front parking area until eleven.",ja:"よいですね。では11時まで正面の駐車スペースを確保できます。"},
+      {side:"r",name:"Site Lead",nameJa:"現場責任者",en:"After that, we move to the third floor for the interviews.",ja:"その後、インタビューのため3階へ移動します。"},
+      {side:"l",name:"Coordinator",nameJa:"受け入れ担当",en:"Keeping everything on one floor reduces the equipment moves.",ja:"1フロアに集約すれば機材移動が減ります。"},
+      {side:"r",name:"Site Lead",nameJa:"現場責任者",en:"Right. The demos there will give us plenty of B-roll.",ja:"そのとおりです。そこでのデモで補助映像が十分に撮れます。"},
+      {side:"l",name:"Coordinator",nameJa:"受け入れ担当",en:"Let's aim to wrap up by four thirty.",ja:"4時30分までに終えることを目標にしましょう。"}]},
+    {title:"Briefing on the Technical Demos", titleJa:"技術デモの説明",
+     sceneJa:"研究担当（左）が海外の取材ディレクター（右）に、当日のデモ内容を説明する場面。",
+     turns:[
+      {side:"l",name:"Researcher",nameJa:"研究担当",en:"We'll focus on three areas: impact absorption, vibration, and heat.",ja:"衝撃吸収、振動、熱の3領域に絞ります。"},
+      {side:"r",name:"Director",nameJa:"取材ディレクター",en:"How will you show impact absorption visually?",ja:"衝撃吸収はどのように視覚化しますか。"},
+      {side:"l",name:"Researcher",nameJa:"研究担当",en:"We drop an egg onto our sheet from about shoulder height.",ja:"肩の高さほどから当社のシートに卵を落とします。"},
+      {side:"r",name:"Director",nameJa:"取材ディレクター",en:"That's a great visual. Can we try it from higher up?",ja:"よい画になりますね。もっと高い位置から試せますか。"},
+      {side:"l",name:"Researcher",nameJa:"研究担当",en:"We'd rather not, for safety and repeatability.",ja:"安全性と再現性の観点から避けたいところです。"},
+      {side:"r",name:"Director",nameJa:"取材ディレクター",en:"Understood. What about the heat demonstration?",ja:"了解しました。熱のデモはどうですか。"},
+      {side:"l",name:"Researcher",nameJa:"研究担当",en:"We can film the thermal conductivity measurement and a thermal camera view.",ja:"熱伝導率の測定とサーマルカメラの映像を撮影できます。"},
+      {side:"r",name:"Director",nameJa:"取材ディレクター",en:"Perfect. I'll check with my producer and confirm the consent form.",ja:"完璧です。プロデューサーに確認し、承諾書を確定します。"}]}
+  ]
+}
+  ]
+};
+</script>
+
+<script>
+/* 別の言い回し・関連語の文例（各2件） */
+window.ALTEX={
+"existing technology":[["We searched the existing technology before filing.","出願前に既存技術を調査しました。"],["This existing technology is already public.","この既存技術はすでに公開されています。"]],
+"state of the art":[["Our sensor represents the state of the art.","当社のセンサーは技術水準を代表するものです。"],["The report reviews the state of the art in this field.","報告書はこの分野の技術水準を概観しています。"]],
+"violation":[["We found a possible violation of our rights.","当社の権利侵害の可能性が見つかりました。"],["Any violation must be reported immediately.","いかなる違反も直ちに報告しなければなりません。"]],
+"unauthorized use":[["Unauthorized use of the logo is prohibited.","ロゴの無断使用は禁止されています。"],["We sent a warning about unauthorized use.","無断使用について警告を送りました。"]],
+"confidential know-how":[["This process is confidential know-how.","この工程は秘密ノウハウです。"],["Do not share confidential know-how with visitors.","秘密ノウハウを来場者に共有しないでください。"]],
+"proprietary information":[["The file contains proprietary information.","そのファイルには自社固有情報が含まれます。"],["Mark the slide as proprietary information.","そのスライドに自社固有情報と明記してください。"]],
+"NDA":[["Please sign the NDA before the meeting.","会議の前にNDAに署名してください。"],["The NDA covers three years.","そのNDAは3年間有効です。"]],
+"confidentiality agreement":[["We concluded a confidentiality agreement with the vendor.","業者と守秘義務契約を締結しました。"],["The confidentiality agreement is under review.","守秘義務契約は確認中です。"]],
+"reveal":[["Please do not reveal the composition.","配合を明らかにしないでください。"],["The test revealed a weak point.","試験で弱点が明らかになりました。"]],
+"share externally":[["We must not share this externally.","これを社外に共有してはいけません。"],["Ask before you share anything externally.","社外に共有する前に確認してください。"]],
+"turnaround time":[["What is the turnaround time for this request?","この依頼の対応時間はどれくらいですか。"],["We shortened the turnaround time by half.","対応時間を半分に短縮しました。"]],
+"processing period":[["The processing period is about six months.","処理期間は約6か月です。"],["Please allow for the processing period.","処理期間を見込んでください。"]],
+"corrective action":[["We submitted a corrective action report.","是正処置報告書を提出しました。"],["Corrective action is due next week.","是正処置の期限は来週です。"]],
+"mitigation":[["Risk mitigation is written in the plan.","リスク低減策は計画に記載されています。"],["We discussed mitigation measures.","低減策について議論しました。"]],
+"coverage":[["Check the coverage of the registration.","登録のカバー範囲を確認してください。"],["The coverage does not include this class.","そのカバー範囲にこの区分は含まれません。"]],
+"boundary":[["Let's define the boundary of our support.","支援の境界を定義しましょう。"],["The boundary was unclear in the request.","依頼書では境界が不明確でした。"]],
+"granted":[["The patent was granted last month.","特許は先月付与されました。"],["Once granted, we can announce it.","付与されれば公表できます。"]],
+"on file":[["We already have an application on file.","すでに出願済みで記録があります。"],["Is the design on file?","その意匠は出願済みですか。"]],
+"display":[["We will display the samples on the table.","サンプルをテーブルに陳列します。"],["Do not display the internal drawings.","内部図面を陳列しないでください。"]],
+"showcase":[["The booth will showcase our new material.","ブースで新材料を目玉として見せます。"],["We showcased three technologies.","3つの技術を前面に出しました。"]],
+"work around the patent":[["Competitors may work around the patent.","競合が特許を回避するかもしれません。"],["It is hard to work around the patent in this field.","この分野で特許を回避するのは困難です。"]],
+"circumvent the claim":[["They tried to circumvent the claim.","彼らはクレームを回避しようとしました。"],["A narrow claim is easy to circumvent.","狭いクレームは回避されやすいです。"]],
+"be classified as":[["This item is classified as a trade secret.","この項目は営業秘密に分類されます。"],["How is this product classified?","この製品はどう分類されますか。"]],
+"come under":[["This matter comes under the legal team.","この件は法務の管轄に入ります。"],["Does it come under Class 9?","それは第9類に入りますか。"]],
+"set a boundary":[["We should set a boundary for in-house work.","社内対応の境界を設定すべきです。"],["Let's set a clear boundary in the form.","依頼書で明確な境界を設定しましょう。"]],
+"define the cutoff":[["Please define the cutoff for approval.","承認の区切りを定義してください。"],["We defined the cutoff at ten hours.","区切りを10時間と定義しました。"]],
+"keep someone informed":[["Please keep me informed of the progress.","進捗を共有し続けてください。"],["I will keep the team informed.","チームに共有し続けます。"]],
+"copy someone on the email":[["Please copy your manager on the email.","メールに上長をCCしてください。"],["Copy me on any external reply.","社外への返信は私をCCしてください。"]],
+"prevent":[["Early contact prevents delays.","早期連絡が遅延を防止します。"],["This rule prevents accidental disclosure.","この規則は偶発的な開示を防止します。"]],
+"mitigate the risk":[["We cannot remove it, but we can mitigate the risk.","排除はできませんが、リスクは低減できます。"],["Insurance mitigates the financial risk.","保険が金銭的リスクを低減します。"]],
+"sign-off process":[["The sign-off process takes two days.","承認手続きには2日かかります。"],["We simplified the sign-off process.","承認手続きを簡素化しました。"]],
+"authorization chain":[["Please follow the authorization chain.","権限の連鎖に従ってください。"],["The authorization chain is unclear.","権限の連鎖が不明確です。"]],
+"deliverables":[["List the deliverables in the request form.","依頼書に成果物を記載してください。"],["The deliverables were agreed in advance.","成果物は事前に合意済みです。"]],
+"work boundary":[["The work boundary should be visible to everyone.","業務の境界は全員に見えるべきです。"],["We crossed the work boundary last time.","前回は業務の境界を越えました。"]],
+"refer to management":[["We will refer this to management.","この件は経営層に付託します。"],["Cost overruns are referred to management.","費用超過は経営層に付託されます。"]],
+"raise to the next level":[["Please raise this to the next level.","これを次の階層に上げてください。"],["If unresolved, raise it to the next level.","未解決なら次の階層に上げてください。"]],
+"the parties involved":[["All the parties involved agreed.","関係当事者全員が同意しました。"],["Please notify the parties involved.","関係当事者に通知してください。"]],
+"affected teams":[["The affected teams were informed today.","影響を受けるチームには本日連絡しました。"],["Which teams are affected by this change?","この変更で影響を受けるチームはどこですか。"]],
+"skill level":[["We record the skill level of each member.","各メンバーの技能レベルを記録します。"],["His skill level improved this year.","彼の技能レベルは今年向上しました。"]],
+"competency":[["The competency framework was updated.","職務遂行能力の枠組みを更新しました。"],["This role requires a high competency.","この役割は高い職務遂行能力を要します。"]],
+"weighting factor":[["We applied a weighting factor of one point five.","1.5の重み係数を適用しました。"],["The weighting factor was too high.","重み係数が高すぎました。"]],
+"relative importance":[["Explain the relative importance of each item.","各項目の相対的重要度を説明してください。"],["Relative importance changes by project.","相対的重要度は案件で変わります。"]],
+"trigger point":[["Set the trigger point for the alert.","アラートの発動点を設定してください。"],["We reached the trigger point yesterday.","昨日、発動点に達しました。"]],
+"cutoff value":[["The cutoff value is eighty hours.","打ち切り値は80時間です。"],["Please review the cutoff value.","打ち切り値を見直してください。"]],
+"inconsistency":[["There is an inconsistency in the records.","記録に一貫性のなさがあります。"],["We fixed the inconsistency in the form.","依頼書の不整合を修正しました。"]],
+"variation in input":[["Variation in input makes the totals unreliable.","入力のばらつきで集計が信頼できません。"],["We reduced the variation in input.","入力のばらつきを減らしました。"]],
+"deployment":[["The deployment is planned for next month.","導入は来月を予定しています。"],["Deployment was delayed by one week.","導入が1週間遅れました。"]],
+"full launch":[["The full launch follows the trial.","本格開始は試行の後です。"],["We postponed the full launch.","本格開始を延期しました。"]],
+"aggregate":[["The tool aggregates the monthly hours.","ツールが月次時間を集計します。"],["Please aggregate the data by group.","グループ別にデータを集計してください。"]],
+"centralize":[["We centralized all request forms.","依頼書をすべて一元化しました。"],["Centralizing the files improved access.","ファイルの一元化でアクセスが改善しました。"]],
+"approve":[["The manager approved the request.","上長が依頼を承認しました。"],["Who can approve this cost?","この費用は誰が承認できますか。"]],
+"give the green light":[["The division head gave the green light.","本部長がゴーサインを出しました。"],["We are waiting for the green light.","ゴーサイン待ちです。"]],
+"consult with someone":[["Let me consult with the group leader.","グループリーダーに相談させてください。"],["Please consult with legal first.","まず法務に相談してください。"]],
+"seek approval from someone":[["We must seek approval from the division head.","本部長の承認を求める必要があります。"],["She sought approval from the committee.","彼女は委員会の承認を求めました。"]],
+"check on the status":[["I'll check on the status this afternoon.","午後に状況を確認します。"],["Could you check on the status of the order?","発注の状況を確認いただけますか。"]],
+"chase up":[["I had to chase up the vendor twice.","業者を2度催促しました。"],["Please chase up the missing report.","未提出の報告を催促してください。"]],
+"implement":[["We implemented the new rule in April.","4月に新規則を実施しました。"],["How will you implement this change?","この変更をどう実施しますか。"]],
+"phase in":[["We will phase in the new form gradually.","新しい依頼書を段階的に導入します。"],["The system was phased in over six months.","システムは6か月かけて段階導入されました。"]],
+"explain":[["Please explain the reason for the delay.","遅延の理由を説明してください。"],["The report explains the calculation.","報告書が計算を説明しています。"]],
+"make up":[["Support work makes up half of our time.","サポート業務が時間の半分を占めます。"],["These three items make up the total.","この3項目が全体を構成します。"]],
+"transition":[["The transition will take two weeks.","移行には2週間かかります。"],["We planned a smooth transition.","円滑な移行を計画しました。"]],
+"knowledge transfer":[["Knowledge transfer is the hardest part.","知識移転が最も難しい部分です。"],["We scheduled knowledge transfer sessions.","知識移転の場を設定しました。"]],
+"hazard evaluation":[["The hazard evaluation is complete.","危険源評価は完了しています。"],["Please attach the hazard evaluation sheet.","危険源評価シートを添付してください。"]],
+"safety review":[["A safety review is required before use.","使用前に安全性レビューが必要です。"],["The safety review found no issues.","安全性レビューで問題はありませんでした。"]],
+"chemical":[["Store the chemicals in the cabinet.","薬品は保管庫に入れてください。"],["This chemical requires special handling.","この薬品は特別な取扱いが必要です。"]],
+"standard reagent":[["We ordered a new standard reagent.","新しい標準試薬を発注しました。"],["The standard reagent expired last month.","標準試薬は先月期限切れになりました。"]],
+"equipment owner":[["Who is the equipment owner now?","現在の機器オーナーは誰ですか。"],["The equipment owner keeps the log.","機器オーナーが記録を管理します。"]],
+"person in charge":[["Please tell me the person in charge.","担当者を教えてください。"],["The person in charge is on leave.","担当者は休暇中です。"]],
+"stock":[["We are running low on stock.","在庫が少なくなっています。"],["Check the stock before ordering.","発注前に在庫を確認してください。"]],
+"stocktaking":[["Stocktaking is scheduled for Friday.","棚卸し作業は金曜に予定されています。"],["Stocktaking took the whole morning.","棚卸しに午前中いっぱいかかりました。"]],
+"waste treatment":[["Waste treatment follows the local rules.","廃棄物処理は地域の規則に従います。"],["The waste treatment cost increased.","廃棄物処理費用が増加しました。"]],
+"discard":[["Please discard the expired samples.","期限切れのサンプルを捨ててください。"],["Do not discard anything without approval.","承認なしに捨てないでください。"]],
+"assigned":[["Each task is assigned to two people.","各業務は2名に割り当てられています。"],["I was assigned to the safety committee.","私は安全委員会に割り当てられました。"]],
+"specified":[["The location is specified in the manual.","場所はマニュアルに明記されています。"],["Use only the specified reagent.","明記された試薬のみ使用してください。"]],
+"deputy":[["The deputy will attend in my place.","代理が私の代わりに出席します。"],["Please appoint a deputy for each role.","各役割に副担当を任命してください。"]],
+"secondary contact":[["Add a secondary contact to the list.","一覧に第2連絡先を追加してください。"],["The secondary contact was not reachable.","第2連絡先に連絡がつきませんでした。"]],
+"regulatory adherence":[["Regulatory adherence is audited yearly.","規制順守は毎年監査されます。"],["The report confirms regulatory adherence.","報告書が規制順守を確認しています。"]],
+"meeting legal requirements":[["Meeting legal requirements is our minimum.","法的要件を満たすことが最低条件です。"],["This design has trouble meeting legal requirements.","この設計は法的要件を満たしにくいです。"]],
+"GPC":[["The GPC is booked until Thursday.","GPCは木曜まで予約済みです。"],["Please run the sample on the GPC.","サンプルをGPCで測定してください。"]],
+"size exclusion chromatography":[["Size exclusion chromatography separates by molecular size.","サイズ排除クロマトグラフィーは分子サイズで分離します。"],["We used size exclusion chromatography for the polymer.","高分子にサイズ排除クロマトグラフィーを使いました。"]],
+"transfer responsibility":[["He will transfer responsibility next month.","彼は来月責任を移管します。"],["Responsibility was transferred in writing.","責任は書面で移管されました。"]],
+"pass on":[["Please pass on the manual to your successor.","後任にマニュアルを引き継いでください。"],["I passed on your comment to the team.","ご意見をチームに伝えました。"]],
+"assume responsibility for":[["She will assume responsibility for the instrument.","彼女が装置の責任を引き受けます。"],["Who assumes responsibility for the waste?","廃棄物の責任は誰が引き受けますか。"]],
+"step in":[["Could you step in while he is away?","彼の不在中、代わりに入っていただけますか。"],["I stepped in for one week only.","1週間だけ代わりに入りました。"]],
+"monitor":[["We monitor the temperature daily.","温度を毎日監視しています。"],["Please monitor the reaction closely.","反応を注意深く監視してください。"]],
+"maintain records of":[["We maintain records of all disposals.","全ての廃棄の記録を維持しています。"],["Maintain records of the calibration.","校正の記録を維持してください。"]],
+"discontinue gradually":[["We will discontinue the old method gradually.","旧手法を徐々に中止します。"],["The service was discontinued gradually.","そのサービスは徐々に中止されました。"]],
+"retire":[["We plan to retire the old oven.","旧オーブンを退役させる予定です。"],["The instrument was retired last year.","その装置は昨年退役しました。"]],
+"current":[["Is this the current version?","これが現行版ですか。"],["Please use the current procedure.","現行の手順を使用してください。"]],
+"reflect the latest changes":[["The table does not reflect the latest changes.","表は最新の変更を反映していません。"],["Please update it to reflect the latest changes.","最新の変更を反映するよう更新してください。"]],
+"measure numerically":[["We can now measure softness numerically.","柔らかさを数値で測定できるようになりました。"],["It is hard to measure comfort numerically.","快適さを数値で測定するのは困難です。"]],
+"put a number on":[["It is difficult to put a number on texture.","質感を数字に落とし込むのは難しいです。"],["Can we put a number on this feeling?","この感覚を数字にできますか。"]],
+"indicator":[["Customer feedback is a useful indicator.","顧客の反応は有用な指標です。"],["This indicator has not improved.","この指標は改善していません。"]],
+"measure":[["We need a common measure of quality.","品質の共通の尺度が必要です。"],["There is no agreed measure yet.","合意された尺度はまだありません。"]],
+"establishing a common standard":[["Establishing a common standard takes years.","共通規格の確立には数年かかります。"],["We are aiming at establishing a common standard.","共通規格の確立を目指しています。"]],
+"harmonization":[["Harmonization with the international standard is needed.","国際規格との調和が必要です。"],["Harmonization reduces testing costs.","規格の調和は試験費用を下げます。"]],
+"industry standard":[["This method became the industry standard.","この手法は業界標準になりました。"],["We follow the industry standard.","業界標準に従っています。"]],
+"market standard":[["Their format is now the market standard.","彼らの形式が現在の市場標準です。"],["We failed to become the market standard.","市場標準になり損ねました。"]],
+"contribution rate":[["The contribution rate of hardness was highest.","硬さの寄与率が最も高かったです。"],["Please calculate the contribution rate.","寄与率を算出してください。"]],
+"relative influence":[["We compared the relative influence of each factor.","各因子の相対的な影響度を比較しました。"],["Temperature has little relative influence.","温度の相対的影響度は小さいです。"]],
+"tactile technology":[["Our tactile technology is unique.","当社の触覚技術は独自のものです。"],["Tactile technology is used in car interiors.","触覚技術は車の内装に使われます。"]],
+"tactile sensation":[["The tactile sensation was very smooth.","触感は非常に滑らかでした。"],["We measured the tactile sensation of the gel.","ゲルの触感を測定しました。"]],
+"generate revenue from":[["How can we generate revenue from this?","これからどう収益を生めますか。"],["We generate revenue from licensing.","ライセンスから収益を生んでいます。"]],
+"commercialize":[["It will take two years to commercialize.","事業化には2年かかります。"],["We commercialized the sensor last year.","昨年センサーを事業化しました。"]],
+"PoC":[["The PoC was successful.","PoCは成功しました。"],["Let's start with a small PoC.","小さなPoCから始めましょう。"]],
+"feasibility study":[["The feasibility study is under way.","実現可能性調査は進行中です。"],["We need a feasibility study first.","まず実現可能性調査が必要です。"]],
+"lose momentum":[["The project lost momentum after phase two.","フェーズ2の後、勢いを失いました。"],["We must not lose momentum now.","今、勢いを失ってはいけません。"]],
+"be on hold":[["The plan is on hold until next quarter.","計画は次四半期まで保留です。"],["Why is the budget on hold?","なぜ予算が保留なのですか。"]],
+"customer benefit":[["Explain the customer benefit in one sentence.","顧客便益を一文で説明してください。"],["The customer benefit is not clear yet.","顧客便益がまだ明確ではありません。"]],
+"selling point":[["Softness is our main selling point.","柔らかさが主な訴求点です。"],["That is a strong selling point.","それは強い訴求点です。"]],
+"secure support from":[["We secured support from the president's office.","社長室の支持を確保しました。"],["Try to secure support from sales.","営業の支持を確保してください。"]],
+"bring someone on board":[["Let's bring the sales team on board early.","営業を早めに巻き込みましょう。"],["We brought two engineers on board.","技術者2名を巻き込みました。"]],
+"build momentum":[["Small wins help build momentum.","小さな成功が勢いをつけます。"],["We need to build momentum this quarter.","今四半期に勢いをつける必要があります。"]],
+"catch on":[["The idea did not catch on.","その案は普及しませんでした。"],["This format is catching on quickly.","この形式は急速に普及しています。"]],
+"close the gap":[["We closed the gap with the competitor.","競合との差を縮めました。"],["How can we close the gap?","どうすれば差を縮められますか。"]],
+"align understanding":[["Let's align understanding before the visit.","訪問前に認識をそろえましょう。"],["The meeting aligned our understanding.","会議で認識がそろいました。"]],
+"prioritize":[["We must prioritize the target markets.","対象市場に優先順位をつける必要があります。"],["Please prioritize safety items.","安全項目を優先してください。"]],
+"shortlist":[["We shortlisted three applications.","3件の用途を最終候補に絞りました。"],["Is our product on the shortlist?","当社製品は最終候補に入っていますか。"]],
+"contact":[["I will contact them next week.","来週彼らに連絡します。"],["Please contact the IP team early.","知財チームに早めに連絡してください。"]],
+"approach":[["We approached four companies last year.","昨年4社に打診しました。"],["How should we approach this customer?","この顧客にどう打診すべきですか。"]],
+"filming":[["Filming starts at eleven.","撮影は11時に始まります。"],["Filming inside is safer in summer.","夏は屋内撮影のほうが安全です。"]],
+"recording session":[["The recording session lasted two hours.","収録は2時間続きました。"],["We booked a recording session for Friday.","金曜に収録を予約しました。"]],
+"video material":[["We have enough video material.","十分な映像素材があります。"],["Please label the video material by scene.","映像素材を場面別に整理してください。"]],
+"clips":[["Send me three short clips.","短い映像を3本送ってください。"],["These clips will be used online.","これらの映像はオンラインで使われます。"]],
+"supplementary footage":[["We shot supplementary footage in the lab.","実験室で補足映像を撮影しました。"],["Supplementary footage fills the gaps.","補足映像が間を埋めます。"]],
+"cutaway shots":[["Add cutaway shots between interviews.","インタビューの間にインサート映像を入れてください。"],["We need more cutaway shots.","インサート映像がもっと必要です。"]],
+"shock absorption":[["Shock absorption is our core strength.","衝撃吸収が当社の中核的強みです。"],["This layer improves shock absorption.","この層が衝撃吸収を高めます。"]],
+"energy dissipation":[["Energy dissipation was measured at three speeds.","エネルギー散逸を3つの速度で測定しました。"],["The graph shows energy dissipation over time.","グラフは時間に対するエネルギー散逸を示します。"]],
+"heat conduction property":[["The heat conduction property was tested yesterday.","熱伝導特性は昨日試験しました。"],["This material has a poor heat conduction property.","この材料は熱伝導特性が低いです。"]],
+"thermal performance":[["Thermal performance improved by twenty percent.","熱的性能が20%向上しました。"],["Customers ask about thermal performance.","顧客は熱的性能を尋ねます。"]],
+"location":[["The location is the third floor.","場所は3階です。"],["We changed the location for safety.","安全のため場所を変更しました。"]],
+"site":[["Visitors must sign in at the site.","来訪者は現場で受付が必要です。"],["The site is not open on weekends.","現場は週末は開いていません。"]],
+"arrangements":[["The arrangements are almost complete.","手配はほぼ完了しています。"],["Please confirm the travel arrangements.","移動の手配を確認してください。"]],
+"coordination":[["Coordination with the sales team is required.","営業チームとの調整が必要です。"],["Poor coordination caused the delay.","調整不足が遅延を招きました。"]],
+"approval":[["We received approval this morning.","今朝、承認を得ました。"],["Approval takes about three days.","承認には約3日かかります。"]],
+"permission":[["Do we have permission to film here?","ここで撮影する許可はありますか。"],["Permission was granted verbally.","許可は口頭で与えられました。"]],
+"time window":[["The best time window is before noon.","最適な時間帯は正午前です。"],["We missed the time window.","時間帯を逃しました。"]],
+"session":[["The interview session runs for one hour.","インタビューは1時間です。"],["Let's split it into two sessions.","2回に分けましょう。"]],
+"backup plan":[["Do we have a backup plan for rain?","雨天時の予備計画はありますか。"],["The backup plan is to film indoors.","予備計画は屋内撮影です。"]],
+"fallback option":[["Our fallback option is the meeting room.","代替手段は会議室です。"],["Prepare a fallback option in advance.","代替手段を事前に用意してください。"]],
+"go over":[["Let's go over the schedule once more.","予定をもう一度ざっと確認しましょう。"],["I went over the list this morning.","今朝、一覧を確認しました。"]],
+"review":[["Please review the shooting plan.","撮影計画を精査してください。"],["We reviewed the safety points together.","安全上の要点を一緒に精査しました。"]],
+"prepare":[["Please prepare the samples by ten.","10時までにサンプルを準備してください。"],["Everything is prepared for tomorrow.","明日の準備はすべて整っています。"]],
+"install":[["We installed the camera on the tripod.","カメラを三脚に設置しました。"],["The monitor will be installed today.","モニターは本日設置されます。"]],
+"conclude":[["Let's conclude the session here.","ここでこの回を締めくくりましょう。"],["The report concludes with three actions.","報告書は3つの行動で締めくくられます。"]],
+"finish up":[["Let's finish up and clean the room.","仕上げて部屋を片付けましょう。"],["I need ten minutes to finish up.","仕上げに10分必要です。"]],
+"reserve":[["I reserved the meeting room for three hours.","会議室を3時間予約しました。"],["Please reserve two parking spaces.","駐車スペースを2台分確保してください。"]],
+"cordon off":[["We cordoned off the entrance area.","入口周辺を立入禁止にしました。"],["Please cordon off the demo area.","デモ区域を立入禁止にしてください。"]],
+"check in with":[["I'll check in with the crew at ten.","10時にスタッフに状況確認します。"],["Check in with the lab before you enter.","入室前に実験室に確認してください。"]],
+"confirm with":[["Please confirm with the director first.","まずディレクターに確認してください。"],["I confirmed with him yesterday.","昨日彼に確認しました。"]]
+};
+
+</script>
+
+<script>
+/* 見出し語の追加文例（各2件） */
+window.WORDEX={
+"prior art":[["The examiner cited three pieces of prior art.","審査官は3件の先行技術を引用しました。"],["A prior art search takes about two weeks.","先行技術調査には約2週間かかります。"]],
+"infringement":[["They sent us a warning letter about infringement.","侵害について警告書が届きました。"],["We concluded there is no infringement risk.","侵害のリスクはないと結論づけました。"]],
+"trade secret":[["Access to trade secrets is limited to five people.","営業秘密へのアクセスは5名に限定されています。"],["Losing a trade secret is often irreversible.","営業秘密の流出は取り返しがつかないことが多いです。"]],
+"non-disclosure agreement":[["The non-disclosure agreement expires next March.","その秘密保持契約は来年3月に満了します。"],["We cannot start the discussion without a non-disclosure agreement.","秘密保持契約なしに議論は始められません。"]],
+"disclose":[["We are not required to disclose the supplier name.","仕入先名を開示する義務はありません。"],["Please disclose only what is already published.","すでに公開済みの内容だけを開示してください。"]],
+"lead time":[["The lead time for the equipment is four months.","その設備の所要期間は4か月です。"],["We underestimated the lead time again.","またしても所要期間を見誤りました。"]],
+"countermeasure":[["Each risk needs a specific countermeasure.","各リスクに具体的な対策が必要です。"],["The countermeasure was effective in the trial.","その対策は試行で効果がありました。"]],
+"scope":[["The scope of this project has grown too wide.","この案件の範囲が広がりすぎています。"],["Please keep the discussion within scope.","議論は範囲内にとどめてください。"]],
+"registered":[["Only registered users can open the file.","登録済みの利用者だけがそのファイルを開けます。"],["The mark is registered in three countries.","その標章は3か国で登録済みです。"]],
+"exhibit":[["We exhibited at the same show last year.","昨年も同じ展示会に出展しました。"],["Which samples will you exhibit this time?","今回はどのサンプルを展示しますか。"]],
+"design around":[["A broad claim is harder to design around.","広いクレームは回避設計されにくいです。"],["They designed around our patent in six months.","彼らは半年で当社特許を回避設計しました。"]],
+"fall under":[["Software costs fall under a different budget.","ソフト費用は別の予算に該当します。"],["Does this case fall under the new rule?","この件は新しい規則に該当しますか。"]],
+"draw the line":[["It is hard to draw the line between support and development.","サポートと開発の線引きは難しいです。"],["We drew the line at free on-site repairs.","無償の現地修理までを限度としました。"]],
+"loop someone in":[["Could you loop me in on that thread?","そのやりとりに私も入れてもらえますか。"],["I forgot to loop the quality team in.","品質チームを共有に入れ忘れました。"]],
+"head off":[["A short call headed off a big misunderstanding.","短い電話が大きな誤解を未然に防ぎました。"],["We headed off the delay by ordering early.","早期発注で遅延を未然に防ぎました。"]],
+"approval workflow":[["The approval workflow is different for capital spending.","設備投資では承認フローが異なります。"],["Nobody understands the current approval workflow.","現在の承認フローを誰も理解していません。"]],
+"scope of work":[["The scope of work was agreed in writing.","作業範囲は書面で合意しました。"],["Anything outside the scope of work needs a new request.","作業範囲外は新規の依頼が必要です。"]],
+"escalate":[["Please do not escalate this before we investigate.","調査前にこの件を上に上げないでください。"],["The issue was escalated to the president's office.","その課題は社長室に上げられました。"]],
+"stakeholder":[["We listed the stakeholders for each process.","工程ごとに関係者を洗い出しました。"],["The main stakeholder is the manufacturing division.","主要な関係者は製造部門です。"]],
+"proficiency":[["Proficiency improves faster with regular feedback.","定期的な指摘があると熟練度は早く上がります。"],["We cannot measure proficiency by hours alone.","時間だけで熟練度は測れません。"]],
+"weighting":[["The weighting was set by the group leaders.","重み付けはグループリーダーが設定しました。"],["Changing the weighting changed the ranking completely.","重み付けを変えると順位が全く変わりました。"]],
+"threshold":[["We lowered the threshold after too many misses.","見落としが多かったため閾値を下げました。"],["Anything above the threshold is reported automatically.","閾値を超えたものは自動で報告されます。"]],
+"discrepancy":[["The audit found a discrepancy in the inventory count.","監査で在庫数の食い違いが見つかりました。"],["Please explain the discrepancy in the two reports.","2つの報告書の食い違いを説明してください。"]],
+"rollout":[["The rollout was delayed by one month.","本格導入は1か月遅れました。"],["We will announce the rollout schedule on Friday.","導入日程は金曜に周知します。"]],
+"consolidate":[["Let's consolidate the three lists into one.","3つの一覧を1つに集約しましょう。"],["Consolidating the data saved us two hours a week.","データ集約で週2時間削減できました。"]],
+"sign off on":[["The division head has to sign off on any overtime.","残業はすべて本部長の承認が必要です。"],["Nobody signed off on this change.","この変更を誰も承認していません。"]],
+"run something by someone":[["Can I run the agenda by you before Monday?","月曜までに議題を確認いただけますか。"],["I ran the numbers by accounting first.","先に経理へ数字を確認しました。"]],
+"follow up on":[["Please follow up on the vendor quotation.","業者の見積の進捗を追ってください。"],["I will follow up on this in next week's meeting.","この件は来週の会議で追跡します。"]],
+"roll out":[["We rolled out the new form to two groups first.","新しい依頼書をまず2グループへ展開しました。"],["When do you plan to roll it out company-wide?","全社展開はいつを予定していますか。"]],
+"account for":[["Safety work accounts for a third of our hours.","安全業務が工数の3分の1を占めます。"],["Please account for the missing samples by Friday.","金曜までに不明サンプルの所在を明らかにしてください。"]],
+"handover":[["The handover document is only two pages.","引継ぎ資料はわずか2ページです。"],["A rushed handover always causes problems later.","急いだ引継ぎは後で必ず問題になります。"]],
+"risk assessment":[["A new risk assessment is needed for the new solvent.","新しい溶剤には新たなリスクアセスメントが必要です。"],["The risk assessment is reviewed once a year.","リスクアセスメントは年1回見直します。"]],
+"reagent":[["Please label every reagent with the opening date.","すべての試薬に開封日を記入してください。"],["This reagent must be kept below five degrees.","この試薬は5度以下で保管が必要です。"]],
+"custodian":[["Every instrument needs a named custodian.","各装置に氏名入りの管理者が必要です。"],["The custodian approves all outside use.","管理者が外部利用をすべて承認します。"]],
+"inventory":[["Our reagent inventory has not been updated since March.","試薬の在庫は3月から更新されていません。"],["Inventory control is part of the safety audit.","在庫管理は安全監査の一部です。"]],
+"disposal":[["Disposal records must be kept for five years.","廃棄記録は5年間保管が必要です。"],["Who is responsible for disposal of the old solvent?","古い溶剤の廃棄は誰の責任ですか。"]],
+"designated":[["Only designated members may enter the cold room.","指定された者のみ低温室に入れます。"],["Park in the designated area near the entrance.","入口近くの指定区域に駐車してください。"]],
+"backup":[["Please name a backup for every safety role.","安全の各役割に副担当を指名してください。"],["The backup took over while she was on leave.","彼女の休暇中は副担当が引き継ぎました。"]],
+"compliance":[["Compliance training is mandatory for all members.","法令遵守研修は全員必須です。"],["The change was made for compliance reasons.","その変更は法令遵守のためです。"]],
+"gel permeation chromatography":[["Gel permeation chromatography shows the molecular weight distribution.","ゲル浸透クロマトグラフィーは分子量分布を示します。"],["We booked gel permeation chromatography for Thursday.","木曜にゲル浸透クロマトグラフィーを予約しました。"]],
+"hand over":[["Please hand over the keys on your last day.","最終日に鍵を引き渡してください。"],["He handed over three projects in one week.","彼は1週間で3件の案件を引き渡しました。"]],
+"take over":[["I will take over the monthly report from April.","4月から月報を引き継ぎます。"],["Nobody wants to take over the safety committee.","安全委員会を引き継ぎたがる人がいません。"]],
+"keep track of":[["We use a shared sheet to keep track of requests.","依頼の把握には共有シートを使っています。"],["It is hard to keep track of every revision.","全ての改訂を把握し続けるのは大変です。"]],
+"phase out":[["The solvent will be phased out by next year.","その溶剤は来年までに段階的に廃止されます。"],["We are phasing out paper request forms.","紙の依頼書を段階的に廃止しています。"]],
+"be up to date":[["Is the equipment list up to date?","設備一覧は最新になっていますか。"],["Please keep the contact sheet up to date.","連絡表を最新の状態に保ってください。"]],
+"quantify":[["It is difficult to quantify the benefit of this change.","この変更の効果を定量化するのは困難です。"],["We quantified the improvement as fifteen percent.","改善効果を15%と定量化しました。"]],
+"metric":[["Which metric best represents customer comfort?","顧客の快適さを最もよく表す指標はどれですか。"],["We track three metrics every month.","毎月3つの指標を追跡しています。"]],
+"standardization":[["Standardization would open a much larger market.","標準化すれば市場は大きく広がります。"],["The standardization committee meets twice a year.","標準化委員会は年2回開催されます。"]],
+"de facto standard":[["Once it becomes the de facto standard, pricing gets easier.","デファクトスタンダードになれば価格交渉が楽になります。"],["Their file format is already the de facto standard.","彼らのファイル形式はすでに事実上の標準です。"]],
+"contribution ratio":[["The contribution ratio of thickness was only ten percent.","厚みの寄与率はわずか10%でした。"],["We plotted the contribution ratio of each parameter.","各パラメータの寄与率を図示しました。"]],
+"haptics":[["Haptics is becoming important in car interiors.","触覚技術は車の内装で重要になりつつあります。"],["Our haptics research started five years ago.","当社の触覚技術研究は5年前に始まりました。"]],
+"monetize":[["We still have no clear plan to monetize this.","これを収益化する明確な計画がまだありません。"],["They monetized the technology through licensing.","彼らはライセンスで技術を収益化しました。"]],
+"proof of concept":[["The proof of concept convinced the president.","概念実証が社長を納得させました。"],["A proof of concept usually takes three months.","概念実証には通常3か月かかります。"]],
+"stall":[["Talks with the partner have stalled since June.","相手先との協議は6月から停滞しています。"],["The approval stalled at the budget stage.","承認は予算の段階で止まりました。"]],
+"value proposition":[["Our value proposition must fit one slide.","提供価値は1枚のスライドに収める必要があります。"],["The value proposition is clear, but the price is not.","提供価値は明確ですが価格が不明確です。"]],
+"get buy-in from":[["We failed to get buy-in from the factory.","工場の賛同を得られませんでした。"],["Getting buy-in from management took three meetings.","経営層の賛同を得るのに3回の会議を要しました。"]],
+"gain traction":[["The idea finally gained traction after the demo.","デモの後、その案はようやく軌道に乗りました。"],["New standards rarely gain traction in one year.","新しい規格が1年で軌道に乗ることはまれです。"]],
+"bridge the gap":[["A joint workshop helped bridge the gap.","合同ワークショップが隔たりを埋める助けになりました。"],["We need a common vocabulary to bridge the gap.","隔たりを埋めるには共通の用語が必要です。"]],
+"narrow down":[["Let's narrow down the causes before testing.","試験の前に原因を絞り込みましょう。"],["We narrowed the list down to four suppliers.","候補を4社に絞り込みました。"]],
+"reach out to":[["I reached out to them twice with no reply.","2度連絡しましたが返信がありません。"],["Please reach out to the university lab directly.","大学の研究室に直接連絡してください。"]],
+"shoot":[["The shoot was moved indoors because of the heat.","暑さのため撮影は屋内に変更されました。"],["We have one more shoot scheduled next month.","来月にもう1回撮影が予定されています。"]],
+"footage":[["Most of the footage was unusable.","映像素材の大半は使えませんでした。"],["Please send the raw footage by Friday.","金曜までに未編集の映像素材を送ってください。"]],
+"B-roll":[["We are short on B-roll for the opening.","冒頭用の補助映像が足りません。"],["Good B-roll makes a short program much stronger.","良い補助映像は短い番組を大きく引き立てます。"]],
+"impact absorption":[["Impact absorption drops at low temperatures.","低温では衝撃吸収性能が落ちます。"],["Customers care most about impact absorption.","顧客が最も重視するのは衝撃吸収です。"]],
+"thermal conductivity":[["We measured thermal conductivity at three thicknesses.","3つの厚みで熱伝導率を測定しました。"],["Higher thermal conductivity is not always better.","熱伝導率は高ければよいとは限りません。"]],
+"venue":[["The venue has no elevator for heavy equipment.","その会場には重量物用のエレベーターがありません。"],["We changed the venue two days before the event.","開催2日前に会場を変更しました。"]],
+"logistics":[["The logistics for overseas visitors are complicated.","海外からの来訪者の手配は複雑です。"],["Logistics took longer than the shoot itself.","手配が撮影本体より時間を要しました。"]],
+"consent":[["Written consent is required for every interview.","各インタビューには書面の承諾が必要です。"],["He gave consent to use his name.","彼は氏名の使用に同意しました。"]],
+"slot":[["Can we get a second slot in the afternoon?","午後にもう1枠取れますか。"],["The morning slot is already fully booked.","午前の枠はすでに埋まっています。"]],
+"contingency":[["Always build a contingency into the schedule.","予定には必ず予備を組み込んでください。"],["The contingency budget covered the extra day.","予備予算で追加の1日を賄いました。"]],
+"run through":[["Let's run through the safety points before we start.","始める前に安全上の要点を一通り確認しましょう。"],["We ran through the whole program twice.","全体を2回通しで確認しました。"]],
+"set up":[["It takes an hour to set up the lighting.","照明の設営に1時間かかります。"],["Could you set up a call with the supplier?","仕入先との電話を設定していただけますか。"]],
+"wrap up":[["We wrapped up thirty minutes early.","30分早く終えました。"],["Let's wrap up this topic and move on.","この話題を締めくくって次へ進みましょう。"]],
+"block off":[["I blocked off two hours for the review.","レビュー用に2時間押さえました。"],["Please block off the corridor during the shoot.","撮影中は廊下を確保してください。"]],
+"touch base with":[["I touched base with him about the schedule.","日程について彼と連絡を取りました。"],["Let's touch base again after the trial.","試行の後にまた連絡を取りましょう。"]]
+};
+
+</script>
+
+<script>
+"use strict";
+const S={sound:true,rate:100,dur:20,course:null,sec:"words",
+  startedAt:0,endsAt:0,expired:false,tick:null,seen:new Set()};
+const PASSCODE="4821";
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- theme (明るい画面 / 暗い画面) ---------- */
+function applyTheme(light){
+  document.documentElement.classList.toggle("light",light);
+  const sw=$("#swTheme"),ic=$("#thIcon"),lb=$("#thLabel");
+  if(sw)sw.classList.toggle("on",light);
+  if(ic)ic.textContent=light?"☀️":"🌙";
+  if(lb)lb.textContent=light?"明るい画面":"暗い画面";
+  const m=document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+  if(m)m.setAttribute("content",light?"default":"black-translucent");
+  try{localStorage.setItem("theme",light?"light":"dark");}catch(e){}
+}
+(function initTheme(){
+  let saved=null;
+  try{saved=localStorage.getItem("theme");}catch(e){}
+  if(!saved&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches)saved="light";
+  applyTheme(saved==="light");
+  $("#swTheme").onclick=()=>applyTheme(!document.documentElement.classList.contains("light"));
+})();
+
+function gate(){
+  const pin=$("#pin"),msg=$("#gatemsg");
+  if(sessionStorage.getItem("ok")==="1"){open();return;}
+  setTimeout(()=>pin.focus(),350);
+  pin.addEventListener("input",()=>{
+    msg.textContent="";
+    if(pin.value.length===4){
+      if(pin.value===PASSCODE){sessionStorage.setItem("ok","1");open();}
+      else{msg.textContent="パスコードが違います";pin.value="";}
+    }
+  });
+  function open(){$("#gate").style.display="none";$("#bar").style.display="block";boot();}
+}
+
+let VOICE=null,VOICE_M=null,JVOICE=null,JVOICE_M=null;
+function pickVoice(){
+  const all=speechSynthesis.getVoices();
+  const jv=all.filter(v=>/^ja/i.test(v.lang));
+  JVOICE=jv.find(v=>/Kyoko|O-ren|Sayaka|Google 日本語/i.test(v.name))||jv[0]||null;
+  JVOICE_M=jv.find(v=>/Otoya|Hattori|Ichiro/i.test(v.name))||JVOICE;
+  const vs=all.filter(v=>/^en[-_]/i.test(v.lang));
+  if(!vs.length)return;
+  const pick=function(names){for(let i=0;i<names.length;i++){
+    const v=vs.find(function(x){return x.name.indexOf(names[i])>=0;});if(v)return v;}return null;};
+  VOICE  =pick(["Samantha","Ava","Allison","Karen","Moira","Tessa","Google US English"])||
+          vs.find(v=>/en[-_]US/i.test(v.lang))||vs[0];
+  VOICE_M=pick(["Daniel","Alex","Fred","Aaron","Oliver","Google UK English Male","Tom"])||
+          vs.find(function(v){return v!==VOICE;})||VOICE;
+}
+function envoice(v){return v==="m"?(VOICE_M||VOICE):VOICE;}
+function javoice(v){return v==="m"?(JVOICE_M||JVOICE):JVOICE;}
+/* 英語と日本語訳を0.2秒あけて続けて読み上げる */
+function speakSeq(list){
+  if(!S.sound){toast("音声がOFFです。上部のスイッチをONにしてください。");return;}
+  stopSpeak();
+  let i=0;
+  const next=()=>{
+    if(i>=list.length)return;
+    const it=list[i++];
+    if(!it||!it.text){setTimeout(next,0);return;}
+    const u=new SpeechSynthesisUtterance(it.text);
+    if(it.lang==="ja"){
+      const jv=javoice(it.voice);if(jv)u.voice=jv;u.lang="ja-JP";
+      if(it.karaoke){const kk=it.karaoke;
+        u.onstart=function(){twEls(kk).forEach(function(s){s.classList.add("hi");});};}
+    }
+    else{
+      const ev=envoice(it.voice);if(ev)u.voice=ev;u.lang=(ev&&ev.lang)||"en-US";
+      PLAY.voice=it.voice||"";PLAY.base=null;PLAY.steps=0;PLAY.idx=-1;
+      attachKaraoke(u,it.text,it.karaoke);
+    }
+    u.rate=Math.max(.4,Math.min(1.6,S.rate/100));u.pitch=1;
+    const g=++PLAY.gen;
+    u.onend=()=>{if(g!==PLAY.gen)return;clearKaraoke();
+      if(i>=list.length){setPlay(false);PLAY.done=true;}setTimeout(next,200);};
+    u.onerror=()=>{if(g!==PLAY.gen)return;clearKaraoke();
+      if(i>=list.length){setPlay(false);PLAY.done=true;}setTimeout(next,200);};
+    PLAY.done=false;
+    speechSynthesis.speak(u);
+    setPlay(true);
+  };
+  next();
+}
+pickVoice();
+if(typeof speechSynthesis!=="undefined")speechSynthesis.onvoiceschanged=pickVoice;
+
+let karaokeTimers=[];
+function clearKaraoke(){
+  karaokeTimers.forEach(clearTimeout);karaokeTimers=[];
+  $$(".w.hi").forEach(e=>e.classList.remove("hi"));
+  $$(".jw.hi").forEach(e=>e.classList.remove("hi"));
+  $$(".bd.play").forEach(e=>e.classList.remove("play"));
+}
+function stopSpeak(){PLAY.gen++;try{speechSynthesis.cancel();}catch(e){}clearKaraoke();setPlay(false);}
+
+const PRON={};let pronSeq=0;
+function pronBtns(text,card,ja,vsel){
+  const id="p"+(++pronSeq);
+  PRON[id]={t:text,c:card||"",j:ja||"",v:vsel||""};
+  return {id:id,html:'<span class="pron">'+
+    '<button class="pbtn p1" data-p="'+id+'" data-a="say">♪</button>'+
+    (ja?'<button class="pbtn p2" data-p="'+id+'" data-a="ja2en">和♪</button>'+
+        '<button class="pbtn p3" data-p="'+id+'" data-a="en2ja">♪和</button>':'')+
+    '<button class="pbtn mic" data-p="'+id+'" data-a="mic">発音</button></span>'};
+}
+function pline(text,cls,card,target,ja){
+  const b=pronBtns(text,card,ja);
+  return '<div class="pline '+(cls||'')+'">'+b.html+
+    '<span class="ptxt" id="'+b.id+'">'+wordHTML(text,b.id,target)+'</span></div>';
+}
+/* 品詞・区分・熟語のマーク（枠線なし＝ボタンと区別） */
+function marksHTML(w,isPhrase){
+  const t=w.tag;
+  const label=t==="tech"?"技術用語":t==="casual"?"カジュアル":"ビジネス";
+  const cls=t==="tech"?"tech":t==="casual"?"cas":"biz";
+  return '<span class="marks">'+
+    (w.pos?'<span class="mk pos">'+esc(w.pos)+'</span>':'')+
+    '<span class="mk '+cls+'">'+label+'</span>'+
+    (isPhrase?'<span class="mk pos">熟語</span>':'')+'</span>';
+}
+/* 見出し語の文例：会合文脈の例文＋同じコースの会話からの用例 */
+function exList(w,course){
+  const out=[{en:w.ex.en,ja:w.ex.ja,src:"会合"}];
+  const seen={};seen[w.ex.en]=1;
+  /* ① 同じコースの会話に出てくる用例（最大1件） */
+  if(course&&course.dialogues)course.dialogues.forEach(function(d){
+    d.turns.forEach(function(t){
+      if(out.length>=2||seen[t.en])return;
+      if(markSet(t.en.split(/\s+/),w.en).size){seen[t.en]=1;out.push({en:t.en,ja:t.ja,src:"会話"});}
+    });
+  });
+  /* ② 一般的な用例で3件まで補う */
+  const extra=(window.WORDEX&&window.WORDEX[w.en])||[];
+  for(let i=0;i<extra.length&&out.length<3;i++){
+    if(seen[extra[i][0]])continue;
+    seen[extra[i][0]]=1;
+    out.push({en:extra[i][0],ja:extra[i][1],src:"用例"});
+  }
+  return out;
+}
+document.addEventListener("click",function(e){
+  const b=e.target.closest?e.target.closest(".pbtn"):null;
+  if(!b)return;
+  e.preventDefault();e.stopPropagation();
+  const rec=PRON[b.dataset.p];if(!rec)return;
+  if(rec.c)mark(rec.c);
+  const a=b.dataset.a;
+  const vv=rec.v||"";
+  if(a==="say"){logItem(rec.c,"play");speak(rec.t,{karaoke:b.dataset.p,voice:vv});}
+  else if(a==="ja2en"){logItem(rec.c,"play");
+    speakSeq([{text:rec.j,lang:"ja",karaoke:b.dataset.p,voice:vv},
+              {text:rec.t,lang:"en",karaoke:b.dataset.p,voice:vv}]);}
+  else if(a==="en2ja"){logItem(rec.c,"play");
+    speakSeq([{text:rec.t,lang:"en",karaoke:b.dataset.p,voice:vv},
+              {text:rec.j,lang:"ja",karaoke:b.dataset.p,voice:vv}]);}
+  else checkPronunciation(rec.t,b,rec.c);
+});
+
+const IRR={went:"go",gone:"go",gave:"give",given:"give",sought:"seek",brought:"bring",
+lost:"lose",took:"take",taken:"take",made:"make",kept:"keep",held:"hold",ran:"run",
+drew:"draw",fell:"fall",met:"meet",sent:"send",came:"come",felt:"feel",found:"find",
+got:"get",gotten:"get",said:"say",paid:"pay",left:"leave",built:"build",caught:"catch",
+did:"do",done:"do",was:"be",were:"be",is:"be",are:"be",been:"be",being:"be",am:"be",
+had:"have",has:"have",spoke:"speak",wrote:"write",broke:"break",chose:"choose"};
+function norm2(s){return String(s).toLowerCase().replace(/[^a-z]/g,"");}
+function lemma(s){const n=norm2(s);return IRR[n]||n;}
+function stemEq(a,b){
+  a=lemma(a);b=lemma(b);
+  if(!a||!b)return false;
+  if(a===b)return true;
+  if(a.length>=3&&b.length>=3&&(a.indexOf(b)===0||b.indexOf(a)===0))return true;
+  if(a.length<4||b.length<4)return false;
+  const n=Math.max(4,Math.min(a.length,b.length)-2);
+  return a.slice(0,n)===b.slice(0,n)&&Math.abs(a.length-b.length)<=4;
+}
+const SKIPW={be:1,someone:1,something:1,ones:1,the:1,a:1,an:1};
+function hiSet(words,target){
+  const res=new Set();
+  if(!target)return res;
+  const tt=String(target).toLowerCase().split(/[^a-z']+/).filter(Boolean);
+  const req=tt.filter(w=>!SKIPW[norm2(w)]);
+  if(!req.length)return res;
+  const joined=req.map(norm2).join("");
+  for(let i=0;i<words.length;i++){
+    if(lemma(words[i])===joined){res.add(i);return res;}
+  }
+  let best=[];
+  for(let i=0;i<words.length;i++){
+    const hit=[];let si=i;
+    for(let k=0;k<req.length;k++){
+      let found=-1;
+      for(let g=0;g<=3&&si+g<words.length;g++){
+        const wl=lemma(words[si+g]);
+        if(k+1<req.length&&wl===norm2(req[k])+norm2(req[k+1])){found=si+g;k++;break;}
+        if(stemEq(words[si+g],req[k])){found=si+g;break;}
+      }
+      if(found<0)break;
+      hit.push(found);si=found+1;
+    }
+    if(hit.length>best.length)best=hit;
+    if(best.length>=req.length)break;
+  }
+  if(best.length){
+    const lo=best[0],hi=best[best.length-1];
+    if(hi-lo<=req.length+2){for(let z=lo;z<=hi;z++)res.add(z);}
+    else best.forEach(x=>res.add(x));
+  }
+  return res;
+}
+function jaCands(t){
+  if(!t)return [];
+  const out=[],s0=String(t);
+  (s0.match(/[（(][^）)]*[）)]/g)||[]).forEach(function(x){
+    const v=x.replace(/[（()）]/g,"").trim();
+    if(v.length>=2)out.push(v);
+  });
+  let s=s0.replace(/[（(][^）)]*[）)]/g,"").replace(/[①②③④⑤]/g,"／");
+  s.split(/[／\/・、,｜|　\s]/).forEach(function(p0){
+    let p=p0.replace(/^[〜~]+/,"").replace(/[〜~]+$/,"").trim();
+    for(let k=0;k<2;k++)p=p.replace(/^[をにがはのとで]/,"");
+    p=p.trim();
+    if(!p)return;
+    out.push(p);
+    ["すること","します","される","する","した","ます","こと"].forEach(function(t2){
+      if(p.length>t2.length+1&&p.slice(-t2.length)===t2)out.push(p.slice(0,-t2.length));
+    });
+    if(p.length>=3&&/[ぁ-ん]$/.test(p))out.push(p.slice(0,-1));
+    (p.match(/[一-龯々]{2,}|[ァ-ヴー]{3,}|[A-Za-z]{2,}/g)||[]).forEach(function(r){
+      out.push(r);
+      if(r.length>=3){for(let i=1;i<=r.length-2;i++){out.push(r.slice(i));out.push(r.slice(0,r.length-i));}}
+    });
+  });
+  return Array.from(new Set(out)).filter(function(x){return x.length>=2;})
+    .sort(function(a,b){return b.length-a.length;});
+}
+function findJa(s,c){
+  let p=s.indexOf(c),first=-1;
+  while(p>=0){
+    if(first<0)first=p;
+    if(!/[一-龯々]/.test(s.charAt(p+c.length)))return p;
+    p=s.indexOf(c,p+1);
+  }
+  return first;
+}
+function jaHTML(sent,term){
+  const s=String(sent==null?"":sent);
+  const cands=jaCands(term);
+  for(let i=0;i<cands.length;i++){
+    const p=findJa(s,cands[i]);
+    if(p>=0)return esc(s.slice(0,p))+'<span class="jw">'+esc(cands[i])+'</span>'+esc(s.slice(p+cands[i].length));
+  }
+  return esc(s);
+}
+function wordHTML(text,id,target){
+  const parts=text.split(/(\s+)/);
+  const words=parts.filter(p=>!/^\s+$/.test(p));
+  const hs=hiSet(words,target);
+  let wi=-1;
+  return parts.map((t,i)=>{
+    if(/^\s+$/.test(t))return t;
+    wi++;
+    return '<span class="w'+(hs.has(wi)?" tw":"")+'" data-k="'+id+'" data-i="'+i+'">'+esc(t)+'</span>';
+  }).join("");
+}
+
+/* 読み上げ中の語に背景色を付ける（英語のみ） */
+const PLAY={kid:null,words:[],idx:-1,base:null,steps:0,voice:"",playing:false,done:false,gen:0};
+function setPlay(v){
+  PLAY.playing=!!v;
+  const b=document.getElementById("pbToggle");
+  if(b)b.textContent=v?"=":"▶";
+}
+function speakFrom(start){
+  if(!PLAY.kid||!PLAY.words.length)return;
+  if(!S.sound){toast("音声がOFFです。上部のスイッチをONにしてください。");return;}
+  start=Math.max(0,Math.min(start,PLAY.words.length-1));
+  const txt=PLAY.words.slice(start).join(" ");
+  stopSpeak();
+  const u=new SpeechSynthesisUtterance(txt);
+  const v=envoice(PLAY.voice);
+  if(v)u.voice=v;
+  u.lang=(v&&v.lang)||"en-US";
+  u.rate=Math.max(.4,Math.min(1.6,S.rate/100));u.pitch=1;
+  attachKaraoke(u,txt,PLAY.kid,start);
+  const g=++PLAY.gen;
+  u.onend=function(){if(g!==PLAY.gen)return;clearKaraoke();setPlay(false);PLAY.done=true;};
+  u.onerror=function(){if(g!==PLAY.gen)return;clearKaraoke();setPlay(false);PLAY.done=true;};
+  PLAY.done=false;
+  speechSynthesis.speak(u);
+  setPlay(true);
+}
+function boxOf(kid){
+  const e=document.getElementById(kid);
+  return e&&e.closest?e.closest(".ex, .altex, .bd, .wc"):null;
+}
+function jwEl(kid){const b=boxOf(kid);return b&&b.querySelector?b.querySelector(".jw"):null;}
+function twEls(kid){return $$('.w[data-k="'+kid+'"].tw');}
+function syncJa(kid,hit){
+  const b=boxOf(kid);
+  if(!b||!b.querySelectorAll)return;
+  const jws=b.querySelectorAll(".jw");
+  if(!jws||!jws.length)return;
+  const ref=hit&&hit.dataset?hit.dataset.ref:null;
+  const isTw=!!(hit&&hit.classList&&hit.classList.contains("tw"));
+  [].forEach.call(jws,function(j){
+    const on=ref?(j.dataset&&j.dataset.ref===ref):isTw;
+    j.classList.toggle("hi",!!on);
+  });
+}
+function attachKaraoke(u,text,kid,off){
+  if(!kid)return;
+  off=off||0;
+  const all=$$('.w[data-k="'+kid+'"]');
+  const spans=all.slice(off);
+  if(!spans.length)return;
+  PLAY.kid=kid;PLAY.words=all.map(function(s){return s.textContent;});
+  let used=false;
+  u.onboundary=function(ev){
+    if(ev.name&&ev.name!=="word")return;
+    used=true;
+    let acc=0,hit=null;
+    for(let i=0;i<spans.length;i++){
+      const len=spans[i].textContent.length;
+      if(ev.charIndex>=acc&&ev.charIndex<acc+len+1){hit=spans[i];break;}
+      acc+=len+1;
+    }
+    if(hit){all.forEach(function(s){s.classList.remove("hi");});hit.classList.add("hi");
+      PLAY.idx=off+spans.indexOf(hit);syncJa(kid,hit);}
+  };
+  u.onstart=function(){
+    const host=spans[0].closest(".bd");if(host)host.classList.add("play");
+    const total=text.length;
+    const dur=(total/(14.5*(S.rate/100)))*1000;
+    let acc=0;
+    spans.forEach(function(sp){
+      const at=(acc/total)*dur;
+      acc+=sp.textContent.length+1;
+      karaokeTimers.push(setTimeout(function(){
+        if(used)return;
+        all.forEach(function(s){s.classList.remove("hi");});
+        sp.classList.add("hi");
+        PLAY.idx=off+spans.indexOf(sp);syncJa(kid,sp);
+      },at));
+    });
+  };
+}
+function speak(text,opts){
+  opts=opts||{};
+  if(!S.sound){toast("音声がOFFです。上部のスイッチをONにしてください。");return;}
+  stopSpeak();
+  const u=new SpeechSynthesisUtterance(text);
+  const v=envoice(opts.voice);
+  if(v)u.voice=v;
+  u.lang=(v&&v.lang)||"en-US";
+  u.rate=Math.max(.4,Math.min(1.6,S.rate/100));
+  u.pitch=1;
+  PLAY.voice=opts.voice||"";PLAY.base=null;PLAY.steps=0;PLAY.idx=-1;
+  attachKaraoke(u,text,opts.karaoke);
+  const g=++PLAY.gen;
+  u.onend=function(){if(g!==PLAY.gen)return;clearKaraoke();setPlay(false);PLAY.done=true;if(opts.then)opts.then();};
+  u.onerror=function(){if(g!==PLAY.gen)return;clearKaraoke();setPlay(false);PLAY.done=true;};
+  PLAY.done=false;
+  speechSynthesis.speak(u);
+  setPlay(true);
+}
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const CONFUSION=[
+  {t:/th/,h:/^(?!.*th).*(s|z)/,m:"<b>TH音 /θ·ð/</b> が /s/ /z/ に聞こえています。舌先を上下の歯で軽くはさみ、息だけを通してください。"},
+  {t:/th/,h:/^(?!.*th).*(t|d)/,m:"<b>TH音 /θ·ð/</b> が /t/ /d/ に聞こえています。舌を歯ぐきに当てず、歯の間から息を出します。"},
+  {t:/r/,h:/l/,m:"<b>R音</b> がL音に聞こえています。Rは舌先をどこにも触れさせず、口の中で丸めたまま出します。"},
+  {t:/l/,h:/r/,m:"<b>L音</b> がR音に聞こえています。Lは舌先を上の歯ぐきにしっかり付けてから離します。"},
+  {t:/v/,h:/b/,m:"<b>V音</b> がB音に聞こえています。下唇を上の前歯に軽く当てて振動させてください。"},
+  {t:/f/,h:/h/,m:"<b>F音</b> がH音に聞こえています。下唇を上の前歯に当てて息を摩擦させます。"},
+  {t:/si/,h:/shi/,m:"<b>/si/</b> が /ʃi/（シ）になっています。「スィ」に近く発音してください。"}
+];
+function norm(s){return String(s).toLowerCase().replace(/[^a-z' ]/g," ").replace(/\s+/g," ").trim();}
+function lev(a,b){
+  const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i].concat(Array(n).fill(0)));
+  for(let j=0;j<=n;j++)d[0][j]=j;
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return d[m][n];
+}
+function sim(a,b){if(!a&&!b)return 1;const L=Math.max(a.length,b.length)||1;return 1-lev(a,b)/L;}
+
+/* --- 自分の声の録音（対応していない端末では自動的に無効になる） --- */
+let MREC=null,MSTREAM=null,RECOK=true;
+const MYURL={};
+function startRec(cb){
+  if(!RECOK||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){cb(null);return;}
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+    MSTREAM=st;
+    let mt="";
+    ["audio/mp4","audio/webm;codecs=opus","audio/webm"].forEach(function(t){
+      try{if(!mt&&window.MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(t))mt=t;}catch(e){}
+    });
+    let mr;
+    try{mr=mt?new MediaRecorder(st,{mimeType:mt}):new MediaRecorder(st);}
+    catch(e){RECOK=false;try{st.getTracks().forEach(function(t){t.stop();});}catch(e2){}cb(null);return;}
+    const chunks=[];
+    mr.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
+    mr.onstop=function(){
+      try{st.getTracks().forEach(function(t){t.stop();});}catch(e){}
+      MSTREAM=null;MREC=null;
+      cb(chunks.length?new Blob(chunks,{type:mr.mimeType||"audio/webm"}):null);
+    };
+    MREC=mr;
+    try{mr.start();}catch(e){RECOK=false;cb(null);}
+  }).catch(function(){RECOK=false;cb(null);});
+}
+function stopRec(){
+  try{if(MREC&&MREC.state!=="inactive"){MREC.stop();return;}}catch(e){}
+  try{if(MSTREAM)MSTREAM.getTracks().forEach(function(t){t.stop();});}catch(e){}
+  MSTREAM=null;MREC=null;
+}
+/* お手本の読み上げと同じくらいの音量に自動調整して再生する */
+let AC=null;
+function actx(){
+  if(!AC){
+    const C=window.AudioContext||window.webkitAudioContext;
+    if(C){try{AC=new C();}catch(e){AC=null;}}
+  }
+  return AC;
+}
+const MYBUF={};
+function playLoud(card,blob,url){
+  const ctx=actx();
+  if(!ctx){try{const a=new Audio(url);a.volume=1;a.play();}catch(e){}return;}
+  try{if(ctx.state==="suspended")ctx.resume();}catch(e){}
+  const go=function(ab){
+    /* 実効音量（RMS）とピークを測って利得を決める */
+    let peak=0,sumsq=0,n=0;
+    for(let ch=0;ch<ab.numberOfChannels;ch++){
+      const d=ab.getChannelData(ch);
+      for(let i=0;i<d.length;i+=4){
+        const v=d[i],av=v<0?-v:v;
+        if(av>peak)peak=av;
+        sumsq+=v*v;n++;
+      }
+    }
+    const rms=n?Math.sqrt(sumsq/n):0;
+    let g=rms>0.0004?0.12/rms:1;          /* 読み上げ音声とほぼ同じ実効音量に合わせる */
+    if(peak>0)g=Math.min(g,0.97/peak);    /* 音割れを防ぐ */
+    g=Math.max(0.6,Math.min(16,g));
+    const src=ctx.createBufferSource();src.buffer=ab;
+    const gain=ctx.createGain();gain.gain.value=g;
+    let out=gain;
+    try{
+      const comp=ctx.createDynamicsCompressor();
+      comp.threshold.value=-20;comp.knee.value=25;comp.ratio.value=5;
+      comp.attack.value=0.004;comp.release.value=0.25;
+      gain.connect(comp);out=comp;
+    }catch(e){}
+    src.connect(gain);out.connect(ctx.destination);
+    try{src.start();}catch(e){}
+  };
+  const dec=function(arr){
+    try{
+      const p=ctx.decodeAudioData(arr,go,function(){try{const a=new Audio(url);a.play();}catch(e){}});
+      if(p&&p.then)p.then(go).catch(function(){try{const a=new Audio(url);a.play();}catch(e){}});
+    }catch(e){try{const a=new Audio(url);a.play();}catch(e2){}}
+  };
+  if(MYBUF[card]){dec(MYBUF[card].slice(0));return;}
+  if(blob.arrayBuffer){
+    blob.arrayBuffer().then(function(arr){MYBUF[card]=arr;dec(arr.slice(0));})
+      .catch(function(){try{const a=new Audio(url);a.play();}catch(e){}});
+  }else{
+    const fr=new FileReader();
+    fr.onload=function(){MYBUF[card]=fr.result;dec(fr.result.slice(0));};
+    fr.onerror=function(){try{const a=new Audio(url);a.play();}catch(e){}};
+    fr.readAsArrayBuffer(blob);
+  }
+}
+function showMyRec(card,blob){
+  if(!card||!blob)return;
+  const b=document.getElementById("my_"+card);
+  if(!b)return;
+  if(MYURL[card]){try{URL.revokeObjectURL(MYURL[card]);}catch(e){}}
+  delete MYBUF[card];
+  const url=URL.createObjectURL(blob);
+  MYURL[card]=url;
+  b.classList.add("on");
+  b.onclick=function(){
+    try{stopSpeak();}catch(e){}
+    playLoud(card,blob,url);
+  };
+}
+
+/* --- 発音チェック本体 --- */
+let RECOG=null,RECTIMER=null,RECTICK=null;
+function checkPronunciation(target,btn,card){
+  /* 録音中にもう一度押したら停止する（固まったときの脱出口） */
+  if(RECOG){
+    try{RECOG.stop();}catch(e){}
+    setTimeout(function(){try{if(RECOG)RECOG.abort();}catch(e){}},300);
+    return;
+  }
+  if(!SR){showPR("bad","この端末では発音チェックに対応していません。<br>iPhoneのSafari、またはパソコンのChrome / Edge でお試しください。",target);return;}
+  const rec=new SR();
+  RECOG=rec;
+  rec.lang="en-US";rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=3;
+  const orig=btn.textContent;
+  let left=10,got=false,done=false;
+  btn.classList.add("rec");btn.textContent="録音中 "+left;
+  stopSpeak();
+  startRec(function(blob){if(blob)showMyRec(card,blob);});
+  function cleanup(){
+    if(done)return;done=true;
+    RECOG=null;
+    clearTimeout(RECTIMER);clearInterval(RECTICK);
+    btn.classList.remove("rec");btn.textContent=orig;
+    stopRec();
+  }
+  RECTICK=setInterval(function(){
+    left--;
+    if(left>=0&&!done)btn.textContent="録音中 "+left;
+  },1000);
+  /* 10秒で自動終了 */
+  RECTIMER=setTimeout(function(){
+    try{rec.stop();}catch(e){}
+    setTimeout(function(){
+      try{rec.abort();}catch(e){}
+      if(!got&&!done){showPR("bad","10秒間 音声が認識できなかったため、録音を自動終了しました。<br>マイクの許可と音量をご確認のうえ、もう一度お試しください。",target);}
+      cleanup();
+    },400);
+  },10000);
+  rec.onresult=function(e){
+    got=true;
+    const alts=[].slice.call(e.results[0]).map(function(r){return norm(r.transcript);}).filter(Boolean);
+    const tn=norm(target);
+    let best=alts[0]||"",bs=-1;
+    alts.forEach(function(a){const s=sim(tn,a);if(s>bs){bs=s;best=a;}});
+    render(tn,best,bs);
+    logItem(card,"mic",Math.round(Math.max(0,bs)*100));
+  };
+  rec.onerror=function(e){
+    const msg=e.error==="not-allowed"
+      ?"マイクの使用が許可されていません。<br>設定 → Safari → マイク を「許可」にしてください。"
+      :e.error==="no-speech"?"音声が検出されませんでした。もう一度お試しください。"
+      :e.error==="aborted"?"録音を中止しました。"
+      :"認識できませんでした（"+e.error+"）。";
+    if(e.error!=="aborted"||!got)showPR("bad",msg,target);
+    cleanup();
+  };
+  rec.onend=function(){
+    if(!got&&!$("#prTop").classList.contains("on"))
+      showPR("bad","音声が検出されませんでした。もう一度お試しください。",target);
+    cleanup();
+  };
+  try{rec.start();}catch(err){cleanup();}
+
+  function render(tn,heard,score){
+    const pct=Math.round(Math.max(0,score)*100);
+    const tw=tn.split(" "),hw=heard.split(" ");
+    const tips=[],bad=[];
+    tw.forEach(function(w,i){
+      const hh=hw[i]||"";
+      if(sim(w,hh)<0.82){
+        bad.push(w);
+        for(let k=0;k<CONFUSION.length;k++){
+          const r=CONFUSION[k];
+          if(r.t.test(w)&&r.h.test(hh)&&tips.indexOf(r.m)<0){tips.push(r.m);break;}
+        }
+        if(hh&&w.length-hh.length>=1&&w.indexOf(hh)===0)
+          tips.push("<b>語末の子音</b>が落ちている可能性があります（"+esc(w)+"）。最後の子音まではっきり出してください。");
+      }
+    });
+    if(hw.length<tw.length)tips.push("<b>認識されなかった語</b>があります。少しゆっくり、区切って発音してみてください。");
+    if(!tips.length&&pct<100)tips.push("大きな誤りはありません。<b>強勢（アクセント）の位置</b>を意識するとさらに明瞭になります。");
+    if(pct>=100)tips.push("目標語がそのまま認識されました。この調子でリズムも真似してみてください。");
+    const cls=pct>=90?"good":pct>=70?"mid":"bad";
+    const label=pct>=90?"良好":pct>=70?"おしい":"要練習";
+    let html='<div class="sc">'+pct+'点 — '+label+'</div>';
+    if(bad.length)html+='<div>崩れた語：<b>'+bad.map(esc).join(" / ")+'</b></div>';
+    html+='<ul>'+tips.map(function(t){return "<li>"+t+"</li>";}).join("")+'</ul>';
+    html+='<div class="heard">認識された音声：「'+esc(heard||"（無音）")+'」</div>';
+    html+='<div class="heard">※音素単位の採点ではなく、音声認識結果との一致に基づく判定です。</div>';
+    showPR(cls,html,target);
+  }
+}
+function showPR(cls,html,target){
+  const p=$("#prTop");
+  p.className="prtop on "+cls;
+  p.innerHTML='<button class="prclose" id="prX">✕</button>'+
+    '<div class="tgt">🎯 '+esc(target)+'</div>'+html;
+  $("#prX").onclick=()=>{p.className="prtop";p.innerHTML="";};
+  p.scrollTop=0;
+}
+
+function startTimer(){
+  S.startedAt=Date.now();S.endsAt=S.startedAt+S.dur*60000;S.expired=false;
+  clearInterval(S.tick);
+  S.tick=setInterval(()=>{
+    const left=S.endsAt-Date.now(),t=$("#timer");
+    if(left<=0){
+      t.textContent="00:00";t.classList.add("warn");
+      if(!S.expired){S.expired=true;timeUp();}
+      return;
+    }
+    const m=Math.floor(left/60000),s=Math.floor(left%60000/1000);
+    t.textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    t.classList.toggle("warn",left<180000);
+  },1000);
+}
+function timeUp(){
+  stopSpeak();
+  overlay('<h3>⏱ 時間になりました</h3><p>設定した'+S.dur+'分が経過しました。<br>ここまでの内容で終了できます。</p>'+
+    '<button class="btn" id="ovEnd">ここで終了する</button><button class="btn ghost" id="ovMore">⏱ 延長する</button>');
+  $("#ovEnd").onclick=()=>{closeOverlay();finish();};
+  $("#ovMore").onclick=()=>{closeOverlay();extendOverlay();};
+}
+function overlay(html){$("#ovlBox").innerHTML=html;$("#ovl").classList.add("on");}
+function closeOverlay(){$("#ovl").classList.remove("on");}
+function toast(msg){
+  overlay('<p style="margin:0 0 14px">'+msg+'</p><button class="btn" id="ovOk">OK</button>');
+  $("#ovOk").onclick=closeOverlay;
+}
+
+const CATS=[
+ {id:"ip",  icon:"⚖️", name:"知財コース"},
+ {id:"mech",icon:"⚙️", name:"機構グループコース"},
+ {id:"syn", icon:"🧪", name:"合成グループコース"},
+ {id:"ops", icon:"📋", name:"開発サポコース"},
+ {id:"etc", icon:"🌐", name:"その他"}
+];
+let CURCAT=null;
+function doneSet(){try{return new Set(JSON.parse(localStorage.getItem("done")||"[]"));}catch(e){return new Set();}}
+function markDone(id){try{const s=doneSet();s.add(id);localStorage.setItem("done",JSON.stringify(Array.from(s)));}catch(e){}}
+function meetingsOf(cat){
+  return window.LESSON.courses.filter(c=>c.cat===cat).sort((a,b)=>b.date.localeCompare(a.date));
+}
+function renderCats(){
+  const cc=$("#catChips");cc.innerHTML="";
+  CATS.forEach(k=>{
+    const n=meetingsOf(k.id).length;
+    const b=document.createElement("button");
+    b.className="chip"+(CURCAT===k.id?" sel":"");
+    b.innerHTML=k.icon+" "+k.name+' <span style="opacity:.55">'+n+'</span>';
+    if(!n)b.style.opacity=".4";
+    b.onclick=()=>{if(!n)return;CURCAT=k.id;renderCats();renderMeetings();};
+    cc.appendChild(b);
+  });
+}
+function renderMeetings(){
+  const cl=$("#courseList");cl.innerHTML="";
+  if(!CURCAT){cl.innerHTML='<div class="tiny">上でコースを選ぶと、そのコースの会合が一覧表示されます。特に希望がなければ下の「おまかせ」で、まだ学習していない直近の会合から順に遡って学習できます。</div>';return;}
+  const ms=meetingsOf(CURCAT),dn=doneSet();
+  if(!ms.length){cl.innerHTML='<div class="tiny">このコースの教材はまだありません。毎日18:00の自動生成で追加されます。</div>';return;}
+  ms.forEach(c=>{
+    const b=document.createElement("button");
+    b.className="course";
+    b.innerHTML='<div class="ic">'+c.icon+'</div><div>'+
+      '<div class="tt">'+(dn.has(c.id)?'✓ ':'')+esc(c.titleJa)+'</div>'+
+      '<div class="tj">'+esc(c.title)+'</div>'+
+      '<div class="ss">'+esc(c.date)+'｜'+esc(c.group)+'<br>'+esc(c.summaryJa)+'</div></div>';
+    b.onclick=()=>startCourse(c);
+    cl.appendChild(b);
+  });
+}
+function autoPick(exclude){
+  const dn=doneSet();
+  const all=window.LESSON.courses.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  let c=all.find(x=>!dn.has(x.id)&&x.id!==exclude);
+  if(!c)c=all.filter(x=>x.id!==exclude)[0]||all[0];
+  return c;
+}
+function extendOverlay(){
+  stopSpeak();
+  overlay('<h3>⏱ 延長する</h3><p>学習時間を選び直して、続けて学習できます。</p>'+
+    '<div class="chips" style="justify-content:center" id="exChips"></div>'+
+    '<button class="btn" id="exSame">このコースを続ける</button>'+
+    '<button class="btn ghost" id="exAuto">🎲 おまかせで次の会合へ</button>'+
+    '<button class="btn ghost" id="exPick">コースを選び直す</button>');
+  const ec=$("#exChips");let pick=S.dur;
+  [15,20,25,30].forEach(d=>{
+    const b=document.createElement("button");
+    b.className="chip"+(d===pick?" sel":"");b.textContent=d+"分";
+    b.onclick=()=>{pick=d;Array.from(ec.children).forEach(x=>x.classList.remove("sel"));b.classList.add("sel");};
+    ec.appendChild(b);
+  });
+  $("#exSame").onclick=()=>{S.dur=pick;closeOverlay();startTimer();};
+  $("#exAuto").onclick=()=>{S.dur=pick;closeOverlay();if(S.course)markDone(S.course.id);
+    startCourse(autoPick(S.course?S.course.id:null));};
+  $("#exPick").onclick=()=>{S.dur=pick;closeOverlay();if(S.course)markDone(S.course.id);backToTop();};
+}
+function backToTop(){
+  stopSpeak();clearInterval(S.tick);
+  $("#timer").textContent="--:--";$("#timer").classList.remove("warn");
+  showScreen("scSetup");$("#nav").classList.remove("on");
+  renderCats();renderMeetings();window.scrollTo(0,0);
+}
+
+/* ===== 学習記録 ===== */
+const ITEMS={};
+function readLog(){try{return JSON.parse(localStorage.getItem("log")||"{}");}catch(e){return {};}}
+function writeLog(o){try{localStorage.setItem("log",JSON.stringify(o));}catch(e){}}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function logItem(card,how,score){
+  if(!card||!ITEMS[card]||!S.course)return;
+  const it=ITEMS[card];
+  const w=it.w||(it.d?{en:it.d.title,ja:it.d.titleJa,ipa:"",tag:"business",alts:[],ex:{en:"",ja:""}}:null);
+  if(!w||!w.en)return;
+  const L=readLog(),key=S.course.id+"|"+(it.d?"D|":"")+w.en,now=today();
+  const e=L[key]||{en:w.en,ipa:w.ipa||"",ja:w.ja||"",tag:w.tag||"",kind:it.kind,
+    course:S.course.titleJa,cat:S.course.cat,cid:S.course.id,mdate:S.course.date,
+    alt1:(w.alts&&w.alts[0]?w.alts[0].en:""),alt2:(w.alts&&w.alts[1]?w.alts[1].en:""),
+    ex:(w.ex?w.ex.en:""),exja:(w.ex?w.ex.ja:""),
+    first:now,plays:0,mics:0,best:0};
+  e.last=now;
+  if(how==="mic"){e.mics++;if(score!=null&&score>e.best)e.best=score;}
+  else e.plays++;
+  L[key]=e;writeLog(L);
+}
+const TAGJA={business:"ビジネス",casual:"カジュアル",tech:"技術用語"};
+let LOGSORT="en";
+function logRows(){
+  const L=readLog();
+  const rows=Object.keys(L).map(k=>L[k]);
+  const cmp={
+    en:(a,b)=>a.en.toLowerCase().localeCompare(b.en.toLowerCase()),
+    last:(a,b)=>(b.last||"").localeCompare(a.last||"")||a.en.localeCompare(b.en),
+    course:(a,b)=>(a.course||"").localeCompare(b.course||"")||a.en.localeCompare(b.en),
+    kind:(a,b)=>(a.kind||"").localeCompare(b.kind||"")||a.en.localeCompare(b.en),
+    best:(a,b)=>(a.best||0)-(b.best||0)||a.en.localeCompare(b.en),
+    mdate:(a,b)=>(b.mdate||"").localeCompare(a.mdate||"")||a.en.localeCompare(b.en)
+  };
+  return rows.sort(cmp[LOGSORT]||cmp.en);
+}
+function renderLog(){
+  const rows=logRows();
+  const done=rows.filter(r=>r.mics>0);
+  const avg=done.length?Math.round(done.reduce((s,r)=>s+r.best,0)/done.length):0;
+  $("#logStat").innerHTML=
+    '<div><span>学習した語</span><b>'+rows.length+'</b></div>'+
+    '<div><span>発音チェック済</span><b>'+done.length+'</b></div>'+
+    '<div><span>平均スコア</span><b>'+(done.length?avg+"点":"—")+'</b></div>';
+  const sorts=[["en","A→Z順"],["last","学習日が新しい順"],["mdate","会合日が新しい順"],
+               ["course","コース順"],["kind","単語・熟語順"],["best","スコアが低い順"]];
+  $("#logSorts").innerHTML=sorts.map(s=>
+    '<button data-s="'+s[0]+'"'+(LOGSORT===s[0]?' class="sel"':'')+'>'+s[1]+'</button>').join("");
+  $$("#logSorts button").forEach(b=>b.onclick=()=>{LOGSORT=b.dataset.s;renderLog();});
+  if(!rows.length){
+    $("#logTbl").innerHTML='<tr><td class="tiny" style="padding:16px">まだ記録がありません。単語カードの ♪ や 発音 を押すと記録されます。</td></tr>';
+    return;
+  }
+  $("#logTbl").innerHTML=
+    '<thead><tr><th>英語</th><th>日本語</th><th>種別</th><th>区分</th><th>コース</th>'+
+    '<th>会合日</th><th>学習日</th><th>回数</th><th>最高点</th></tr></thead><tbody>'+
+    rows.map(r=>'<tr>'+
+      '<td class="e">'+esc(r.en)+'<div style="font-size:10.5px;color:var(--tx3);font-weight:400">'+esc(r.ipa)+'</div></td>'+
+      '<td class="j">'+esc(r.ja)+'</td>'+
+      '<td>'+esc(r.kind||"")+'</td>'+
+      '<td>'+esc(TAGJA[r.tag]||r.tag||"")+'</td>'+
+      '<td>'+esc(r.course||"")+'</td>'+
+      '<td class="n">'+esc(r.mdate||"")+'</td>'+
+      '<td class="n">'+esc(r.last||"")+'</td>'+
+      '<td class="n">'+(r.plays+r.mics)+'</td>'+
+      '<td class="n">'+(r.mics?r.best+"点":"—")+'</td></tr>').join("")+'</tbody>';
+}
+function csvCell(v){v=String(v==null?"":v);return '"'+v.replace(/"/g,'""')+'"';}
+function exportCsv(){
+  const rows=logRows();
+  if(!rows.length){toast("まだ記録がありません。");return;}
+  const head=["英語","発音記号","日本語訳","種別","区分","コース","コースID","会合日",
+              "初回学習日","最終学習日","再生回数","発音チェック回数","発音最高点",
+              "言い換え1","言い換え2","例文","例文訳"];
+  const body=rows.map(r=>[r.en,r.ipa,r.ja,r.kind,TAGJA[r.tag]||r.tag,r.course,r.cat,r.mdate,
+              r.first,r.last,r.plays,r.mics,r.mics?r.best:"",r.alt1,r.alt2,r.ex,r.exja]);
+  const csv=[head].concat(body).map(r=>r.map(csvCell).join(",")).join("\r\n");
+  const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="english_log_"+today()+".csv";
+  document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+const HST={tab:"all",day:null,sort:"last",group:"course"};
+const HSORTS=[["en","A→Z順"],["last","学習日が新しい"],["mdate","会合日が新しい"],
+              ["best","スコアが低い"],["times","学習回数が多い"]];
+const HGROUPS=[["none","分類なし"],["course","コース別"],["kind","種別別"],
+               ["tag","区分別"],["alpha","頭文字別"],["mdate","会合日別"]];
+function hCmp(a,b){
+  const s=HST.sort;
+  if(s==="en")return a.en.toLowerCase().localeCompare(b.en.toLowerCase());
+  if(s==="mdate")return (b.mdate||"").localeCompare(a.mdate||"")||a.en.localeCompare(b.en);
+  if(s==="best")return ((a.mics?a.best:0)-(b.mics?b.best:0))||a.en.localeCompare(b.en);
+  if(s==="times")return ((b.plays+b.mics)-(a.plays+a.mics))||a.en.localeCompare(b.en);
+  return (b.last||"").localeCompare(a.last||"")||a.en.localeCompare(b.en);
+}
+function hGrp(r){
+  const g=HST.group;
+  if(g==="course")return "📚 "+(r.course||"（不明）");
+  if(g==="kind")return (r.kind==="熟語"?"🔵 ":r.kind==="会話"?"🟢 ":"🔴 ")+(r.kind||"");
+  if(g==="tag")return "🏷 "+(TAGJA[r.tag]||r.tag||"");
+  if(g==="alpha")return "🔤 "+String(r.en||"?").charAt(0).toUpperCase();
+  if(g==="mdate")return "🗓 会合 "+(r.mdate||"");
+  return "";
+}
+let REFBACK="scLesson",REFPREV=null;
+function histRows(){
+  const L=readLog();
+  return Object.keys(L).map(function(k){return L[k];});
+}
+function reStudy(e){
+  const c=(window.LESSON.courses||[]).filter(function(x){return x.id===e.cid;})[0];
+  if(!c){toast("この教材は現在アプリに読み込まれていません。<br>最新のファイルに差し替えると復習できます。");return;}
+  stopSpeak();
+  REFPREV=S.course;REFBACK="scHist";
+  S.course=c;
+  $("#refHead").innerHTML='<h1>'+esc(e.kind)+'の復習</h1><p class="sub">'+esc(c.titleJa)+
+    '<br><span style="color:var(--tx3)">'+esc(c.source)+'</span></p>';
+  const box=$("#refBody");box.innerHTML="";
+  if(e.kind==="会話"){
+    const d=(c.dialogues||[]).filter(function(x){return x.title===e.en;})[0];
+    if(d)box.appendChild(dialogueBlock(d,"h"+(++pronSeq)));
+  }else{
+    const arr=e.kind==="熟語"?c.phrases:c.words;
+    const w=(arr||[]).filter(function(x){return x.en===e.en;})[0];
+    if(w)box.appendChild(wordCard(w,"h"+(++pronSeq),e.kind==="熟語"));
+  }
+  showScreen("scRef");$("#nav").classList.add("on");window.scrollTo(0,0);
+}
+function renderHist(){
+  const rows=histRows();
+  const days={};rows.forEach(function(r){if(r.last)days[r.last]=(days[r.last]||0)+1;});
+  const nd=Object.keys(days).length;
+  const cnt=function(k){return rows.filter(function(r){return r.kind===k;}).length;};
+  $("#hStat").innerHTML=
+    '<div><span>学習した日数</span><b>'+nd+'</b></div>'+
+    '<div><span>単語</span><b>'+cnt("単語")+'</b></div>'+
+    '<div><span>熟語</span><b>'+cnt("熟語")+'</b></div>'+
+    '<div><span>会話</span><b>'+cnt("会話")+'</b></div>';
+  const tabs=[["day","📅 日別"],["単語","🔴 単語"],["熟語","🔵 熟語"],["会話","🟢 会話"],["all","すべて"]];
+  $("#hTabs").innerHTML=tabs.map(function(t){
+    return '<button data-t="'+t[0]+'"'+(HST.tab===t[0]?' class="sel"':'')+'>'+t[1]+'</button>';}).join("");
+  $$("#hTabs button").forEach(function(b){
+    b.onclick=function(){HST.tab=b.dataset.t;HST.day=null;renderHist();};});
+  $("#hSorts").innerHTML=HSORTS.map(function(s){
+    return '<button data-s="'+s[0]+'"'+(HST.sort===s[0]?' class="sel"':'')+'>'+s[1]+'</button>';}).join("");
+  $$("#hSorts button").forEach(function(b){
+    b.onclick=function(){HST.sort=b.dataset.s;renderHist();};});
+  $("#hGroups").innerHTML=HGROUPS.map(function(g){
+    return '<button data-g="'+g[0]+'"'+(HST.group===g[0]?' class="sel"':'')+'>'+g[1]+'</button>';}).join("");
+  $$("#hGroups button").forEach(function(b){
+    b.onclick=function(){HST.group=b.dataset.g;renderHist();};});
+  const box=$("#hList");
+  if(!rows.length){
+    box.innerHTML='<div class="tiny">まだ履歴がありません。単語カードの ♪ や 発音 を押すと記録されます。</div>';
+    return;
+  }
+  if(HST.tab==="day"&&!HST.day){
+    const ks=Object.keys(days).sort(function(a,b){return b.localeCompare(a);});
+    box.innerHTML=ks.map(function(d){
+      return '<button class="hitem" data-day="'+d+'"><span class="hb">'+days[d]+'件</span>'+
+        '<div class="he">'+d+'</div><div class="hm">タップするとこの日の学習内容を表示します</div></button>';
+    }).join("");
+    $$("#hList .hitem").forEach(function(b){
+      b.onclick=function(){HST.day=b.dataset.day;renderHist();};});
+    return;
+  }
+  let list=rows;
+  if(HST.tab==="day"&&HST.day)list=rows.filter(function(r){return r.last===HST.day;});
+  else if(HST.tab!=="all"&&HST.tab!=="day")list=rows.filter(function(r){return r.kind===HST.tab;});
+  list=list.slice().sort(hCmp);
+  const flat=[];let html=(HST.day?'<button class="btn ghost" id="hBackDay" style="margin:0 0 10px">← 日付一覧へ</button>':'');
+  const card=function(r){
+    const i=flat.push(r)-1;
+    return '<button class="hitem" data-i="'+i+'">'+
+      (r.mics?'<span class="hb">'+r.best+'点</span>':'')+
+      '<div class="he">'+esc(r.en)+'</div>'+
+      '<div class="hj">'+esc(r.ja)+'</div>'+
+      '<div class="hm">'+esc(r.kind)+'｜'+esc(r.course||"")+'｜会合 '+esc(r.mdate||"")+
+      '｜最終学習 '+esc(r.last||"")+'｜'+(r.plays+r.mics)+'回</div></button>';
+  };
+  if(HST.group==="none"){
+    html+=list.map(card).join("");
+  }else{
+    const keys=[],bag={};
+    list.forEach(function(r){const k=hGrp(r);if(!bag[k]){bag[k]=[];keys.push(k);}bag[k].push(r);});
+    keys.sort(function(a,b){return HST.sort==="en"||HST.group==="alpha"?a.localeCompare(b):0;});
+    keys.forEach(function(k){
+      html+='<div class="hgrp">'+esc(k)+'（'+bag[k].length+'）</div>'+bag[k].map(card).join("");
+    });
+  }
+  box.innerHTML=html;
+  if(HST.day)$("#hBackDay").onclick=function(){HST.day=null;renderHist();};
+  $$("#hList .hitem").forEach(function(b){
+    b.onclick=function(){reStudy(flat[+b.dataset.i]);};});
+}
+function openHist(){stopSpeak();renderHist();showScreen("scHist");$("#nav").classList.add("on");window.scrollTo(0,0);}
+
+function openLog(){stopSpeak();renderLog();showScreen("scLog");$("#nav").classList.remove("on");window.scrollTo(0,0);}
+
+function boot(){
+  const L=window.LESSON;
+  if(!L||!L.courses||!L.courses.length){
+    $("#scSetup").innerHTML='<h1>教材データを読み込めませんでした</h1>'+
+      '<p class="sub">ページを再読み込みしても直らない場合は、ファイルを再アップロードしてください。</p>';
+    return;
+  }
+  $("#setupSub").innerHTML="教材の出典：<b>"+esc(L.sourceDateLabel)+"</b> の会合記録<br>"+esc(L.note||"");
+  const dc=$("#durChips");
+  [15,20,25,30].forEach(d=>{
+    const b=document.createElement("button");
+    b.className="chip"+(d===S.dur?" sel":"");b.textContent=d+"分";
+    b.onclick=()=>{S.dur=d;$$("#durChips .chip").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");};
+    dc.appendChild(b);
+  });
+  renderCats();renderMeetings();
+  $("#btnAuto").onclick=()=>startCourse(autoPick(null));
+  $("#swSound").onclick=()=>{
+    S.sound=!S.sound;
+    $("#swSound").classList.toggle("on",S.sound);
+    $("#swLabel").textContent=S.sound?"音声ON":"音声OFF";
+    if(!S.sound)stopSpeak();
+  };
+  $("#spdUp").onclick=()=>setRate(S.rate+5);
+  $("#spdDown").onclick=()=>setRate(S.rate-5);
+  $$("#nav button").forEach(b=>{
+    b.onclick=()=>{
+      const s=b.dataset.sec;
+      if(s==="hist"){openHist();return;}
+      if(s==="extend"){extendOverlay();return;}
+      if(s==="finish"){finish();return;}
+      S.sec=s;showScreen("scLesson");renderLesson();window.scrollTo(0,0);
+    };
+  });
+  $("#btnExtendDone").onclick=extendOverlay;
+  $("#btnLog").onclick=openLog;
+  $("#btnLogDone").onclick=openLog;
+  $("#btnLogBack").onclick=function(){renderHist();showScreen("scHist");window.scrollTo(0,0);};
+  $("#btnCsv").onclick=exportCsv;
+  $("#btnRefBack").onclick=function(){
+    stopSpeak();
+    if(REFPREV){S.course=REFPREV;REFPREV=null;}
+    showScreen(REFBACK||"scLesson");
+    if(REFBACK==="scHist")renderHist();else renderLesson();
+    REFBACK="scLesson";
+    window.scrollTo(0,0);
+  };
+  $("#btnHistBack").onclick=backToTop;
+  $("#btnHistCsv").onclick=openLog;
+  $("#pbToggle").onclick=function(){
+    if(!PLAY.kid||!PLAY.words.length){toast("先に ♪ を押して読み上げを始めてください。");return;}
+    if(PLAY.playing){
+      /* 一時停止：止めた単語の位置を覚えておく */
+      const at=PLAY.idx>=0?PLAY.idx:0;
+      PLAY.gen++;
+      try{speechSynthesis.cancel();}catch(e){}
+      clearKaraoke();
+      PLAY.idx=at;PLAY.base=null;PLAY.steps=0;PLAY.done=false;
+      setPlay(false);
+      const sp=$$('.w[data-k="'+PLAY.kid+'"]');
+      if(sp[at])sp[at].classList.add("hi");
+    }else if(PLAY.done){
+      /* 最後まで読み終えている：最初から読み直す */
+      PLAY.done=false;PLAY.base=null;PLAY.steps=0;PLAY.idx=-1;
+      speakFrom(0);
+    }else{
+      /* 途中で止めている：その単語から読み直す */
+      PLAY.base=null;PLAY.steps=0;
+      speakFrom(PLAY.idx>=0?PLAY.idx:0);
+    }
+  };
+  $("#pbBack").onclick=function(){
+    if(!PLAY.kid||!PLAY.words.length){toast("先に ♪ を押して読み上げを始めてください。");return;}
+    if(PLAY.base===null){
+      PLAY.base=PLAY.done?PLAY.words.length:(PLAY.idx>=0?PLAY.idx:PLAY.words.length);
+      PLAY.steps=0;
+    }
+    PLAY.steps+=2;
+    speakFrom(Math.max(0,PLAY.base-PLAY.steps));
+  };
+  $("#btnBackTop").onclick=backToTop;
+  $("#btnRestart").onclick=backToTop;
+}
+function setRate(v){S.rate=Math.max(50,Math.min(150,v));$("#spdVal").textContent=S.rate+"%";}
+function showScreen(id){$$(".screen").forEach(s=>s.classList.remove("on"));$("#"+id).classList.add("on");}
+
+function startCourse(c){
+  S.course=c;S.sec="words";S.seen=new Set();
+  startTimer();showScreen("scLesson");$("#nav").classList.add("on");
+  renderLesson();window.scrollTo(0,0);
+  try{const u=new SpeechSynthesisUtterance(" ");u.volume=0;speechSynthesis.speak(u);}catch(e){}
+}
+
+function renderLesson(){
+  const c=S.course;
+  $("#lessonHead").innerHTML='<h1>'+c.icon+' '+esc(c.titleJa)+'</h1><p class="sub">'+esc(c.title)+
+    '<br><span style="color:var(--tx3)">'+esc(c.source)+'</span></p>';
+  $$("#nav button").forEach(b=>b.classList.toggle("sel",b.dataset.sec===S.sec));
+  const body=$("#lessonBody");body.innerHTML="";
+  updateProg();
+  if(S.sec==="words")c.words.forEach((w,i)=>body.appendChild(wordCard(w,"w"+i)));
+  else if(S.sec==="phrases")c.phrases.forEach((p,i)=>body.appendChild(wordCard(p,"p"+i,true)));
+  else c.dialogues.forEach((d,i)=>body.appendChild(dialogueBlock(d,"d"+i)));
+}
+function updateProg(){
+  const c=S.course,tot=c.words.length+c.phrases.length+c.dialogues.length;
+  $("#progBar").style.width=Math.min(100,S.seen.size/tot*100)+"%";
+}
+function tagHTML(t){
+  if(t==="tech")return '<span class="tag tech">🔬 技術用語</span>';
+  if(t==="casual")return '<span class="tag cas">💬 カジュアル寄り</span>';
+  return '<span class="tag biz">🏢 ビジネス</span>';
+}
+
+function wordCard(w,id,isPhrase){
+  ITEMS[id]={w:w,kind:isPhrase?"熟語":"単語"};
+  const el=document.createElement("div");el.className="wc";
+  const pb=pronBtns(w.en,id,w.ja);
+  const exs=exList(w,S.course);
+  el.innerHTML=
+    '<div class="hdr">'+pb.html+marksHTML(w,isPhrase)+'</div>'+
+    '<div class="en" id="'+pb.id+'">'+wordHTML(w.en,pb.id)+'</div>'+
+    '<div class="iparow">'+
+      '<button class="ipa" id="ipa_'+id+'">🔁 '+esc(w.ipa)+'</button>'+
+      '<button class="myrec" id="my_'+id+'">▶ 自分の録音</button>'+
+    '</div>'+
+    '<div class="ja" id="ja_'+pb.id+'">'+esc(w.ja)+'</div>'+
+    '<button class="exbtn hd" id="hx_'+id+'">📝 文例 1／'+exs.length+'</button>'+
+    '<div class="ex" id="hex_'+id+'"></div>'+
+    (w.literal?'<div class="note lit"><div class="nhead">⚠️ 直訳では意味が違います</div>'+esc(w.literal)+'</div>':'')+
+    (w.note?'<div class="note"><div class="nhead">'+(w.tag==="tech"?"🔬 技術用語の解説":"📘 解説")+'</div>'+esc(w.note)+'</div>':'')+
+    (w.casualNote?'<div class="note cas"><div class="nhead">💬 カジュアル ↔ ビジネスの違い</div>'+esc(w.casualNote)+'</div>':'')+
+    '<div class="alts"><div class="nhead">🔄 別の言い回し・関連語</div>'+
+    w.alts.map(function(a,ai){
+      const ab=pronBtns(a.en,id,a.ja);
+      return '<div class="alt">'+
+        '<div class="hdr">'+ab.html+'</div>'+
+        '<div class="ae" id="'+ab.id+'">'+wordHTML(a.en,ab.id)+'</div>'+
+        '<div class="aj">'+esc(a.ja)+'</div>'+
+        '<div class="an">'+esc(a.note)+'</div>'+
+        '<button class="exbtn" data-ai="'+ai+'">📝 文例</button>'+
+        '<div class="altex" id="ax_'+id+'_'+ai+'"></div></div>';}).join("")+'</div>';
+
+  const exBox=el.querySelector("#hex_"+id), exBtn=el.querySelector("#hx_"+id);
+  let ek=0;
+  function drawEx(){
+    exBox.innerHTML='<div class="nhead">📝 会合・会話での文例</div>'+
+      pline(exs[ek].en,"ee",id,w.en,exs[ek].ja)+
+      '<div class="ej">'+jaHTML(exs[ek].ja,w.ja)+'</div>';
+    exBtn.textContent="📝 文例 "+(ek+1)+"／"+exs.length;
+  }
+  drawEx();
+  exBtn.onclick=function(){if(exs.length<2)return;mark(id);ek=(ek+1)%exs.length;drawEx();};
+  el.querySelector("#ipa_"+id).onclick=function(){mark(id);speak(w.en);};
+  el.querySelectorAll(".exbtn[data-ai]").forEach(function(b){
+    const ai=+b.dataset.ai,a=w.alts[ai];
+    const box=el.querySelector("#ax_"+id+"_"+ai);
+    const list=(window.ALTEX&&window.ALTEX[a.en])||[];
+    let k=0;
+    function draw(){
+      if(!list.length){
+        b.textContent="📝 文例";
+        box.innerHTML='<div class="cnt">この語の文例はまだ登録されていません。</div>';
+        return;
+      }
+      b.textContent="📝 文例 "+(k+1)+"／"+list.length;
+      box.innerHTML=pline(list[k][0],"ee",id,a.en,list[k][1])+
+        '<div class="ej">'+jaHTML(list[k][1],a.ja)+'</div>';
+    }
+    draw();
+    b.onclick=function(){
+      mark(id);
+      if(list.length<2)return;
+      k=(k+1)%list.length;
+      draw();
+    };
+  });
+  return el;
+}
+
+/* 会話文中の学習語に色を付け、タップで解説へ飛べるようにする */
+function markSet(words,term){
+  const s=hiSet(words,term);
+  if(!s.size)return s;
+  const req=String(term).toLowerCase().split(/[^a-z']+/).filter(function(w){
+    return w&&!/^(be|someone|something|the|a|an)$/.test(w);});
+  if(req.length>1&&s.size<2)return new Set();
+  return s;
+}
+function dlgEnHTML(text,id,course){
+  const parts=text.split(/(\s+)/);
+  const words=parts.filter(function(p){return !/^\s+$/.test(p);});
+  const marks={};
+  (course.words||[]).forEach(function(w,i){
+    markSet(words,w.en).forEach(function(x){if(marks[x]===undefined)marks[x]={t:"w",i:i};});});
+  (course.phrases||[]).forEach(function(w,i){
+    markSet(words,w.en).forEach(function(x){marks[x]={t:"p",i:i};});});
+  let wi=-1;
+  const html=parts.map(function(t){
+    if(/^\s+$/.test(t))return t;
+    wi++;
+    const m=marks[wi];
+    return '<span class="w'+(m?(m.t==="w"?" lw":" lp"):"")+'" data-k="'+id+'"'+
+      (m?' data-ref="'+m.t+m.i+'"':'')+'>'+esc(t)+'</span>';
+  }).join("");
+  const refs=[],seen={};
+  Object.keys(marks).forEach(function(k){
+    const key=marks[k].t+marks[k].i;
+    if(!seen[key]){seen[key]=1;refs.push(marks[k]);}
+  });
+  return {html:html,refs:refs};
+}
+function dlgJaHTML(ja,refs,course){
+  const s=String(ja||"");
+  const hits=[];
+  refs.forEach(function(r){
+    const arr=r.t==="w"?course.words:course.phrases;
+    const w=arr[r.i];if(!w)return;
+    const cands=jaCands(w.ja);
+    for(let i=0;i<cands.length;i++){
+      const p=findJa(s,cands[i]);
+      if(p>=0){hits.push({p:p,len:cands[i].length,ref:r.t+r.i});break;}
+    }
+  });
+  hits.sort(function(a,b){return a.p-b.p;});
+  let out="",cur=0;
+  hits.forEach(function(x){
+    if(x.p<cur)return;
+    out+=esc(s.slice(cur,x.p))+'<span class="jw" data-ref="'+x.ref+'">'+esc(s.substr(x.p,x.len))+'</span>';
+    cur=x.p+x.len;
+  });
+  return out+esc(s.slice(cur));
+}
+function dialogueBlock(d,id){
+  const c=S.course;
+  ITEMS[id]={d:d,kind:"会話"};
+  const wrap=document.createElement("div");
+  let html='<div class="dhead"><div class="dt">'+esc(d.title)+'</div>'+
+    '<div class="dj">'+esc(d.titleJa)+'</div><div class="ds">'+esc(d.sceneJa)+'</div></div>'+
+    '<div class="legend">会話の中の <b class="w">赤い語＝今日の単語</b>／<b class="p">青い語＝今日の熟語</b>です。'+
+    'タップするとその解説を表示し、「会話にもどる」で戻れます。</div>';
+  d.pids=[];
+  d.turns.forEach(function(t,i){
+    const bid=id+"_"+i;
+    const pid="p"+(++pronSeq);
+    const side=t.side==="r"?"r":"l";
+    const vsel=side==="r"?"m":"f";
+    PRON[pid]={t:t.en,c:id,j:t.ja,v:vsel};
+    d.pids.push(pid);
+    const en=dlgEnHTML(t.en,pid,c);
+    html+='<div class="turn '+(side==="r"?"r":"")+'">'+
+      '<div class="avcol">'+
+        '<div class="av">'+(side==="r"?"👨‍💼":"👩‍💼")+'</div>'+
+        '<div class="avbtns">'+
+        '<button class="pbtn p1" data-p="'+pid+'" data-a="say">♪</button>'+
+        '<button class="pbtn p2" data-p="'+pid+'" data-a="ja2en">和♪</button>'+
+        '<button class="pbtn p3" data-p="'+pid+'" data-a="en2ja">♪和</button>'+
+        '<button class="pbtn mic" data-p="'+pid+'" data-a="mic">発音</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="bub">'+
+      '<div class="nm">'+esc(t.name)+'（'+esc(t.nameJa)+'）'+(side==="r"?" 男性":" 女性")+'</div>'+
+      '<div class="bd" id="bd_'+bid+'">'+
+      '<div class="be" id="'+pid+'">'+en.html+'</div>'+
+      '<div class="bj">'+dlgJaHTML(t.ja,en.refs,c)+'</div></div></div></div>';
+  });
+  html+='<div class="acts" style="margin-bottom:18px">'+
+    '<button id="play_'+id+'">▶︎ 会話を通して再生</button></div>';
+  wrap.innerHTML=html;
+  wrap.querySelector("#play_"+id).onclick=function(){mark(id);playAll(d,id,0);};
+  return wrap;
+}
+/* 会話中の学習語をタップ → 解説を一時表示 */
+function openRef(ref){
+  if(!S.course)return;
+  stopSpeak();
+  const t=ref.charAt(0),i=parseInt(ref.slice(1),10);
+  const arr=t==="w"?S.course.words:S.course.phrases;
+  const w=arr&&arr[i];
+  if(!w)return;
+  $("#refHead").innerHTML='<h1>'+(t==="p"?"🔵 熟語":"🔴 単語")+'の解説</h1>'+
+    '<p class="sub">会話に出てきた語を一時的に表示しています。</p>';
+  const box=$("#refBody");box.innerHTML="";
+  box.appendChild(wordCard(w,"ref_"+ref,t==="p"));
+  REFBACK="scLesson";
+  showScreen("scRef");$("#nav").classList.add("on");window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){
+  const t=e.target&&e.target.closest?e.target.closest(".lw,.lp"):null;
+  if(!t||!t.dataset||!t.dataset.ref)return;
+  e.preventDefault();e.stopPropagation();
+  openRef(t.dataset.ref);
+});
+
+function playAll(d,id,i){
+  if(i>=d.turns.length)return;
+  const t=d.turns[i];
+  speak(t.en,{karaoke:(d.pids&&d.pids[i])||"",voice:(t.side==="r"?"m":"f"),
+    then:()=>setTimeout(()=>playAll(d,id,i+1),450)});
+  const el=document.querySelector("#bd_"+id+"_"+i);
+  if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function mark(id){S.seen.add(S.sec+id);updateProg();}
+
+function finish(){
+  stopSpeak();clearInterval(S.tick);
+  const c=S.course;
+  const mins=Math.max(1,Math.round((Date.now()-S.startedAt)/60000));
+  $("#doneSub").innerHTML=esc(c.titleJa)+'<br>学習時間：約'+mins+'分／取り組んだ項目：'+S.seen.size+'件';
+  $("#doneBody").innerHTML=
+    '<div class="card"><div class="nhead">今日の重要語（復習）</div>'+
+    c.words.slice(0,6).map(w=>'<div class="alt"><div class="ae">'+esc(w.en)+
+      ' <span style="color:var(--tx3);font-size:12px">'+esc(w.ipa)+'</span></div>'+
+      '<div class="aj">'+esc(w.ja)+'</div></div>').join("")+'</div>'+
+    '<div class="card"><div class="nhead">今日の熟語（復習）</div>'+
+    c.phrases.map(p=>'<div class="alt"><div class="ae">'+esc(p.en)+'</div>'+
+      '<div class="aj">'+esc(p.ja)+'</div></div>').join("")+'</div>';
+  markDone(c.id);
+  showScreen("scDone");$("#nav").classList.remove("on");
+  $("#timer").textContent="終了";$("#timer").classList.remove("warn");
+  window.scrollTo(0,0);
+}
+
+/* すべての定義が済んでから起動する */
+gate();
+</script>
+</body>
+</html>
